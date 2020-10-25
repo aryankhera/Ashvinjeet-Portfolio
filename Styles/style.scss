@@ -1,0 +1,44 @@
+main
+{   position: relative;
+    min-height: calc(100vh - 28px);
+    .faded-text-background
+    {
+        position: absolute;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        z-index: 99;
+        color:#d0d0d05e;
+        font-weight: 700;
+        font-size:20em;
+        display: none;
+        transition: 2s ease-in; 
+
+
+    }
+    .hero-section
+    {
+        height:100vh;
+    }
+}
+
+
+
+
+// JS classes
+
+.mystyle
+{
+    animation: 5s ease-in left-right
+}
+@keyframes left-right
+{
+    0%
+    {
+        width:0px;
+    }
+    100%
+    {
+        width: 100%;
+    }
+}
