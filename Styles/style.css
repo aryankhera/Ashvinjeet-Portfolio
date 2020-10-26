@@ -3,6 +3,14 @@ main {
   min-height: calc(100vh - 28px);
 }
 
+main nav {
+  position: fixed !important;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+  background: transparent;
+}
+
 main .faded-text-background {
   position: absolute;
   top: 25%;
@@ -14,8 +22,7 @@ main .faded-text-background {
   font-weight: 700;
   font-size: 15em;
   margin: 5% 0px;
-  transition: 2s ease-in;
-  animation: fastIn 12s;
+  opacity: 0;
 }
 
 @keyframes fastIn {
@@ -34,7 +41,6 @@ main .hero-section {
 #left-hero {
   width: 0px;
   flex: 0 0 0%;
-  transition: 2s ease-in;
   background-color: #4060b5;
 }
 

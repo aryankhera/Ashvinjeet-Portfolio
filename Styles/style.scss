@@ -1,6 +1,14 @@
 main
 {   position: relative;
     min-height: calc(100vh - 28px);
+    nav
+    {
+        position: fixed!important;
+        top:0;
+        width:100%;
+        z-index: 99;
+        background: transparent;
+    }
     .faded-text-background
     {
         position: absolute;
@@ -14,10 +22,11 @@ main
         font-size:15em;
         margin:5% 0px;
         // display: none;
-        transition: 2s ease-in; 
+        opacity: 0;
+        // transition: 2s ease-in; 
         
      
-        animation: fastIn 12s;
+       
     }
     
 
@@ -52,7 +61,7 @@ main
     
     width:0px;
     flex:0 0 0%;
-    transition: 2s ease-in;
+    // transition: 2s ease-in;
     background-color: #4060b5;
 }
 @keyframes left-right
