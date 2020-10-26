@@ -11,6 +11,10 @@ main nav {
   background: transparent;
 }
 
+main nav .navbar-brand img {
+  max-width: 1.5em;
+}
+
 main nav .ham-icon1, main nav .ham-icon2 {
   width: 25px;
   height: 3px;
@@ -39,11 +43,17 @@ main .faded-text-background {
   text-transform: uppercase;
   transform: rotate(-90deg);
   z-index: 99;
-  color: #d0d0d05e;
+  color: #6790ff;
   font-weight: 700;
   font-size: 15em;
   margin: 5% 0px;
   opacity: 0;
+}
+
+main #left-hero {
+  width: 0px;
+  flex: 0 0 0%;
+  background-color: #4060b5;
 }
 
 @keyframes fastIn {
@@ -57,12 +67,6 @@ main .faded-text-background {
 
 main .hero-section {
   height: 100vh;
-}
-
-#left-hero {
-  width: 0px;
-  flex: 0 0 0%;
-  background-color: #4060b5;
 }
 
 @keyframes left-right {

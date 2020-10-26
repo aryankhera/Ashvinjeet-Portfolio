@@ -9,6 +9,10 @@ main
         z-index: 99;
         background: transparent;
         
+        .navbar-brand img
+        {
+            max-width: 1.5em;
+        }
 
         .ham-icon1,.ham-icon2
         {
@@ -41,7 +45,7 @@ main
         text-transform: uppercase;
         transform: rotate(-90deg);
         z-index: 99;
-        color:#d0d0d05e;
+        color:#6790ff;
         font-weight: 700;
         font-size:15em;
         margin:5% 0px;
@@ -51,6 +55,15 @@ main
         
      
        
+    }
+
+    #left-hero
+    {
+    
+    width:0px;
+    flex:0 0 0%;
+    // transition: 2s ease-in;
+    background-color: #4060b5;
     }
     
 
@@ -80,14 +93,7 @@ main
 
 // JS classes
 
-#left-hero
-{
-    
-    width:0px;
-    flex:0 0 0%;
-    // transition: 2s ease-in;
-    background-color: #4060b5;
-}
+
 @keyframes left-right
 {
     0%
