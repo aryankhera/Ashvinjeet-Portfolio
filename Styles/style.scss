@@ -8,6 +8,30 @@ main
         width:100%;
         z-index: 99;
         background: transparent;
+        
+
+        .ham-icon1,.ham-icon2
+        {
+            width: 25px;
+            height: 3px;
+            background-color:#4060b5;
+            margin: 4px 0;
+            border-radius: 10px;
+            
+        }
+        .nav-item:hover>
+        .ham-icon1{
+            // background-color: violet;
+            transform: translate(-5px,0px);
+            transition: 0.5s ease-in-out;
+        }
+        .nav-item:hover>
+        .ham-icon2{
+            background-color:black;
+            transform: translate(5px,0px);
+            transition: 0.5s ease-in-out;
+        }
+      
     }
     .faded-text-background
     {
