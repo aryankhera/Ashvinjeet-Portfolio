@@ -19,17 +19,21 @@ main nav .ham-icon1, main nav .ham-icon2 {
   width: 25px;
   height: 3px;
   background-color: #4060b5;
-  margin: 4px 0;
+  margin: 2px 0;
   border-radius: 10px;
 }
 
-main nav .nav-item:hover >
+main nav .nav-item {
+  cursor: pointer;
+}
+
+main nav .nav-item:hover > .icon-div >
 .ham-icon1 {
   transform: translate(-5px, 0px);
   transition: 0.5s ease-in-out;
 }
 
-main nav .nav-item:hover >
+main nav .nav-item:hover > .icon-div >
 .ham-icon2 {
   background-color: black;
   transform: translate(5px, 0px);
@@ -69,12 +73,25 @@ main .hero-section {
   height: 100vh;
 }
 
-@keyframes left-right {
-  0% {
-    width: 0px;
-  }
-  100% {
-    width: 100%;
-  }
+.ham-icon1.change {
+  transform: rotate(-45deg) translate(0px, 5px);
+  background-color: black;
+  pointer-events: none;
+}
+
+.ham-icon2.change {
+  transform: rotate(45deg) translate(0px, -5px);
+  background-color: black;
+  pointer-events: none;
+}
+
+.ham-nav-item.change:hover > .icon-div >
+.ham-icon1 {
+  transform: rotate(-45deg) translate(0px, 5px);
+}
+
+.ham-nav-item.change:hover > .icon-div >
+.ham-icon2 {
+  transform: rotate(45deg) translate(0px, -5px);
 }
 /*# sourceMappingURL=style.css.map */

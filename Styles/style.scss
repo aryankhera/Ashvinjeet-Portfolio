@@ -19,17 +19,21 @@ main
             width: 25px;
             height: 3px;
             background-color:#4060b5;
-            margin: 4px 0;
+            margin: 2px 0;
             border-radius: 10px;
             
         }
-        .nav-item:hover>
+        .nav-item
+        {
+            cursor: pointer;
+        }
+        .nav-item:hover>.icon-div>
         .ham-icon1{
             // background-color: violet;
             transform: translate(-5px,0px);
             transition: 0.5s ease-in-out;
         }
-        .nav-item:hover>
+        .nav-item:hover>.icon-div>
         .ham-icon2{
             background-color:black;
             transform: translate(5px,0px);
@@ -93,15 +97,30 @@ main
 
 // JS classes
 
-
-@keyframes left-right
+.ham-icon1.change
 {
-    0%
+    transform: rotate(-45deg) translate(0px, 5px);
+    background-color: black;
+    pointer-events: none;
+}
+.ham-icon2.change
+{
+    transform: rotate(45deg) translate(0px, -5px);
+    background-color: black;
+    pointer-events: none;
+   
+}
+
+.ham-nav-item.change
+{
+    &:hover>.icon-div>
+    .ham-icon1
     {
-        width:0px;
+        transform: rotate(-45deg) translate(0px, 5px);
     }
-    100%
+    &:hover>.icon-div>
+    .ham-icon2
     {
-        width: 100%;
+        transform: rotate(45deg) translate(0px, -5px);
     }
 }
