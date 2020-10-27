@@ -9,6 +9,7 @@ main
         z-index: 99;
         background: transparent;
         
+        
         .navbar-brand img
         {
             max-width: 1.5em;
@@ -43,6 +44,29 @@ main
             transform: translate(5px,0px);
             transition: 0.5s ease-in-out;
         }
+        .main-menu li
+        {
+            padding: 0px 5px;
+            list-style: none;
+            a
+            {
+                font-weight: bold;
+                text-transform: uppercase;
+                color: #6790ff;
+                text-decoration: none;
+                transition: 0.5s ease-in-out;
+                i
+                {
+                    padding: 0px 5px; 
+                }
+
+                &:hover
+                {
+                    color:black
+                }
+            }
+            
+        }
         .scroll-time-menu
         {
             position: fixed;
@@ -56,10 +80,14 @@ main
                 background-color: #4060b5;
                 border:2px solid white;
                 text-transform: uppercase;
-                transform: translate(5.5em,0px);
+                transform: translate(20em,0px);
                 transition: 0.5s ease-in-out;
 
-               
+                &.change
+                {
+                    transform: translate(5.5em,0px);
+                    transition: 1s ease-in-out;
+                }
                 &:first-child
                 {
                     border-radius: 15px 0px 0px 0px;
@@ -170,3 +198,5 @@ main
         transform: rotate(45deg) translate(0px, -5px);
     }
 }
+
+

@@ -45,6 +45,27 @@ main nav .nav-item:hover > .icon-div >
   transition: 0.5s ease-in-out;
 }
 
+main nav .main-menu li {
+  padding: 0px 5px;
+  list-style: none;
+}
+
+main nav .main-menu li a {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #6790ff;
+  text-decoration: none;
+  transition: 0.5s ease-in-out;
+}
+
+main nav .main-menu li a i {
+  padding: 0px 5px;
+}
+
+main nav .main-menu li a:hover {
+  color: black;
+}
+
 main nav .scroll-time-menu {
   position: fixed;
   right: 0;
@@ -58,8 +79,13 @@ main nav .scroll-time-menu li.scroll-time-menu-items {
   background-color: #4060b5;
   border: 2px solid white;
   text-transform: uppercase;
-  transform: translate(5.5em, 0px);
+  transform: translate(20em, 0px);
   transition: 0.5s ease-in-out;
+}
+
+main nav .scroll-time-menu li.scroll-time-menu-items.change {
+  transform: translate(5.5em, 0px);
+  transition: 1s ease-in-out;
 }
 
 main nav .scroll-time-menu li.scroll-time-menu-items:first-child {
