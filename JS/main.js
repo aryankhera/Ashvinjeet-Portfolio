@@ -33,3 +33,28 @@ hamnavitem.addEventListener('click',()=>
     // gsap.to('rule',{duration:1,cssRule:{transform:"translate(0px,0px)"}})
 })
 
+let tl4=gsap.timeline(
+    {
+        scrollTrigger:
+        {
+            trigger:'.dark',
+            start:"top center",
+            toggleActions:"play none none reverse",
+        }
+    }
+);
+
+tl4.fromTo(".main-menu",{
+    opacity:1,display:"flex",duration:0.5
+},
+{
+    opacity:0,display:"none",duration:0.5
+}
+).fromTo(".navbar-nav",
+{
+    opacity:0,display:"none",duration:0.5
+},
+{
+    opacity:1,display:"flex",duration:0.5
+},"-=0.2")
+

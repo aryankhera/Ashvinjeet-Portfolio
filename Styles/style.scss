@@ -9,6 +9,10 @@ main
         z-index: 99;
         background: transparent;
         
+        .navbar-nav
+        {
+            display: none;
+        }
         
         .navbar-brand img
         {
@@ -32,6 +36,8 @@ main
         {
             cursor: pointer;
         }
+
+        
         .nav-item:hover>.icon-div>
         .ham-icon1{
             // background-color: violet;
@@ -43,6 +49,10 @@ main
             background-color:black;
             transform: translate(5px,0px);
             transition: 0.5s ease-in-out;
+        }
+        .main-menu
+        {
+            display: flex;
         }
         .main-menu li
         {
@@ -114,6 +124,10 @@ main
             }
         }
       
+    }
+    .hero-section
+    {
+        position: relative;
     }
     .faded-text-background
     {

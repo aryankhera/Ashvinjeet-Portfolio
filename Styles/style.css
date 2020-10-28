@@ -11,6 +11,10 @@ main nav {
   background: transparent;
 }
 
+main nav .navbar-nav {
+  display: none;
+}
+
 main nav .navbar-brand img {
   max-width: 1.5em;
 }
@@ -43,6 +47,10 @@ main nav .nav-item:hover > .icon-div >
   background-color: black;
   transform: translate(5px, 0px);
   transition: 0.5s ease-in-out;
+}
+
+main nav .main-menu {
+  display: flex;
 }
 
 main nav .main-menu li {
@@ -107,6 +115,10 @@ main nav .scroll-time-menu li.scroll-time-menu-items a {
 
 main nav .scroll-time-menu li.scroll-time-menu-items a i {
   padding: 0px 15px;
+}
+
+main .hero-section {
+  position: relative;
 }
 
 main .faded-text-background {
