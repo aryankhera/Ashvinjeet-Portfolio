@@ -11,7 +11,7 @@ tl.to('#left-hero',1.5,{flex:"0 0 50%"}).to('#faded-text',1.2,{opacity:1})
 tl1.from(menuText,1,{transform:"translate(50px,0px)"}).from(menuText,0.8,{opacity:0},"-=1")
 // tl2.to('li.scroll-time-menu-items',1,{transform:"translate(5.5em,0px)"},"-=0.8")
 
-
+if(tl1.reversed)
 // tl1.from(menuText,1,{transform:"translate(50px,0px)"}).from(menuText,0.8,{opacity:0},"-=1")
 hamnavitem.addEventListener('click',()=>
 {
@@ -39,7 +39,8 @@ let tl4=gsap.timeline(
         {
             trigger:'.dark',
             start:"top center",
-            toggleActions:"play none none reverse",
+            toggleActions:"play pause reset reverse",
+            
         }
     }
 );
@@ -57,4 +58,25 @@ tl4.fromTo(".main-menu",{
 {
     opacity:1,display:"flex",duration:0.5
 },"-=0.2")
+
+
+
+    window.addEventListener("scroll",()=>
+{
+    
+    for(let i=0;i<sidenavitem.length;i++)
+    {
+        ham1.classList.remove("change")
+        // ham1.style.pointer
+        ham2.classList.remove("change")
+        hamnavitem.classList.remove("change")
+        tl1.play()? tl1.reverse() :tl1.play()
+        for(let i=0;i<sidenavitem.length;i++)
+        {
+            sidenavitem[i].classList.remove("change")
+        }
+    }
+    // console.log("heloo")
+})
+
 
