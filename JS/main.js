@@ -70,7 +70,7 @@ tl4.fromTo(".main-menu",{
         // ham1.style.pointer
         ham2.classList.remove("change")
         hamnavitem.classList.remove("change")
-        tl1.play()? tl1.reverse() :tl1.play()
+        tl1.play()
         for(let i=0;i<sidenavitem.length;i++)
         {
             sidenavitem[i].classList.remove("change")
