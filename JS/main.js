@@ -51,13 +51,21 @@ tl4.fromTo(".main-menu",{
 {
     opacity:0,display:"none",duration:0.5
 }
-).fromTo(".navbar-nav",
+)
+.fromTo(".Available_projects_p",
+{
+    opacity:1,display:"flex",duration:0.2
+},
+{
+    opacity:0,display:"none",duration:0.2
+},"-=0.5")
+.fromTo(".navbar-nav",
 {
     opacity:0,display:"none",duration:0.5
 },
 {
     opacity:1,display:"flex",duration:0.5
-},"-=0.2")
+})
 
 
 
