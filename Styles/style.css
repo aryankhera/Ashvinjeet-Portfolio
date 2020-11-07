@@ -1,8 +1,25 @@
+@font-face {
+  font-family: 'silkaregular';
+  src: url("../fonts/silka-regular-webfont.eot");
+  src: url("../fonts/silka-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/silka-regular-webfont.woff2") format("woff2"), url("../fonts/silka-regular-webfont.woff") format("woff"), url("../fonts/silka-regular-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'silkaregular_italic';
+  src: url("../fonts/silka-regularitalic-webfont.eot");
+  src: url("../fonts/silka-regularitalic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/silka-regularitalic-webfont.woff2") format("woff2"), url("../fonts/silka-regularitalic-webfont.woff") format("woff"), url("../fonts/silka-regularitalic-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
   background-color: #191A1E !important;
+  font-family: "silkaregular" !important;
 }
 
 main {
@@ -57,8 +74,19 @@ main nav .nav-item:hover > .icon-div >
   transition: 0.5s ease-in-out;
 }
 
+main nav .Available_projects_p {
+  transform: translateX(13.5em);
+}
+
+main nav #navbarNav {
+  max-width: 474px;
+  width: 100%;
+}
+
 main nav .main-menu {
   display: flex;
+  justify-content: space-between;
+  padding: 0px;
 }
 
 main nav .main-menu li {
@@ -69,9 +97,28 @@ main nav .main-menu li {
 main nav .main-menu li a {
   font-weight: bold;
   text-transform: uppercase;
-  color: #6790ff;
+  color: black;
   text-decoration: none;
   transition: 0.5s ease-in-out;
+  position: relative;
+  transition: ease-in-out 0.5s;
+}
+
+main nav .main-menu li a::after {
+  height: 5px;
+  width: 50%;
+  content: "";
+  position: absolute;
+  margin-top: 2px;
+  top: 100%;
+  left: 0px;
+  background-color: #4060b5;
+  transition: ease-in-out 0.5s;
+}
+
+main nav .main-menu li a:hover::after {
+  width: 100%;
+  transition: ease-in-out 0.5s;
 }
 
 main nav .main-menu li a i {
