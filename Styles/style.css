@@ -112,7 +112,7 @@ main nav .main-menu li a::after {
   margin-top: 2px;
   top: 100%;
   left: 0px;
-  background-color: #4060b5;
+  background-color: #df9d3f;
   transition: ease-in-out 0.5s;
 }
 
@@ -173,11 +173,75 @@ main nav .scroll-time-menu li.scroll-time-menu-items a i {
 }
 
 main .hero-section {
+  height: 100vh;
+  position: relative;
+  text-align: center;
+}
+
+main .hero-section .translate_div {
+  height: 100vh;
+  position: relative;
+  background-color: #191A1E;
+  flex: 0 0 100%;
+}
+
+main .hero-section .hero-div {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
+}
+
+main .hero-section .hero-div #web_dev_tag {
+  font-size: 12px;
+  line-height: 30px;
+  font-family: "silkaregular";
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(25, 26, 30, 0.4);
+  margin-bottom: 5px;
+}
+
+main .hero-section .hero-div .hero_copy_line {
+  font-size: 54px;
+  line-height: 72px;
+  margin: 0 0 40px;
+  font-weight: 700;
+}
+
+main .hero-section .hero-div .workbtn {
+  height: 60px;
+  display: inline-block;
+  padding: 30px 55px 30px 55px;
+  line-height: 0;
+  position: relative;
+  border: 0px;
+  background: #df9d3f;
+  text-transform: uppercase;
+  border-radius: 30px;
+  font-weight: 700;
+  box-shadow: 0 10px 20px -6px #777;
+}
+
+main .hero-section .hero-div .workbtn::after {
+  background: #fff;
+  content: "";
+  height: 155px;
+  left: -75px;
+  opacity: .2;
+  position: absolute;
+  top: -50px;
+  transform: rotate(35deg);
+  transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+  width: 50px;
+  z-index: 9;
+}
+
+main .hero-section .hero-div .workbtn:hover::after {
+  left: 120%;
+  transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .ham-icon1.change {

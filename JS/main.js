@@ -7,7 +7,7 @@ var tl= gsap.timeline()
 var tl1= gsap.timeline()
 var tl2=gsap.timeline()
 // var rule=CssRulePlugin.getRule(".scroll-time-menu-items:first-child")
-tl.to('.translate_div',0.8,{transform:"translate(0,-100vh)",height:"0px",ease:Power0.easeIn}).to('nav',1,{opacity:"1"},"-=0.1").to(".hero-section",0.8,{opacity:"1"},"-=0.1")
+tl.to('.translate_div',0.8,{transform:"translate(0,-100vh)",height:"0px",ease:Power0.easeIn}).to('nav',1,{opacity:"1"},"-=0.1").to(".hero-div",0.8,{opacity:"1"},"-=0.1")
 tl1.from(menuText,0.2,{transform:"translate(50px,0px)",ease:Power0.easeIn}).from(menuText,0.2,{opacity:0},"-=0.2")
 // tl2.to('li.scroll-time-menu-items',1,{transform:"translate(5.5em,0px)"},"-=0.8")
 
