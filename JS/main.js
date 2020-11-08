@@ -7,7 +7,7 @@ var tl= gsap.timeline()
 var tl1= gsap.timeline()
 var tl2=gsap.timeline()
 // var rule=CssRulePlugin.getRule(".scroll-time-menu-items:first-child")
-tl.to('.translate_div',0.8,{transform:"translate(0,-100vh)",height:"0px",ease:Power0.easeIn}).to('nav',1,{opacity:"1"},"-=0.1").to(".hero-div",0.8,{opacity:"1"},"-=0.1")
+tl.to('.translate_div',0.8,{transform:"translate(0,-100vh)",height:"0px",ease:Power0.easeIn}).to('nav',1,{opacity:"1"},"-=0.1").to(".hero-div",0.8,{opacity:"1"},"-=0.1").to(".left-social-links",0.5,{opacity:"1"}).to(".right-mail-link",0.5,{opacity:"1"},"-=0.5")
 tl1.from(menuText,0.2,{transform:"translate(50px,0px)",ease:Power0.easeIn}).from(menuText,0.2,{opacity:0},"-=0.2")
 // tl2.to('li.scroll-time-menu-items',1,{transform:"translate(5.5em,0px)"},"-=0.8")
 
@@ -86,5 +86,24 @@ tl4.fromTo(".main-menu",{
     }
     // console.log("heloo")
 })
+
+
+
+// active nvabar
+
+// Get the container element
+var mainContainer = document.getElementById("navbarNav");
+
+// Get all buttons with class="btn" inside the container
+var navbtns = mainContainer.getElementsByClassName("navbtn");
+
+// Loop through the buttons and add the active class to the current/clicked button
+for (var i = 0; i < navbtns.length; i++) {
+  navbtns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
 
 

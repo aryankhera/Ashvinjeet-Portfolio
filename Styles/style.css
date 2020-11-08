@@ -51,7 +51,7 @@ main nav .ham-nav-item {
 main nav .ham-icon1, main nav .ham-icon2 {
   width: 25px;
   height: 4px;
-  background-color: #4060b5;
+  background-color: #df9d3f;
   margin: 2px 0;
   border-radius: 10px;
   transition: 0.5s ease-in-out;
@@ -106,6 +106,19 @@ main nav .main-menu li a {
 
 main nav .main-menu li a::after {
   height: 5px;
+  width: 0%;
+  content: "";
+  position: absolute;
+  margin-top: 2px;
+  top: 100%;
+  left: 0px;
+  background-color: #df9d3f;
+  transition: ease-in-out 0.5s;
+  border-radius: 15px;
+}
+
+main nav .main-menu li a.active::after {
+  height: 5px;
   width: 50%;
   content: "";
   position: absolute;
@@ -114,10 +127,16 @@ main nav .main-menu li a::after {
   left: 0px;
   background-color: #df9d3f;
   transition: ease-in-out 0.5s;
+  border-radius: 15px;
+}
+
+main nav .main-menu li a.active:hover::after {
+  width: 100%;
+  transition: ease-in-out 0.5s;
 }
 
 main nav .main-menu li a:hover::after {
-  width: 100%;
+  width: 50%;
   transition: ease-in-out 0.5s;
 }
 
@@ -139,7 +158,7 @@ main nav .scroll-time-menu {
 main nav .scroll-time-menu li.scroll-time-menu-items {
   padding: 20px 15px;
   list-style: none;
-  background-color: #4060b5;
+  background-color: #df9d3f;
   border: 2px solid white;
   text-transform: uppercase;
   transform: translate(20em, 0px);
@@ -147,7 +166,7 @@ main nav .scroll-time-menu li.scroll-time-menu-items {
 }
 
 main nav .scroll-time-menu li.scroll-time-menu-items.change {
-  transform: translate(5.5em, 0px);
+  transform: translate(6em, 0px);
   transition: 1s ease-in-out;
 }
 
@@ -219,6 +238,7 @@ main .hero-section .hero-div .workbtn {
   position: relative;
   border: 0px;
   background: #df9d3f;
+  color: #3b2e1c;
   text-transform: uppercase;
   border-radius: 30px;
   font-weight: 700;
@@ -239,9 +259,112 @@ main .hero-section .hero-div .workbtn::after {
   z-index: 9;
 }
 
-main .hero-section .hero-div .workbtn:hover::after {
-  left: 120%;
+main .hero-section .hero-div .workbtn:hover {
+  background-color: #b98e4d;
   transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+main .hero-section .slide_more_btn {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translate(-50%, 0px);
+  animation: updown 3s;
+  animation-iteration-count: infinite;
+}
+
+main .left-social-links {
+  width: 40px;
+  position: fixed;
+  bottom: 0px;
+  left: 40px;
+  right: auto;
+  z-index: 10;
+  opacity: 0;
+}
+
+main .left-social-links ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+main .left-social-links ul li a {
+  color: black;
+  font-size: 24px;
+  transition: 0.2s ease-in-out;
+}
+
+main .left-social-links ul li a:hover {
+  transform: translateY(50px);
+  transform: scale(1.5);
+  color: #df9d3f;
+  transition: 0.2s ease-in-out;
+}
+
+main .left-social-links ul::after {
+  content: "";
+  display: block;
+  width: 3px;
+  height: 90px;
+  margin: 0px auto;
+  background-color: black;
+}
+
+main .right-mail-link {
+  width: 40px;
+  position: fixed;
+  bottom: 0px;
+  left: auto;
+  right: 40px;
+  z-index: 10;
+  opacity: 0;
+}
+
+main .right-mail-link div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+main .right-mail-link div a {
+  margin: 20px auto 0px;
+  padding: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  writing-mode: vertical-rl;
+  color: black;
+  transition: 0.2s ease-in-out;
+}
+
+main .right-mail-link div a:hover {
+  text-decoration: none;
+  color: #797773;
+  transition: 0.2s ease-in-out;
+  transform: translateY(-5px);
+}
+
+main .right-mail-link div::after {
+  content: "";
+  display: block;
+  width: 3px;
+  height: 90px;
+  margin: 0px auto;
+  background-color: black;
+}
+
+@keyframes updown {
+  from {
+    transform: translateY(-50px);
+  }
+  to {
+    transform: translateY(0%);
+  }
 }
 
 .ham-icon1.change {
