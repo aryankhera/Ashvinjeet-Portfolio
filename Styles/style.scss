@@ -484,7 +484,7 @@ main
                     transform: translate(-5px,-5px);
                     transition: 0.2s ease-in;
                 }
-                &:hover#overlay
+                &:hover ~ #overlay
                 {
                     transform: translate(-5px,-5px);
                     transition: 0.2s ease-in;

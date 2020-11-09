@@ -420,7 +420,7 @@ main #about-section .row .abt-img:hover::after {
   transition: 0.2s ease-in;
 }
 
-main #about-section .row .abt-img:hover#overlay {
+main #about-section .row .abt-img:hover ~ #overlay {
   transform: translate(-5px, -5px);
   transition: 0.2s ease-in;
 }

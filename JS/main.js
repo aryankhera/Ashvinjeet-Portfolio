@@ -3,6 +3,9 @@ var ham1=document.querySelector(".ham-icon1")
 var ham2=document.querySelector(".ham-icon2")
 var hamnavitem = document.querySelector(".ham-nav-item")
 var sidenavitem=document.querySelectorAll("li.scroll-time-menu-items")
+var abtimgele=document.querySelector(".abt-img");
+var abtimgelediv1=document.querySelector(".abt-img-div1");
+var overlayele=document.getElementById("overlay");
 var tl= gsap.timeline()
 var tl1= gsap.timeline()
 var tl2=gsap.timeline()
@@ -105,5 +108,26 @@ for (var i = 0; i < navbtns.length; i++) {
     this.className += " active";
   });
 }
+
+
+// hover
+abtimgele.addEventListener("mouseenter",()=>
+{
+    
+    overlayele.style.opacity="0"
+    abtimgelediv1.style.transform="translate(5px,5px)"
+    abtimgelediv1.style.transition="0.2s ease-in"
+})
+abtimgele.addEventListener("mouseleave",()=>
+{
+    overlayele.style.opacity="0.3"
+    abtimgelediv1.style.transform="translate(0px,0px)"
+    abtimgelediv1.style.transition="0.2s ease-in"
+})
+setTimeout(()=>
+{
+    
+},500)
+
 
 
