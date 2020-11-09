@@ -18,7 +18,6 @@ body {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
-  background-color: #191A1E !important;
   font-family: "silkaregular" !important;
 }
 
@@ -356,6 +355,31 @@ main .right-mail-link div::after {
   height: 90px;
   margin: 0px auto;
   background-color: black;
+}
+
+main #about-section {
+  max-width: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+main #about-section .about_heading {
+  position: relative;
+}
+
+main #about-section .about_heading::after {
+  content: " ";
+  width: 100%;
+  height: 2px;
+  background-color: #df9d3f;
+  position: absolute;
+  top: 50%;
+}
+
+main #about-section .row .abt-img {
+  border: 2px solid #df9d3f;
 }
 
 @keyframes updown {

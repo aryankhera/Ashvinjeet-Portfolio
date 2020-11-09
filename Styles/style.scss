@@ -34,7 +34,7 @@ body
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-    background-color: #191A1E!important;
+    // background-color: #191A1E!important;
     font-family: 'silkaregular'!important;
 }
 
@@ -414,6 +414,36 @@ main
         }
     }
     
+
+    #about-section
+    {   
+        max-width: 900px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        .about_heading
+        {
+            position: relative;
+            &::after
+            {
+                content: " ";
+                width:100%;
+                height: 2px;
+                background-color: #df9d3f;
+                position: absolute;
+                top:50%;
+            }
+        }
+
+        .row
+        {
+            .abt-img
+            {
+                border: 2px solid #df9d3f;
+            }
+        }
+    }
 }
 
 
