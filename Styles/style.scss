@@ -442,6 +442,11 @@ main
         {
             .abt-img
             {
+                z-index:0;
+                img
+                {
+                    max-width:250px;
+                }
                 &::after
                 {
                     content: '';

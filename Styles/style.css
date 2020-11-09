@@ -380,6 +380,14 @@ main #about-section .about_heading::after {
   margin-left: 15px;
 }
 
+main #about-section .row .abt-img {
+  z-index: 0;
+}
+
+main #about-section .row .abt-img img {
+  max-width: 250px;
+}
+
 main #about-section .row .abt-img::after {
   content: '';
   position: absolute;
