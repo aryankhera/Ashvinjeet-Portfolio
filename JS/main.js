@@ -12,10 +12,9 @@ var tl2=gsap.timeline()
 // var rule=CssRulePlugin.getRule(".scroll-time-menu-items:first-child")
 tl.to('.translate_div',0.8,{transform:"translate(0,-100vh)",height:"0px",ease:Power0.easeIn}).to('nav',1,{opacity:"1"},"-=0.1").to(".hero-div",0.8,{opacity:"1"},"-=0.1").to(".left-social-links",0.5,{opacity:"1"}).to(".right-mail-link",0.5,{opacity:"1"},"-=0.5")
 tl1.from(menuText,0.2,{transform:"translate(50px,0px)",ease:Power0.easeIn}).from(menuText,0.2,{opacity:0},"-=0.2")
-// tl2.to('li.scroll-time-menu-items',1,{transform:"translate(5.5em,0px)"},"-=0.8")
+
 
 if(tl1.reversed)
-// tl1.from(menuText,1,{transform:"translate(50px,0px)"}).from(menuText,0.8,{opacity:0},"-=1")
 hamnavitem.addEventListener('click',()=>
 {
     ham1.classList.toggle("change")
@@ -28,12 +27,8 @@ hamnavitem.addEventListener('click',()=>
         sidenavitem[i].classList.toggle("change")
     }
     
-    // tl2.play()
-    // ham1.style.transform="rotate(-45deg) translate(0px, 5px)"
-    // ham1.style.backgroundColor="black"
-    // ham2.style.transform="rotate(45deg) translate(0px, -5px)"
-    // ham2.style.backgroundColor="black"
-    // gsap.to('rule',{duration:1,cssRule:{transform:"translate(0px,0px)"}})
+   
+    
 })
 
 let tl4=gsap.timeline(
@@ -78,7 +73,7 @@ tl4.fromTo(".main-menu",{
     for(let i=0;i<sidenavitem.length;i++)
     {
         ham1.classList.remove("change")
-        // ham1.style.pointer
+        
         ham2.classList.remove("change")
         hamnavitem.classList.remove("change")
         tl1.play()
@@ -87,7 +82,7 @@ tl4.fromTo(".main-menu",{
             sidenavitem[i].classList.remove("change")
         }
     }
-    // console.log("heloo")
+    
 })
 
 
@@ -124,10 +119,7 @@ abtimgele.addEventListener("mouseleave",()=>
     abtimgelediv1.style.transform="translate(0px,0px)"
     abtimgelediv1.style.transition="0.2s ease-in"
 })
-setTimeout(()=>
-{
-    
-},500)
+
 
 
 

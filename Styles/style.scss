@@ -98,6 +98,8 @@ main
         {
             max-width:474px;
             width:100%;
+            max-width:57px;
+            overflow: visible;
         }
         .main-menu
         {
@@ -167,33 +169,33 @@ main
             
         }
         .scroll-time-menu
-        {
-            position: fixed;
-            right: 0;
-            top: 50%;
-            transform: translate(0px,-50%);
+        {#
+            
             li.scroll-time-menu-items
             {
-                padding: 20px 15px;
+                
                 list-style: none;
-                background-color: #df9d3f;
-                border:2px solid white;
+                text-align: right;
+                opacity:0;
+                display: none;
                 text-transform: uppercase;
-                transform: translate(20em,0px);
+               
                 transition: 0.5s ease-in-out;
 
                 &.change
                 {
-                    transform: translate(6em,0px);
+                    opacity: 1;
+                    display: block;
                     transition: 1s ease-in-out;
+                    margin:5px 0px;
                 }
                 &:first-child
                 {
-                    border-radius: 15px 0px 0px 0px;
+                    
                 }
                 &:last-child
                 {
-                    border-radius: 0px 0px 0px 15px;
+                   
                 }
                 
                 &:hover
@@ -204,11 +206,38 @@ main
                 
                 a
                 {
-                    i
+                    font-weight: 700;
+                    color: black;
+                    position: relative;
+                    &::after
                     {
-                        padding:0px 15px
+                    height:5px;
+                    width:0%;
+                    content: "";
+                    position: absolute;
+                    margin-top:2px;
+                    top:100%;
+                    left:0px;
+                    background-color: #df9d3f;
+                    transition: ease-in-out 0.5s;
+                    border-radius: 15px;
+                    direction: rtl;
+                    orientation: left;
                     }
-                    color: white;
+                    &:hover
+                    {
+                        
+                        text-decoration: none;
+                        transition: 0.2s ease-in-out;
+
+                        &::after
+                        {
+                            width:50%;
+                            transition: 0.2s ease-in-out;
+                        }
+                    }
+
+
                 }
             }
         }
