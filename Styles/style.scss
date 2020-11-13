@@ -523,7 +523,7 @@ main
                 {
                     border:2px solid #df9d3f;
                     padding: 20px 60px;
-                    margin: 10px 15px;
+                    margin: 10px 15px 0px 0px;
                     background-color: transparent;
                     border-radius: 50px;
                     transition: 0.2s ease-in;
@@ -537,7 +537,19 @@ main
             }
         }
     }
+
+
+    #contact-form
+    {
+        height:100vh;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
 }
+
 
 
 @keyframes updown {
