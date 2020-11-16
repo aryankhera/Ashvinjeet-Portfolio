@@ -38,7 +38,7 @@ let tl4=gsap.timeline(
             trigger:'.dark',
             start:"top center",
             toggleActions:"play pause reset reverse",
-            
+            // markers:true
         }
     }
 );
