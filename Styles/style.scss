@@ -26,6 +26,30 @@
 }
 
 
+@font-face {
+    font-family: 'silka';
+    src: url('../fonts/silka-medium-webfont.eot');
+    src: url('../fonts/silka-medium-webfont.eot?#iefix')
+        format('embedded-opentype'),
+      url('../fonts/silka-medium-webfont.woff2') format('woff2'),
+      url('../fonts/silka-medium-webfont.woff') format('woff'),
+      url('../fonts/silka-medium-webfont.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'silka';
+    src: url('../fonts/silka-bold-webfont.eot');
+    src: url('../fonts/silka-bold-webfont.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/silka-bold-webfont.woff2') format('woff2'),
+      url('../fonts/silka-bold-webfont.woff') format('woff'),
+      url('../fonts/silka-bold-webfont.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+  }
+
+
 
 
 
@@ -35,12 +59,14 @@ body
     margin: 0px;
     box-sizing: border-box;
     // background-color: #191A1E!important;
-    font-family: 'silkaregular'!important;
+    font-family: 'silka';
+    font-weight:400 ;
 }
 
 main
 {   position: relative;
     min-height: calc(100vh - 28px);
+    font-family: 'silka';
     nav
     {
         position: fixed!important;
@@ -113,7 +139,7 @@ main
             list-style: none;
             a
             {
-                font-weight: bold;
+                // font-weight: bold;
                 text-transform: uppercase;
                 color: black;
                 text-decoration: none;
@@ -206,7 +232,7 @@ main
                 
                 a
                 {
-                    font-weight: 700;
+                    // font-weight: 700;
                     color: black;
                     position: relative;
                     &::after
@@ -281,7 +307,7 @@ main
                 font-size: 54px;
                 line-height: 72px;
                 margin:0 0 40px;
-                font-weight: 700;
+                // font-weight: 700;
             }
 
             .workbtn
@@ -547,6 +573,22 @@ main
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        h4
+        {
+            font-weight: 600;
+            font-size: 40px;
+        }
+        p
+        {
+            font-size: 20px;
+        }
+        button
+        {
+            padding: 20px 40px;
+            border: 2px solid #df9d3f;
+            border-radius: 50px;
+            background: none;
+        }
     }
 }
 
