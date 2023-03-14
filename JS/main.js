@@ -35,40 +35,40 @@ tl.to(".child", {
   y: -100,
   ease: Circ.easeInOut,
   duration: 5,
-});
-//   .to("#mainloader", {
-//     height: 0,
-//     ease: Circ.easeInOut,
-//     duration: 1,
-//   })
-//   .to("#brownpage", {
-//     top: 0,
-//     height: "100%",
-//     ease: Circ.easeInOut,
-//     duration: 1,
-//     delay: -1,
-//   })
-//   .to("#brownpage", {
-//     height: 0,
-//     ease: Circ.easeInOut,
-//     duration: 2,
-//     delay: -0.5,
-//   })
-//   .to(".follow_cursor", {
-//     display: "block",
-//   })
-//   .to(".translate_div", {
-//     transform: "translate(0,-100vh)",
-//     height: "0px",
-//     ease: Power0.easeIn,
-//     delay: -1,
-//   })
-//   .to(".hero-div", 0.8, { opacity: "1" }, "-=0.1")
-//   .to(".left-social-links", 0.5, { opacity: "1" })
-//   .to(".right-mail-link", 0.5, { opacity: "1" }, "-=0.5");
+})
+  .to("#mainloader", {
+    height: 0,
+    ease: Circ.easeInOut,
+    duration: 1,
+  })
+  .to("#brownpage", {
+    top: 0,
+    height: "100%",
+    ease: Circ.easeInOut,
+    duration: 1,
+    delay: -1,
+  })
+  .to("#brownpage", {
+    height: 0,
+    ease: Circ.easeInOut,
+    duration: 2,
+    delay: -0.5,
+  })
+  .to(".follow_cursor", {
+    display: "block",
+  })
+  .to(".translate_div", {
+    transform: "translate(0,-100vh)",
+    height: "0px",
+    ease: Power0.easeIn,
+    delay: -1,
+  })
+  .to(".hero-div", 0.8, { opacity: "1" }, "-=0.1")
+  .to(".left-social-links", 0.5, { opacity: "1" })
+  .to(".right-mail-link", 0.5, { opacity: "1" }, "-=0.5");
 
 // Follow cursor
-// gsap.set(cursor, { xPercent: -50, yPercent: -50 });
-// window.addEventListener("mousemove", (e) => {
-//   gsap.to(cursor, { x: e.clientX, y: e.clientY });
-// });
+gsap.set(cursor, { xPercent: -50, yPercent: -50 });
+window.addEventListener("mousemove", (e) => {
+  gsap.to(cursor, { x: e.clientX, y: e.clientY });
+});
