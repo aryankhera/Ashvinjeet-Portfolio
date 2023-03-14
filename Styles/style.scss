@@ -77,6 +77,31 @@ main {
         background-color: #0c0c0c;
         height: 100vh;
         width: 100%;
+        position: relative;
+
+        .maintitle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            // font-size: 50px !important;
+            text-transform: uppercase;
+
+            .reveal {
+                display: block;
+
+                .parent {
+                    display: block;
+                    overflow: hidden;
+
+                    .child {
+                        display: block;
+                        // background-color: red;
+                    }
+                }
+            }
+        }
     }
 
     #brownpage {

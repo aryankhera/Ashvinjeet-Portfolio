@@ -55,6 +55,29 @@ main #mainloader {
   background-color: #0c0c0c;
   height: 100vh;
   width: 100%;
+  position: relative;
+}
+
+main #mainloader .maintitle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+main #mainloader .maintitle .reveal {
+  display: block;
+}
+
+main #mainloader .maintitle .reveal .parent {
+  display: block;
+  overflow: hidden;
+}
+
+main #mainloader .maintitle .reveal .parent .child {
+  display: block;
 }
 
 main #brownpage {
