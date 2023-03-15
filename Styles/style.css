@@ -1,5 +1,37 @@
 @font-face {
-  font-family: 'silkaregular';
+  font-family: 'silka_thin';
+  src: url("../fonts/silka-thin-webfont.eot");
+  src: url("../fonts/silka-thin-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/silka-thin-webfont.woff2") format("woff2"), url("../fonts/silka-thin-webfont.woff") format("woff"), url("../fonts/silka-thin-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'silka_extralight';
+  src: url("../fonts/silka-extralight-webfont.eot");
+  src: url("../fonts/silka-extralight-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/silka-extralight-webfont.woff2") format("woff2"), url("../fonts/silka-extralight-webfont.woff") format("woff"), url("../fonts/silka-extralight-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'silka_light';
+  src: url("../fonts/silka-light-webfont.eot");
+  src: url("../fonts/silka-light-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/silka-light-webfont.woff2") format("woff2"), url("../fonts/silka-light-webfont.woff") format("woff"), url("../fonts/silka-light-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'silka_medium';
+  src: url("../fonts/silka-medium-webfont.eot");
+  src: url("../fonts/silka-medium-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/silka-medium-webfont.woff2") format("woff2"), url("../fonts/silka-medium-webfont.woff") format("woff"), url("../fonts/silka-medium-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'silka_regular';
   src: url("../fonts/silka-regular-webfont.eot");
   src: url("../fonts/silka-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/silka-regular-webfont.woff2") format("woff2"), url("../fonts/silka-regular-webfont.woff") format("woff"), url("../fonts/silka-regular-webfont.ttf") format("truetype");
   font-weight: normal;
@@ -7,25 +39,25 @@
 }
 
 @font-face {
-  font-family: 'silkaregular_italic';
-  src: url("../fonts/silka-regularitalic-webfont.eot");
-  src: url("../fonts/silka-regularitalic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/silka-regularitalic-webfont.woff2") format("woff2"), url("../fonts/silka-regularitalic-webfont.woff") format("woff"), url("../fonts/silka-regularitalic-webfont.ttf") format("truetype");
+  font-family: 'silka_semibold';
+  src: url("../fonts/silka-semibold-webfont.eot");
+  src: url("../fonts/silka-semibold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/silka-semibold-webfont.woff2") format("woff2"), url("../fonts/silka-semibold-webfont.woff") format("woff"), url("../fonts/silka-semibold-webfont.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'silka';
-  src: url("../fonts/silka-medium-webfont.eot");
-  src: url("../fonts/silka-medium-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/silka-medium-webfont.woff2") format("woff2"), url("../fonts/silka-medium-webfont.woff") format("woff"), url("../fonts/silka-medium-webfont.ttf") format("truetype");
-  font-weight: 400;
+  font-family: 'silka_bold';
+  src: url("../fonts/silka-bold-webfont.eot");
+  src: url("../fonts/silka-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/silka-bold-webfont.woff2") format("woff2"), url("../fonts/silka-bold-webfont.woff") format("woff"), url("../fonts/silka-bold-webfont.ttf") format("truetype");
+  font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'silka';
-  src: url("../fonts/silka-bold-webfont.eot");
-  src: url("../fonts/silka-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/silka-bold-webfont.woff2") format("woff2"), url("../fonts/silka-bold-webfont.woff") format("woff"), url("../fonts/silka-bold-webfont.ttf") format("truetype");
+  font-family: 'silka_black';
+  src: url("../fonts/silka-black-webfont.eot");
+  src: url("../fonts/silka-black-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/silka-black-webfont.woff2") format("woff2"), url("../fonts/silka-black-webfont.woff") format("woff"), url("../fonts/silka-black-webfont.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
 }
@@ -34,8 +66,7 @@
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
-  font-family: 'silka';
-  font-weight: 400;
+  font-family: 'silka_regular';
 }
 
 body,
@@ -47,7 +78,7 @@ html {
 main {
   position: relative;
   min-height: calc(100vh - 28px);
-  font-family: 'silka';
+  font-family: 'silka_regular';
   width: 100%;
 }
 
@@ -64,6 +95,7 @@ main #mainloader .maintitle {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  color: #df9d3f;
   text-transform: uppercase;
 }
 
@@ -138,7 +170,6 @@ main .hero-section .hero-div {
 main .hero-section .hero-div #web_dev_tag {
   font-size: 12px;
   line-height: 30px;
-  font-family: "silkaregular";
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 2px;
