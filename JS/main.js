@@ -15,9 +15,9 @@ var tl1 = gsap.timeline();
 var tl2 = gsap.timeline();
 // var rule = CssRulePlugin.getRule(".scroll-time-menu-items:first-child");
 
-const revealToSpan = () => {
-  document.querySelectorAll(".reveal").forEach((elem) => {
-    console.log("elem", elem);
+const revealToSpan = (classname) => {
+  console.log(classname);
+  document.querySelectorAll(`.${classname}`).forEach((elem) => {
     let parent = document.createElement("span");
     let child = document.createElement("span");
     parent.classList.add("parent");
@@ -29,13 +29,40 @@ const revealToSpan = () => {
   });
 };
 
-revealToSpan();
+revealToSpan("reveal");
+revealToSpan("reveal1");
+revealToSpan("reveal2");
 
-tl.to(".child", {
-  y: -100,
+tl.from(".reveal .child", {
+  y: 100,
   ease: Circ.easeInOut,
-  duration: 5,
+  duration: 0.75,
 })
+  .to(".reveal .child", {
+    y: -100,
+    ease: Circ.easeInOut,
+    duration: 0.75,
+  })
+  .from(".reveal1 .child", {
+    y: 100,
+    ease: Circ.easeInOut,
+    duration: 0.75,
+  })
+  .to(".reveal1 .child", {
+    y: -100,
+    ease: Circ.easeInOut,
+    duration: 0.75,
+  })
+  .from(".reveal2 .child", {
+    y: 100,
+    ease: Circ.easeInOut,
+    duration: 0.75,
+  })
+  .to(".reveal2 .child", {
+    y: -100,
+    ease: Circ.easeInOut,
+    duration: 0.75,
+  })
   .to("#mainloader", {
     height: 0,
     ease: Circ.easeInOut,
