@@ -9,11 +9,17 @@ var abtimgele = document.querySelector(".abt-img");
 var abtimgelediv1 = document.querySelector(".abt-img-div1");
 var overlayele = document.getElementById("overlay");
 var cursor = document.querySelector(".follow_cursor");
+var workBtn = document.querySelector(".workbtn");
 var tl_loader = gsap.timeline();
 var tl = gsap.timeline();
 var tl1 = gsap.timeline();
 var tl2 = gsap.timeline();
 // var rule = CssRulePlugin.getRule(".scroll-time-menu-items:first-child");
+
+// window.addEventListener("mousemove", (e) => {
+//   cursor.style.left = e.x - 150 + "px";
+//   cursor.style.top = e.y - 150 + "px";
+// });
 
 const revealToSpan = (classname) => {
   console.log(classname);
@@ -99,3 +105,11 @@ gsap.set(cursor, { xPercent: -50, yPercent: -50 });
 window.addEventListener("mousemove", (e) => {
   gsap.to(cursor, { x: e.clientX, y: e.clientY });
 });
+
+workBtn.onmouseover = () => {
+  cursor.style.display = "none";
+};
+
+workBtn.onmouseleave = () => {
+  cursor.style.display = "block";
+};

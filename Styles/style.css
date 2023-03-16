@@ -139,7 +139,6 @@ main #brownpage {
   top: 100%;
   height: 0px;
   width: 100%;
-  z-index: 99;
 }
 
 main .follow_cursor {
@@ -215,23 +214,45 @@ main .hero-section .hero-div .workbtn {
   font-weight: 900;
   border: 0;
   background-color: transparent;
-  z-index: 9;
+  overflow: hidden;
+  width: 165px;
 }
 
-main .hero-section .hero-div .workbtn span {
+main .hero-section .hero-div .workbtn p {
   font-size: 25px;
+  width: 100%;
 }
 
-main .hero-section .hero-div .workbtn::before {
+main .hero-section .hero-div .workbtn::after {
   background: #df9d3f;
   content: "";
   height: 10px;
   position: absolute;
   transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
-  width: 165px;
-  z-index: -1;
+  width: 100%;
   bottom: 0px;
   left: -1px;
+}
+
+main .hero-section .hero-div .workbtn:hover {
+  text-align: center;
+}
+
+main .hero-section .hero-div .workbtn:hover p {
+  transform: translate(15px, 5px);
+  transition: all 0.5s ease-in-out;
+}
+
+main .hero-section .hero-div .workbtn:hover i {
+  transform: translateX(250%);
+  transition: all 0.5s ease-in-out;
+}
+
+main .hero-section .hero-div .workbtn:hover:after {
+  height: 60px;
+  z-index: -1;
+  transition: all 0.5s ease-in-out;
+  border-radius: 10px;
 }
 
 main .hero-section .slide_more_btn {
@@ -249,7 +270,6 @@ main .left-social-links {
   bottom: 0px;
   left: 40px;
   right: auto;
-  z-index: 10;
   opacity: 0;
 }
 
@@ -290,7 +310,6 @@ main .right-mail-link {
   bottom: 0px;
   left: auto;
   right: 40px;
-  z-index: 10;
   opacity: 0;
 }
 
