@@ -175,7 +175,7 @@ main {
         top: 100%;
         height: 0px;
         width: 100%;
-        // z-index: 99;
+        z-index: 9;
     }
 
 
@@ -271,7 +271,6 @@ main {
                     position: absolute;
                     transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
                     width: 100%;
-                    // z-index: -1;
                     bottom: 0px;
                     left: -1px;
 
@@ -325,7 +324,7 @@ main {
         bottom: 0px;
         left: 40px;
         right: auto;
-        // z-index: 10;
+        z-index: 10;
         opacity: 0;
 
         ul {
@@ -370,7 +369,7 @@ main {
         bottom: 0px;
         left: auto;
         right: 40px;
-        // z-index: 10;
+        z-index: 10;
         opacity: 0;
 
         div {

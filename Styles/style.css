@@ -139,6 +139,7 @@ main #brownpage {
   top: 100%;
   height: 0px;
   width: 100%;
+  z-index: 9;
 }
 
 main .follow_cursor {
@@ -270,6 +271,7 @@ main .left-social-links {
   bottom: 0px;
   left: 40px;
   right: auto;
+  z-index: 10;
   opacity: 0;
 }
 
@@ -310,6 +312,7 @@ main .right-mail-link {
   bottom: 0px;
   left: auto;
   right: 40px;
+  z-index: 10;
   opacity: 0;
 }
 
