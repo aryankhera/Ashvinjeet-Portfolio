@@ -1,28 +1,13 @@
 // const { element } = require("prop-types");
-
-var menuText = document.querySelector(".menu-text");
-var ham1 = document.querySelector(".ham-icon1");
-var ham2 = document.querySelector(".ham-icon2");
-var hamnavitem = document.querySelector(".ham-nav-item");
-var sidenavitem = document.querySelectorAll("li.scroll-time-menu-items");
-var abtimgele = document.querySelector(".abt-img");
-var abtimgelediv1 = document.querySelector(".abt-img-div1");
-var overlayele = document.getElementById("overlay");
+var menu = document.querySelector(".nav-container");
+var menu_link = document.querySelector(".nav-links");
 var cursor = document.querySelector(".follow_cursor");
 var workBtn = document.querySelector(".workbtn");
-var tl_loader = gsap.timeline();
 var tl = gsap.timeline();
-var tl1 = gsap.timeline();
-var tl2 = gsap.timeline();
 // var rule = CssRulePlugin.getRule(".scroll-time-menu-items:first-child");
 
-// window.addEventListener("mousemove", (e) => {
-//   cursor.style.left = e.x - 150 + "px";
-//   cursor.style.top = e.y - 150 + "px";
-// });
-
+// basic function to convert reveal class into sub elements
 const revealToSpan = (classname) => {
-  console.log(classname);
   document.querySelectorAll(`.${classname}`).forEach((elem) => {
     let parent = document.createElement("span");
     let child = document.createElement("span");
@@ -38,7 +23,7 @@ const revealToSpan = (classname) => {
 revealToSpan("reveal");
 revealToSpan("reveal1");
 revealToSpan("reveal2");
-
+// timeline starts for starting loader and hero section
 tl.from(".reveal .child", {
   y: 100,
   ease: Circ.easeInOut,
@@ -98,12 +83,20 @@ tl.from(".reveal .child", {
   })
   .to(".hero-div", 0.8, { opacity: "1" }, "-=0.1")
   .to(".left-social-links", 0.5, { opacity: "1" })
-  .to(".right-mail-link", 0.5, { opacity: "1" }, "-=0.5");
+  .to(".right-mail-link", 0.5, { opacity: "1" }, "-=0.5")
+  .to(".nav-container", 0.5, { opacity: "1" }, "-=0.5");
 
 // Follow cursor
 gsap.set(cursor, { xPercent: -50, yPercent: -50 });
 window.addEventListener("mousemove", (e) => {
   gsap.to(cursor, { x: e.clientX, y: e.clientY });
+});
+
+menu.addEventListener("mouseover", function () {
+  this.classList.add("nav-container--open");
+});
+menu.addEventListener("mouseout", function () {
+  this.classList.remove("nav-container--open");
 });
 
 workBtn.onmouseover = () => {
