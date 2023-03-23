@@ -114,20 +114,18 @@ for (const s of textOnly) {
       scale: 3,
       border: "1px solid black",
       backgroundColor: "#df9d3f",
-      // filter: "invert(1)",
       zIndex: "1",
       opacity: "0.8",
     });
   });
-  s &&
-    s.addEventListener("mouseout", function () {
-      gsap.to(cursor, {
-        scale: 1,
-        border: "2px solid black",
-        backgroundColor: "transparent",
-        filter: "invert(0)",
-      });
+  s.addEventListener("mouseout", function () {
+    gsap.to(cursor, {
+      scale: 1,
+      border: "2px solid black",
+      backgroundColor: "transparent",
+      filter: "invert(0)",
     });
+  });
 }
 
 // });

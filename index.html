@@ -2,139 +2,100 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ashvinjeet Singh</title>
-  <!-- style.css -->
-  <link rel="stylesheet" href="./Styles/style.css">
-  <!-- bootstrap -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <!-- css animate -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <!-- font-awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ashvinjeet Singh</title>
+	<!-- style.css -->
+	<link rel="stylesheet" href="./Styles/style.css">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!-- css animate -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+	<!-- font-awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-  <main>
-    <!-- LOADING SCREEN START -->
-    <div id="mainloader">
-      <div class="maintitle">
-        <h2 class="reveal">Developer</h2>
-        <h2 class="reveal1">Designer</h2>
-        <h2 class="reveal2">Problem Solver</h2>
-      </div>
-    </div>
-    <div id="brownpage"></div>
-    <!-- LOADING SCREEN END -->
-    <!-- CURSOR START -->
-    <div class="follow_cursor"></div>
-    <!-- CURSOR END -->
-    <!-- NAV START -->
-    <div class="nav-container">
-      <div class="nav-brand">
-        <!-- <svg width="30" height="80" viewBox="0 0 81 198" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M43.5 61H28H22.5H16C7.6 61 4.5 65.6667 4 68V189.5C3.33333 192 4.1 196.9 12.5 196.5C20.9 196.1 21 191.667 20 189.5C20.1667 183 20.4 168.7 20 163.5C19.6 158.3 24.1667 156.667 26.5 156.5C31 156.5 35.5 156.5 35.5 161C35.5 165.5 35.5 168.5 43.5 168.5C51.5 168.5 51 165.167 51.5 163.5C51.3333 133.167 51.1 71.6 51.5 68C51.9 64.4 46.3333 61.8333 43.5 61Z"
-            fill="black" />
-          <path
-            d="M51.5 172.5H35.5V181C35.5 186.167 39.7 196.5 56.5 196.5C73.3 196.5 76.5 186.167 76 181V118.5V61H69.5C60 59.5 61.1667 65.6667 61.5 68V172.5C61.5 175 62 181 56.5 181C52.1 181 51.3333 175.333 51.5 172.5Z"
-            fill="black" />
-          <path
-            d="M67 56.5H14C13 50.5 9.5 35.3 3.5 22.5C-4 6.5 9 11 14 16C18 20 22.3333 19.6667 24 19C27.3333 15.1667 34.6 6.6 37 3C39.4 -0.600001 42.3333 1.5 43.5 3L58.5 21.5C56.6667 23.5 56.1 25.2 68.5 16C80.9 6.8 80 15.8333 78 21.5L73 38.5L67 56.5Z"
-            fill="black" />
-          <path
-            d="M43.5 61H28H22.5H16C7.6 61 4.5 65.6667 4 68V189.5C3.33333 192 4.1 196.9 12.5 196.5C20.9 196.1 21 191.667 20 189.5C20.1667 183 20.4 168.7 20 163.5C19.6 158.3 24.1667 156.667 26.5 156.5C31 156.5 35.5 156.5 35.5 161C35.5 165.5 35.5 168.5 43.5 168.5C51.5 168.5 51 165.167 51.5 163.5C51.3333 133.167 51.1 71.6 51.5 68C51.9 64.4 46.3333 61.8333 43.5 61Z"
-            stroke="black" stroke-width="2" />
-          <path
-            d="M43.5 61H28H22.5H16C7.6 61 4.5 65.6667 4 68V189.5C3.33333 192 4.1 196.9 12.5 196.5C20.9 196.1 21 191.667 20 189.5C20.1667 183 20.4 168.7 20 163.5C19.6 158.3 24.1667 156.667 26.5 156.5C31 156.5 35.5 156.5 35.5 161C35.5 165.5 35.5 168.5 43.5 168.5C51.5 168.5 51 165.167 51.5 163.5C51.3333 133.167 51.1 71.6 51.5 68C51.9 64.4 46.3333 61.8333 43.5 61Z"
-            stroke="black" stroke-opacity="0.2" stroke-width="2" />
-          <path
-            d="M51.5 172.5H35.5V181C35.5 186.167 39.7 196.5 56.5 196.5C73.3 196.5 76.5 186.167 76 181V118.5V61H69.5C60 59.5 61.1667 65.6667 61.5 68V172.5C61.5 175 62 181 56.5 181C52.1 181 51.3333 175.333 51.5 172.5Z"
-            stroke="black" stroke-width="2" />
-          <path
-            d="M51.5 172.5H35.5V181C35.5 186.167 39.7 196.5 56.5 196.5C73.3 196.5 76.5 186.167 76 181V118.5V61H69.5C60 59.5 61.1667 65.6667 61.5 68V172.5C61.5 175 62 181 56.5 181C52.1 181 51.3333 175.333 51.5 172.5Z"
-            stroke="black" stroke-opacity="0.2" stroke-width="2" />
-          <path
-            d="M67 56.5H14C13 50.5 9.5 35.3 3.5 22.5C-4 6.5 9 11 14 16C18 20 22.3333 19.6667 24 19C27.3333 15.1667 34.6 6.6 37 3C39.4 -0.600001 42.3333 1.5 43.5 3L58.5 21.5C56.6667 23.5 56.1 25.2 68.5 16C80.9 6.8 80 15.8333 78 21.5L73 38.5L67 56.5Z"
-            stroke="black" stroke-width="2" />
-          <path
-            d="M67 56.5H14C13 50.5 9.5 35.3 3.5 22.5C-4 6.5 9 11 14 16C18 20 22.3333 19.6667 24 19C27.3333 15.1667 34.6 6.6 37 3C39.4 -0.600001 42.3333 1.5 43.5 3L58.5 21.5C56.6667 23.5 56.1 25.2 68.5 16C80.9 6.8 80 15.8333 78 21.5L73 38.5L67 56.5Z"
-            stroke="black" stroke-opacity="0.2" stroke-width="2" />
-          <path
-            d="M19 49.5L10.5 22.5C15 25.1667 24.8 29.3 28 24.5L41.5 10.5C46.1667 16 56.3 27 59.5 27C62.7 27 69.1667 23 72 21L62.5 49.5H19Z"
-            fill="#FB8800" stroke="#FC8800" stroke-width="3" />
-          <path
-            d="M20 129C18.8 140.6 25.1667 141.833 28.5 141C35.3 141 36.3333 133 36 129V86.5C36.3333 83.3333 35.3 77 28.5 77C21.7 77 20 83.3333 20 86.5V129Z"
-            fill="white" stroke="#D6D6D6" stroke-width="2" />
-        </svg> -->
+	<main>
+		<!-- LOADING SCREEN START -->
+		<div id="mainloader">
+			<div class="maintitle">
+				<h2 class="reveal">Developer</h2>
+				<h2 class="reveal1">Designer</h2>
+				<h2 class="reveal2">Problem Solver</h2>
+			</div>
+		</div>
+		<div id="brownpage"></div>
+		<!-- LOADING SCREEN END -->
+		<!-- CURSOR START -->
+		<div class="follow_cursor"></div>
+		<!-- CURSOR END -->
+		<!-- NAV START -->
+		<div class="nav-container">
+			<div class="nav-brand">
+				<img src="images/logo.svg" alt="logo" />
+			</div>
+			<div class="hamburger">
+				<div class="nav-icon">
+					<div class="nav-icon__line"></div>
+					<div class="nav-icon__line"></div>
+					<div class="nav-icon__line"></div>
+				</div>
+				<nav class="nav-links">
+					<a href="/" class="router-link-active router-link-exact-active mouse-md"> Home </a>
+					<a href="/about" class="mouse-md"> About </a>
+					<a href="/portfolio" class="mouse-md"> Projects </a>
+					<a href="/contact" class="mouse-md"> Contact </a>
+			</div>
+			</nav>
+		</div>
+		<!-- NAV END -->
+		<!-- HERO START -->
+		<section class="bg-white hero-section">
+			<div class=" hero-div mx-0 ">
+				<h3 id="web_dev_tag">Web developer</h3>
+				<h4 class="hero_copy_line text_only">I will help your website to look good both inside and outside.</h4>
+				<button class="workbtn">
+					<p>
+						My work
+						<i class="fa fa-arrow-right"></i>
+					</p>
+				</button>
+			</div>
+			<div class="slide_more_btn"><a href="#about-section" class="text-dark"></a></i></div>
+		</section>
+		<!-- HERO END  -->
+		<!-- LEFT LINK  -->
+		<div orientation="left" class="left-social-links">
+			<ul>
+				<li style="padding: 10px;"><a href="#"><i class="fa fa-github"></i></a></li>
+				<li style="padding: 10px;"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+				<li style="padding: 10px;"><a href="#"><i class="fa fa-twitter"></i></a></li>
+			</ul>
+		</div>
+		<!-- LEFT LINK END-->
 
-        <img src="images/logo.svg" alt="logo" />
-
-
-      </div>
-      <div class="hamburger">
-        <div class="nav-icon">
-          <div class="nav-icon__line"></div>
-          <div class="nav-icon__line"></div>
-          <div class="nav-icon__line"></div>
-        </div>
-        <nav class="nav-links">
-          <a href="/" class="router-link-active router-link-exact-active mouse-md"> Home </a>
-          <a href="/about" class="mouse-md"> About </a>
-          <a href="/portfolio" class="mouse-md"> Projects </a>
-          <a href="/contact" class="mouse-md"> Contact </a>
-      </div>
-      </nav>
-    </div>
-    <!-- NAV END -->
-    <!-- HERO START -->
-    <section class="bg-white hero-section">
-      <div class="translate_div"></div>
-      <div class=" hero-div mx-0 ">
-        <h3 id="web_dev_tag" class="text_only">Web developer</h3>
-        <h4 class="hero_copy_line text_only">I will help your website to look good both inside and outside.</h4>
-        <button class="workbtn">
-          <p>
-            My work
-            <i class="fa fa-arrow-right"></i>
-          </p>
-        </button>
-      </div>
-      <div class="slide_more_btn"><a href="#about-section" class="text-dark"></a></i></div>
-    </section>
-    <!-- HERO END  -->
-    <!-- LEFT LINK  -->
-    <div orientation="left" class="left-social-links">
-      <ul>
-        <li style="padding: 10px;"><a href="#"><i class="fa fa-github"></i></a></li>
-        <li style="padding: 10px;"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-        <li style="padding: 10px;"><a href="#"><i class="fa fa-twitter"></i></a></li>
-      </ul>
-    </div>
-    <!-- LEFT LINK END-->
-
-    <!-- RIGHT LINK START  -->
-    <div orientation="right" class="right-mail-link">
-      <div>
-        <a href="#">ashvinjeetsingh22@gmail.com</a>
-      </div>
-    </div>
-    <!-- RIGHT LINK END  -->
+		<!-- RIGHT LINK START  -->
+		<div orientation="right" class="right-mail-link">
+			<div>
+				<a href="#">ashvinjeetsingh22@gmail.com</a>
+			</div>
+		</div>
+		<!-- RIGHT LINK END  -->
 
 
-    <div>
+		<div>
 
 
 
-      <!-- <svg width="66" height="134" viewBox="0 0 66 134" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<!-- <svg width="66" height="134" viewBox="0 0 66 134" fill="none" xmlns="http://www.w3.org/2000/svg">
         
       </svg> -->
 
 
-    </div>
-  </main>
+		</div>
+	</main>
 
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
@@ -166,11 +127,14 @@
 
 <!-- bootstrap -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
 <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 
 </html>
