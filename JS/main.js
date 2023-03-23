@@ -1,5 +1,6 @@
 // const { element } = require("prop-types");
 var menu = document.querySelector(".nav-container");
+var textOnly = document.querySelectorAll(".text_only");
 var menu_link = document.querySelector(".nav-links");
 var cursor = document.querySelector(".follow_cursor");
 var workBtn = document.querySelector(".workbtn");
@@ -106,3 +107,15 @@ workBtn.onmouseover = () => {
 workBtn.onmouseleave = () => {
   cursor.style.display = "block";
 };
+
+for (const s of textOnly) {
+  s &&
+    s.addEventListener("mouseover", function () {
+      gsap.to(cursor, {
+        scale: 4,
+      });
+    });
+  console.log(s);
+}
+
+// });
