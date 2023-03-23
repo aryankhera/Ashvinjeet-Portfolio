@@ -350,8 +350,8 @@ main {
                 color: rgba(25, 26, 30, .4);
                 margin-bottom: 5px;
                 cursor: default;
-                pointer-events: none;
-                z-index: 1;
+                // pointer-events: none;
+                z-index: 2;
             }
 
             .hero_copy_line {
@@ -359,8 +359,8 @@ main {
                 line-height: 72px;
                 margin: 0 0 40px;
                 cursor: default;
-                pointer-events: none;
-                z-index: 1;
+                // pointer-events: none;
+                z-index: 2;
             }
 
             .workbtn {

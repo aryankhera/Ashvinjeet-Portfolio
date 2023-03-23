@@ -109,13 +109,25 @@ workBtn.onmouseleave = () => {
 };
 
 for (const s of textOnly) {
+  s.addEventListener("mouseover", function () {
+    gsap.to(cursor, {
+      scale: 3,
+      border: "1px solid black",
+      backgroundColor: "#df9d3f",
+      // filter: "invert(1)",
+      zIndex: "1",
+      opacity: "0.8",
+    });
+  });
   s &&
-    s.addEventListener("mouseover", function () {
+    s.addEventListener("mouseout", function () {
       gsap.to(cursor, {
-        scale: 4,
+        scale: 1,
+        border: "2px solid black",
+        backgroundColor: "transparent",
+        filter: "invert(0)",
       });
     });
-  console.log(s);
 }
 
 // });
