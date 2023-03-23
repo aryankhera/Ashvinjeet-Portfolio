@@ -324,7 +324,7 @@ main {
     }
 
     .hero-section {
-        height: calc(100vh - 92px);
+        height: calc(100vh - 95px);
         position: relative;
         text-align: center;
 
@@ -334,6 +334,7 @@ main {
             left: 50%;
             transform: translate(-50%, -50%);
             opacity: 0;
+            z-index: 2;
 
             #web_dev_tag {
                 font-size: 12px;
@@ -353,7 +354,7 @@ main {
                 line-height: 72px;
                 margin: 0 0 40px;
                 cursor: default;
-                // pointer-events: none;
+                position: relative;
                 z-index: 2;
             }
 

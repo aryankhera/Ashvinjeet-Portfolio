@@ -1,6 +1,8 @@
 // const { element } = require("prop-types");
 var menu = document.querySelector(".nav-container");
-var textOnly = document.querySelectorAll(".text_only");
+var textOnly = document.querySelector(".text_only");
+const myText = new SplitType(textOnly);
+var textOnlyChar = document.querySelectorAll(".text_only .line .word .char");
 var menu_link = document.querySelector(".nav-links");
 var cursor = document.querySelector(".follow_cursor");
 var workBtn = document.querySelector(".workbtn");
@@ -108,24 +110,46 @@ workBtn.onmouseleave = () => {
   cursor.style.display = "block";
 };
 
-for (const s of textOnly) {
-  s.addEventListener("mouseover", function () {
-    gsap.to(cursor, {
-      scale: 3,
-      border: "1px solid black",
-      backgroundColor: "#df9d3f",
-      zIndex: "1",
-      opacity: "0.8",
-    });
+// textOnly.addEventListener("mouseover", function () {
+//   gsap.to(cursor, {
+//     scale: 3,
+//     border: "1px solid #df9d3f",
+//     backgroundColor: "#df9d3f",
+//     zIndex: "1",
+//     opacity: "0.8",
+//   });
+// });
+// textOnly.addEventListener("mouseout", function () {
+//   gsap.to(cursor, {
+//     scale: 1,
+//     border: "2px solid black",
+//     backgroundColor: "transparent",
+//     filter: "invert(0)",
+//   });
+// });
+textOnlyChar.forEach((s) => {
+  s.addEventListener("mouseover", () => {
+    gsap.to(s, {
+      color: "white",
+    }),
+      gsap.to(cursor, {
+        scale: 3,
+        border: "1px solid #df9d3f",
+        backgroundColor: "#df9d3f",
+        zIndex: "1",
+      });
   });
-  s.addEventListener("mouseout", function () {
-    gsap.to(cursor, {
-      scale: 1,
-      border: "2px solid black",
-      backgroundColor: "transparent",
-      filter: "invert(0)",
-    });
+
+  s.addEventListener("mouseout", () => {
+    gsap.to(s, {
+      color: "#292428",
+    }),
+      gsap.to(cursor, {
+        scale: 1,
+        border: "2px solid black",
+        backgroundColor: "transparent",
+      });
   });
-}
+});
 
 // });
