@@ -189,7 +189,7 @@ main {
         transition-duration: 100ms;
         transition-timing-function: ease-out;
         pointer-events: none;
-        z-index: 2;
+        z-index: 3;
 
         ::after {
             content: "";
@@ -335,6 +335,12 @@ main {
             transform: translate(-50%, -50%);
             opacity: 0;
             z-index: 2;
+
+            // &.overlay {
+            //     color: #df9d3f;
+            //     clip-path: circle(100px at var(--x, 50%) var(--y, 50%));
+            //     transition: clip-path 100ms;
+            // }
 
             #web_dev_tag {
                 font-size: 12px;
@@ -514,6 +520,41 @@ main {
             }
         }
     }
+
+    #scroll_mouse {
+        svg {
+            width: 100px;
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translate(-50%, 0%);
+            animation: rotation 10s infinite linear;
+        }
+
+        text {
+            font-size: 76px;
+            font-family: Copperplate, Copperplate Gothic, serif;
+            font-weight: bold;
+            font-variant: small-caps;
+            font-variant-ligatures: none;
+            stroke: black;
+            stroke-width: 1.5px;
+            fill: white;
+
+        }
+
+        @keyframes rotation {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(359deg);
+            }
+
+        }
+    }
+
 
     #about-section {
         max-width: 900px;

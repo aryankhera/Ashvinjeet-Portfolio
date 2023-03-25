@@ -155,7 +155,7 @@ main .follow_cursor {
   transition-duration: 100ms;
   transition-timing-function: ease-out;
   pointer-events: none;
-  z-index: 2;
+  z-index: 3;
 }
 
 main .follow_cursor ::after {
@@ -445,6 +445,35 @@ main .right-mail-link div::after {
   height: 90px;
   margin: 0px auto;
   background-color: black;
+}
+
+main #scroll_mouse svg {
+  width: 100px;
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  animation: rotation 10s infinite linear;
+}
+
+main #scroll_mouse text {
+  font-size: 76px;
+  font-family: Copperplate, Copperplate Gothic, serif;
+  font-weight: bold;
+  font-variant: small-caps;
+  font-variant-ligatures: none;
+  stroke: black;
+  stroke-width: 1.5px;
+  fill: white;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
 }
 
 main #about-section {

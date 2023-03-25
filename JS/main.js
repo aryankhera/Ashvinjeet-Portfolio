@@ -6,7 +6,9 @@ var textOnlyChar = document.querySelectorAll(".text_only .line .word .char");
 var menu_link = document.querySelector(".nav-links");
 var cursor = document.querySelector(".follow_cursor");
 var workBtn = document.querySelector(".workbtn");
+const overlay = document.querySelector(".overlay");
 var tl = gsap.timeline();
+
 // var rule = CssRulePlugin.getRule(".scroll-time-menu-items:first-child");
 
 // basic function to convert reveal class into sub elements
@@ -92,7 +94,16 @@ tl.from(".reveal .child", {
 // Follow cursor
 gsap.set(cursor, { xPercent: -50, yPercent: -50 });
 window.addEventListener("mousemove", (e) => {
-  gsap.to(cursor, { x: e.clientX, y: e.clientY });
+  const { clientX, clientY } = e;
+  const x = Math.round((clientX / window.innerWidth) * 100);
+  const y = Math.round((clientY / window.innerHeight) * 100);
+  gsap.to(cursor, { x: clientX, y: clientY });
+  // gsap.to(overlay, {
+  //   "--x": `${clientX}%`,
+  //   "--y": `${clientY}%`,
+  //   duration: 0.3,
+  //   ease: "sine.out",
+  // });
 });
 
 menu.addEventListener("mouseover", function () {
@@ -127,29 +138,37 @@ workBtn.onmouseleave = () => {
 //     filter: "invert(0)",
 //   });
 // });
-textOnlyChar.forEach((s) => {
-  s.addEventListener("mouseover", () => {
-    gsap.to(s, {
-      color: "white",
-    }),
-      gsap.to(cursor, {
-        scale: 3,
-        border: "1px solid #df9d3f",
-        backgroundColor: "#df9d3f",
-        zIndex: "1",
-      });
-  });
+// textOnlyChar.forEach((s) => {
+//   s.addEventListener("mouseover", (e) => {
+//     const { clientX, clientY } = e;
+//     const x = Math.round((clientX / window.innerWidth) * 100);
+//     const y = Math.round((clientY / window.innerHeight) * 100);
 
-  s.addEventListener("mouseout", () => {
-    gsap.to(s, {
-      color: "#292428",
-    }),
-      gsap.to(cursor, {
-        scale: 1,
-        border: "2px solid black",
-        backgroundColor: "transparent",
-      });
-  });
-});
+//     gsap.to(overlay, {
+//       "--x": `${x}%`,
+//       "--y": `${y}%`,
+//       duration: 0.3,
+//       ease: "sine.out",
+//     });
+//     gsap.to(cursor, {
+//       opacity: 0,
+//       border: "1px solid black",
+//       backgroundColor: "black",
+//       mixBlendMode: "multiply",
+//       backdropFilter: "grayScale(1)",
+//     });
+//     console.log("values are", x, y);
+//   });
+
+//   s.addEventListener("mouseout", () => {
+//     gsap.to(cursor, {
+//       scale: 1,
+//       border: "2px solid black",
+//       backgroundColor: "transparent",
+//       mixBlendMode: "none",
+//       backdropFilter: "grayScale(0)",
+//     });
+//   });
+// });
 
 // });
