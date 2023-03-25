@@ -70,7 +70,7 @@ main #mainloader {
   background-color: #0c0c0c;
   height: 100vh;
   width: 100%;
-  position: relative;
+  position: absolute;
   z-index: 1;
   overflow: hidden;
 }
@@ -155,7 +155,7 @@ main .follow_cursor {
   transition-duration: 100ms;
   transition-timing-function: ease-out;
   pointer-events: none;
-  z-index: 2;
+  z-index: 3;
 }
 
 main .follow_cursor ::after {
@@ -266,15 +266,9 @@ main .nav-container.nav-container--open .nav-links a:hover {
 }
 
 main .hero-section {
-  height: calc(100vh - 92px);
+  height: calc(100vh - 95px);
   position: relative;
   text-align: center;
-}
-
-main .hero-section .translate_div {
-  height: 100vh;
-  position: relative;
-  flex: 0 0 100%;
 }
 
 main .hero-section .hero-div {
@@ -283,6 +277,7 @@ main .hero-section .hero-div {
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
+  z-index: 2;
 }
 
 main .hero-section .hero-div #web_dev_tag {
@@ -302,6 +297,7 @@ main .hero-section .hero-div .hero_copy_line {
   line-height: 72px;
   margin: 0 0 40px;
   cursor: default;
+  position: relative;
   z-index: 2;
 }
 
@@ -449,6 +445,35 @@ main .right-mail-link div::after {
   height: 90px;
   margin: 0px auto;
   background-color: black;
+}
+
+main #scroll_mouse svg {
+  width: 100px;
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  animation: rotation 10s infinite linear;
+}
+
+main #scroll_mouse text {
+  font-size: 76px;
+  font-family: Copperplate, Copperplate Gothic, serif;
+  font-weight: bold;
+  font-variant: small-caps;
+  font-variant-ligatures: none;
+  stroke: black;
+  stroke-width: 1.5px;
+  fill: white;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
 }
 
 main #about-section {

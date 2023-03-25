@@ -1,10 +1,14 @@
 // const { element } = require("prop-types");
 var menu = document.querySelector(".nav-container");
-var textOnly = document.querySelectorAll(".text_only");
+var textOnly = document.querySelector(".text_only");
+const myText = new SplitType(textOnly);
+var textOnlyChar = document.querySelectorAll(".text_only .line .word .char");
 var menu_link = document.querySelector(".nav-links");
 var cursor = document.querySelector(".follow_cursor");
 var workBtn = document.querySelector(".workbtn");
+const overlay = document.querySelector(".overlay");
 var tl = gsap.timeline();
+
 // var rule = CssRulePlugin.getRule(".scroll-time-menu-items:first-child");
 
 // basic function to convert reveal class into sub elements
@@ -90,7 +94,16 @@ tl.from(".reveal .child", {
 // Follow cursor
 gsap.set(cursor, { xPercent: -50, yPercent: -50 });
 window.addEventListener("mousemove", (e) => {
-  gsap.to(cursor, { x: e.clientX, y: e.clientY });
+  const { clientX, clientY } = e;
+  const x = Math.round((clientX / window.innerWidth) * 100);
+  const y = Math.round((clientY / window.innerHeight) * 100);
+  gsap.to(cursor, { x: clientX, y: clientY });
+  // gsap.to(overlay, {
+  //   "--x": `${clientX}%`,
+  //   "--y": `${clientY}%`,
+  //   duration: 0.3,
+  //   ease: "sine.out",
+  // });
 });
 
 menu.addEventListener("mouseover", function () {
@@ -108,26 +121,54 @@ workBtn.onmouseleave = () => {
   cursor.style.display = "block";
 };
 
-for (const s of textOnly) {
-  s.addEventListener("mouseover", function () {
-    gsap.to(cursor, {
-      scale: 3,
-      border: "1px solid black",
-      backgroundColor: "#df9d3f",
-      // filter: "invert(1)",
-      zIndex: "1",
-      opacity: "0.8",
-    });
-  });
-  s &&
-    s.addEventListener("mouseout", function () {
-      gsap.to(cursor, {
-        scale: 1,
-        border: "2px solid black",
-        backgroundColor: "transparent",
-        filter: "invert(0)",
-      });
-    });
-}
+// textOnly.addEventListener("mouseover", function () {
+//   gsap.to(cursor, {
+//     scale: 3,
+//     border: "1px solid #df9d3f",
+//     backgroundColor: "#df9d3f",
+//     zIndex: "1",
+//     opacity: "0.8",
+//   });
+// });
+// textOnly.addEventListener("mouseout", function () {
+//   gsap.to(cursor, {
+//     scale: 1,
+//     border: "2px solid black",
+//     backgroundColor: "transparent",
+//     filter: "invert(0)",
+//   });
+// });
+// textOnlyChar.forEach((s) => {
+//   s.addEventListener("mouseover", (e) => {
+//     const { clientX, clientY } = e;
+//     const x = Math.round((clientX / window.innerWidth) * 100);
+//     const y = Math.round((clientY / window.innerHeight) * 100);
+
+//     gsap.to(overlay, {
+//       "--x": `${x}%`,
+//       "--y": `${y}%`,
+//       duration: 0.3,
+//       ease: "sine.out",
+//     });
+//     gsap.to(cursor, {
+//       opacity: 0,
+//       border: "1px solid black",
+//       backgroundColor: "black",
+//       mixBlendMode: "multiply",
+//       backdropFilter: "grayScale(1)",
+//     });
+//     console.log("values are", x, y);
+//   });
+
+//   s.addEventListener("mouseout", () => {
+//     gsap.to(cursor, {
+//       scale: 1,
+//       border: "2px solid black",
+//       backgroundColor: "transparent",
+//       mixBlendMode: "none",
+//       backdropFilter: "grayScale(0)",
+//     });
+//   });
+// });
 
 // });
