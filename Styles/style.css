@@ -223,7 +223,7 @@ main .nav-container .hamburger .nav-links {
   gap: 30px;
   position: absolute;
   right: 90px;
-  top: 20px;
+  top: 13px;
   transition: clip-path 0.5s cubic-bezier(0.7, 0, 0, 1);
 }
 
@@ -232,15 +232,13 @@ main .nav-container .hamburger .nav-links a {
   background: none;
   border: none;
   color: #000;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 3px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 2px;
   margin: 0;
   padding: 30px;
   position: relative;
   text-decoration: none;
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  text-transform: uppercase;
 }
 
 main .nav-container.nav-container--open .nav-icon__line:first-child {
@@ -448,12 +446,12 @@ main .right-mail-link div::after {
 }
 
 main #scroll_mouse svg {
-  width: 100px;
+  width: 165px;
   position: absolute;
-  bottom: 25px;
-  left: 50%;
+  bottom: -70px;
+  left: 45.5%;
   transform: translate(-50%, 0%);
-  animation: rotation 10s infinite linear;
+  animation: rotation 6s infinite linear;
 }
 
 main #scroll_mouse text {
@@ -464,7 +462,7 @@ main #scroll_mouse text {
   font-variant-ligatures: none;
   stroke: black;
   stroke-width: 1.5px;
-  fill: white;
+  fill: black;
 }
 
 @keyframes rotation {
