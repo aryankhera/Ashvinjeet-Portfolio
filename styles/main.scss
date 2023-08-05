@@ -97,17 +97,30 @@
 body,
 html {
     height: 100%;
-    width: 100%
+    width: 100%;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme:dark) {
 
     body,
     html {
         height: 100%;
         width: 100%;
-        background-color: #000;
-        color: #fff;
+        background-color: #171717 !important;
+        color: #fff !important;
+    }
+
+    .follow_cursor {
+        border: 2px solid #fff !important;
+    }
+
+    .nav-icon__line {
+        background-color: #fff !important;
+        box-shadow: 0 1px 1px #fff !important;
+    }
+
+    #web_dev_tag {
+        color: rgba(211, 220, 255, .4) !important;
     }
 }
 
@@ -236,18 +249,14 @@ main {
         padding-top: 15px;
 
         .nav-brand {
-            // position: absolute;
             margin-left: calc(50vw - 910px);
-            // top: 60px;
             z-index: 1;
             height: 100%;
             width: 100%;
         }
 
         .hamburger {
-            // position: absolute;
             margin-right: calc(50vw - 910px);
-            // top: 60px;
             z-index: 1;
 
             .nav-icon {
