@@ -72,6 +72,32 @@ html {
   #web_dev_tag {
     color: rgba(211, 220, 255, 0.4) !important;
   }
+
+  .nav-links a {
+    color: #fff !important;
+  }
+
+  .workbtn {
+    color: #fff !important;
+  }
+
+  .left-social-links ul li a {
+    color: #fff !important;
+  }
+  .left-social-links ul::after {
+    background-color: #fff !important;
+  }
+
+  div.right-mail-link a {
+    color: #fff !important;
+  }
+  div.right-mail-link::after {
+    background-color: #fff !important;
+  }
+
+  .line_scroll_overlay {
+    stroke: #fff !important;
+  }
 }
 main {
   position: relative;
