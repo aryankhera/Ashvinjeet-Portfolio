@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ashvinjeet Singh</title>
+	<!-- style.css -->
+	<link rel="stylesheet" href="./styles/main.css">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!-- css animate -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+	<!-- font-awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+	<main>
+		<!-- LOADING SCREEN START -->
+		<div id="mainloader">
+			<div class="maintitle">
+				<h2 class="reveal">Developer</h2>
+				<h2 class="reveal1">Designer</h2>
+				<h2 class="reveal2">Problem Solver</h2>
+			</div>
+		</div>
+		<div id="brownpage"></div>
+		<!-- LOADING SCREEN END -->
+		<!-- CURSOR START -->
+		<div class="follow_cursor"></div>
+		<!-- CURSOR END -->
+		<!-- NAV START -->
+		<div class="nav-container">
+			<div class="nav-brand">
+				<img src="images/logo.svg" alt="logo" />
+			</div>
+			<div class="hamburger">
+				<div class="nav-icon">
+					<div class="nav-icon__line"></div>
+					<div class="nav-icon__line"></div>
+					<div class="nav-icon__line"></div>
+				</div>
+				<nav class="nav-links">
+					<a href="/" class="router-link-active router-link-exact-active mouse-md"> Home </a>
+					<a href="/about" class="mouse-md"> About </a>
+					<a href="/portfolio" class="mouse-md"> Projects </a>
+					<a href="/contact" class="mouse-md"> Contact </a>
+			</div>
+			</nav>
+		</div>
+		<!-- NAV END -->
+		<!-- HERO START -->
+		<section class="bg-white hero-section">
+			<div class=" hero-div mx-0 ">
+				<h3 id="web_dev_tag">Web developer</h3>
+				<h4 class="hero_copy_line text_only">I will help your website to look good both inside and outside.</h4>
+				<button class="workbtn">
+					<p>
+						My work
+						<i class="fa fa-arrow-right"></i>
+					</p>
+				</button>
+			</div>
+			<div id="scroll_mouse">
+				<h6 class="scroll_heading">SCROLL TO KNOW MORE</h6>
+				<svg height="30" width="30">
+					<line class="line_scroll" x1="0" y1="0" x2="0" y2="30" stroke-linecap="round" />
+				</svg>
+				<svg height="20" width="20" class="new_line">
+					<line class="line_scroll_overlay" x1="0" y1="0" x2="0" y2="20" stroke-linecap="round" />
+				</svg>
+			</div>
+		</section>
+		<!-- HERO END  -->
+		<!-- LEFT LINK  -->
+		<div orientation="left" class="left-social-links">
+			<ul>
+				<li style="padding: 10px;"><a href="#"><i class="fa fa-github"></i></a></li>
+				<li style="padding: 10px;"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+				<li style="padding: 10px;"><a href="#"><i class="fa fa-twitter"></i></a></li>
+			</ul>
+		</div>
+		<!-- LEFT LINK END-->
+
+		<!-- RIGHT LINK START  -->
+		<div orientation="right" class="right-bar">
+			<div class="mode_changer">
+				<iconify-icon icon="ph:sun" width="37" height="37" id="Sun"></iconify-icon>
+				<iconify-icon icon="ph:moon" width="37" height="37" id="Moon"></iconify-icon>
+
+			</div>
+			<div class="right-mail-link">
+				<a href="#">ashvinjeetsingh22@gmail.com</a>
+			</div>
+		</div>
+		<!-- RIGHT LINK END  -->
+
+
+		<section id="about-section">
+			<!-- <div class="loop-container">
+				<div class="item">HTML</div>
+				<div class="item">CSS</div>
+				<div class="item">JAVASCRIPT</div>
+				<!-- <div class="item">REACT</div>
+				<div class="item">FIGMA</div>
+				<div class="item">ADOBE XD</div>
+				<div class="item">PHOTOSHOP</div> -->
+			</div> -->
+		</section>
+	</main>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+<script src="https://unpkg.com/split-type"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.1.3/pixi.min.js"></script>
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js"></script>
+<!--css plugin GSAP -->
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/CSSRulePlugin3.min.js"></script>
+<!-- Scroll Trigger GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+<!-- main.js -->
+<script src="./JS/main.js"></script>
+<!-- bootstrap -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
+<script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+<!-- Scripts for iconify -->
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+</html>
