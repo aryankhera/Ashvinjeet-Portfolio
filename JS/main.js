@@ -7,8 +7,13 @@ var menu_link = document.querySelector(".nav-links");
 var cursor = document.querySelector(".follow_cursor");
 var workBtn = document.querySelector(".workbtn");
 const overlay = document.querySelector(".overlay");
+const Scroll_more = document.getElementById("scroll_mouse");
+var modeChangerSun = document.querySelector("#Sun");
+var modeChangerMoon = document.querySelector("#Moon");
+console.log(window.matchMedia("prefers-color-scheme"));
 var tl = gsap.timeline();
-
+// Moon button set to be hidden by default
+modeChangerMoon.style.display = "none";
 // var rule = CssRulePlugin.getRule(".scroll-time-menu-items:first-child");
 
 // basic function to convert reveal class into sub elements
@@ -80,16 +85,12 @@ tl.from(".reveal .child", {
   .to(".follow_cursor", {
     display: "block",
   })
-  .to(".translate_div", {
-    transform: "translate(0,-100vh)",
-    height: "0px",
-    ease: Power0.easeIn,
-    delay: -1,
-  })
-  .to(".hero-div", 0.8, { opacity: "1" }, "-=0.1")
-  .to(".left-social-links", 0.5, { opacity: "1" })
-  .to(".right-mail-link", 0.5, { opacity: "1" }, "-=0.5")
-  .to(".nav-container", 0.5, { opacity: "1" }, "-=0.5");
+  .to(".hero-div", { opacity: "1", duration: 0.8 }, "-=0.1")
+  .to(".left-social-links", { opacity: "1", duration: 0.5 })
+  .to(".right-bar", { opacity: "1", duration: 0.5 }, "-=0.5")
+  .to(".nav-container", { opacity: "1", duration: 0.5 }, "-=0.5")
+  .to("#scroll_mouse", { opacity: "1", duration: 0.5 }, "-=0.5")
+  .to(".scroll heading", { opacity: "0.8", duration: 0.5 }, "-=0.5");
 
 // Follow cursor
 gsap.set(cursor, { xPercent: -50, yPercent: -50 });
@@ -98,12 +99,6 @@ window.addEventListener("mousemove", (e) => {
   const x = Math.round((clientX / window.innerWidth) * 100);
   const y = Math.round((clientY / window.innerHeight) * 100);
   gsap.to(cursor, { x: clientX, y: clientY });
-  // gsap.to(overlay, {
-  //   "--x": `${clientX}%`,
-  //   "--y": `${clientY}%`,
-  //   duration: 0.3,
-  //   ease: "sine.out",
-  // });
 });
 
 menu.addEventListener("mouseover", function () {
@@ -113,6 +108,7 @@ menu.addEventListener("mouseout", function () {
   this.classList.remove("nav-container--open");
 });
 
+// cursor remove on work button hover homepage
 workBtn.onmouseover = () => {
   cursor.style.display = "none";
 };
@@ -121,54 +117,147 @@ workBtn.onmouseleave = () => {
   cursor.style.display = "block";
 };
 
-// textOnly.addEventListener("mouseover", function () {
-//   gsap.to(cursor, {
-//     scale: 3,
-//     border: "1px solid #df9d3f",
-//     backgroundColor: "#df9d3f",
-//     zIndex: "1",
-//     opacity: "0.8",
-//   });
-// });
-// textOnly.addEventListener("mouseout", function () {
-//   gsap.to(cursor, {
-//     scale: 1,
-//     border: "2px solid black",
-//     backgroundColor: "transparent",
-//     filter: "invert(0)",
-//   });
-// });
-// textOnlyChar.forEach((s) => {
-//   s.addEventListener("mouseover", (e) => {
-//     const { clientX, clientY } = e;
-//     const x = Math.round((clientX / window.innerWidth) * 100);
-//     const y = Math.round((clientY / window.innerHeight) * 100);
+var tl_modechange1 = gsap.timeline();
+//Mode changer button for Sun/Moon icon
+modeChangerMoon.addEventListener("click", () => {
+  tl_modechange1
+    .from("#Moon", {
+      x: 0,
+      ease: Circ.easeInOut,
+      duration: 0.5,
+      display: "inline",
+    })
+    .to("#Moon", {
+      x: 100,
+      ease: Circ.easeInOut,
+      duration: 0.5,
+      display: "none",
+    })
+    // .to("#Moon", { display: "none", duration: 0.2 }, "-=0.15")
+    .from("#Sun", {
+      x: 100,
+      ease: Circ.easeInOut,
+      duration: 0.5,
+      display: "none",
+    })
+    .to("#Sun", {
+      x: 0,
+      ease: Circ.easeInOut,
+      duration: 0.5,
+      display: "inline",
+    });
+  // .to("#Sun", { display: "inline", duration: 0.2 }, "-=0.15");
+});
 
-//     gsap.to(overlay, {
-//       "--x": `${x}%`,
-//       "--y": `${y}%`,
-//       duration: 0.3,
-//       ease: "sine.out",
-//     });
-//     gsap.to(cursor, {
-//       opacity: 0,
-//       border: "1px solid black",
-//       backgroundColor: "black",
-//       mixBlendMode: "multiply",
-//       backdropFilter: "grayScale(1)",
-//     });
-//     console.log("values are", x, y);
-//   });
+modeChangerSun.addEventListener("click", () => {
+  tl_modechange1
+    .from("#Sun", {
+      x: 0,
+      ease: Circ.easeInOut,
+      duration: 0.5,
+      display: "inline",
+    })
+    .to("#Sun", {
+      x: 100,
+      ease: Circ.easeInOut,
+      duration: 0.5,
+      display: "none",
+    })
+    // .to("#Sun", { display: "none", duration: 0.8 }, "-=0.5")
+    .from("#Moon", {
+      x: 100,
+      ease: Circ.easeInOut,
+      duration: 0.5,
+      display: "none",
+    })
+    .to("#Moon", {
+      x: 0,
+      ease: Circ.easeInOut,
+      duration: 0.5,
+      display: "inline",
+    });
+  // .to("#Moon", { display: "inline", duration: 0.8 }, "-=0.5");
+});
 
-//   s.addEventListener("mouseout", () => {
-//     gsap.to(cursor, {
-//       scale: 1,
-//       border: "2px solid black",
-//       backgroundColor: "transparent",
-//       mixBlendMode: "none",
-//       backdropFilter: "grayScale(0)",
-//     });
-//   });
+// modeChangerSun.addEventListener("click", () => {
+//   modeChangerMoon.classList.remove("hidden_class");
+//   modeChangerSun.classList.add("hidden_class");
 // });
 
-// });
+// class for looping element marquee inspired andrew woan
+// working on this
+// class LoopingElement {
+//   constructor(element, currentTranslation, speed) {
+//     this.element = element;
+//     this.currentTranslation = currentTranslation;
+//     this.speed = speed;
+//     this.direction = true;
+//     this.scrollTop = 0;
+//     this.metric = 100;
+
+//     this.lerp = {
+//       current: this.currentTranslation,
+//       target: this.currentTranslation,
+//       factor: 0.2,
+//     };
+
+//     this.events();
+//     this.render();
+//   }
+
+//   events() {
+//     window.addEventListener("scroll", (e) => {
+//       let direction = window.pageYOffset || document.documentElement.scrollTop;
+//       if (direction > this.scrollTop) {
+//         this.direction = true;
+//         this.lerp.target += this.speed * 5;
+//       } else {
+//         this.direction = false;
+//         this.lerp.target -= this.speed * 5;
+//       }
+//       this.scrollTop = direction <= 0 ? 0 : direction;
+//     });
+//   }
+
+//   lerpFunc(current, target, factor) {
+//     this.lerp.current = current * (1 - factor) + target * factor;
+//   }
+
+//   goForward() {
+//     this.lerp.target += this.speed;
+//     if (this.lerp.target > this.metric) {
+//       this.lerp.current -= this.metric * 2;
+//       this.lerp.target -= this.metric * 2;
+//     }
+//   }
+
+//   goBackward() {
+//     this.lerp.target -= this.speed;
+//     if (this.lerp.target < -this.metric) {
+//       this.lerp.current -= -this.metric * 2;
+//       this.lerp.target -= -this.metric * 2;
+//     }
+//   }
+
+//   animate() {
+//     this.direction ? this.goForward() : this.goBackward();
+//     this.lerpFunc(this.lerp.current, this.lerp.target, this.lerp.factor);
+
+//     this.element.style.transform = `translateX(${this.lerp.current}%)`;
+//   }
+
+//   render() {
+//     this.animate();
+//     window.requestAnimationFrame(() => this.render());
+//   }
+// }
+
+// let elements = document.querySelectorAll(".item");
+// console.log("elements", elements);
+// new LoopingElement(elements[0], 0, 0.08);
+// new LoopingElement(elements[1], -100, 0.08);
+// new LoopingElement(elements[2], -200, 0.08);
+// new LoopingElement(elements[3], -300, 0.08);
+// new LoopingElement(elements[4], -400, 0.08);
+// new LoopingElement(elements[5], -500, 0.08);
+// new LoopingElement(elements[6], -600, 0.08);
