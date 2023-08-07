@@ -202,7 +202,7 @@ function detectColorScheme() {
 
   //dark theme preferred, set document with a `data-theme` attribute
   if (theme == "dark") {
-    document.documentElement.setAttribute("data-theme", "dark");
+    document.getElementById("styleSheet").href = "../styles/dark_main.css";
   }
 }
 
@@ -213,13 +213,15 @@ const toggleSwitch = document.querySelector(
 
 //function that changes the theme, and sets a localStorage variable to track the theme between page loads
 function switchTheme(e) {
+  console.log("switch triggered", document.documentElement);
   if (e.target.checked) {
     localStorage.setItem("theme", "dark");
-    document.documentElement.setAttribute("data-theme", "dark");
+    document.getElementById("styleSheet").href = "../styles//dark_main.css";
     toggleSwitch.checked = true;
   } else {
     localStorage.setItem("theme", "light");
-    document.documentElement.setAttribute("data-theme", "light");
+    // document.documentElement.setAttribute("data-theme", "light");
+    document.getElementById("styleSheet").href = "../styles//main.css";
     toggleSwitch.checked = false;
   }
 }
