@@ -13,9 +13,9 @@ var Scroll_more = document.getElementById("scroll_mouse");
 var modeChangerSun = document.querySelector("#Sun");
 var modeChangerMoon = document.querySelector("#Moon");
 console.log(window.matchMedia("prefers-color-scheme"));
-var tl = gsap.timeline(); // Moon button set to be hidden by default
-
-modeChangerMoon.style.display = "none"; // var rule = CssRulePlugin.getRule(".scroll-time-menu-items:first-child");
+var tl = gsap.timeline();
+detectColorScheme(); // Moon button set to be hidden by default
+// var rule = CssRulePlugin.getRule(".scroll-time-menu-items:first-child");
 // basic function to convert reveal class into sub elements
 
 var revealToSpan = function revealToSpan(classname) {
@@ -128,6 +128,7 @@ workBtn.onmouseleave = function () {
 var tl_modechange1 = gsap.timeline(); //Mode changer button for Sun/Moon icon
 
 modeChangerMoon.addEventListener("click", function () {
+  document.getElementById("mainLogo").src = "../images/logo.svg";
   tl_modechange1.from("#Moon", {
     x: 0,
     ease: Circ.easeInOut,
@@ -152,6 +153,7 @@ modeChangerMoon.addEventListener("click", function () {
   }); // .to("#Sun", { display: "inline", duration: 0.2 }, "-=0.15");
 });
 modeChangerSun.addEventListener("click", function () {
+  document.getElementById("mainLogo").src = "../images/logo.svg";
   tl_modechange1.from("#Sun", {
     x: 0,
     ease: Circ.easeInOut,
@@ -174,7 +176,56 @@ modeChangerSun.addEventListener("click", function () {
     duration: 0.5,
     display: "inline"
   }); // .to("#Moon", { display: "inline", duration: 0.8 }, "-=0.5");
-}); // modeChangerSun.addEventListener("click", () => {
+});
+
+function detectColorScheme() {
+  var theme = "light"; //default to light
+
+  console.log("Triggered"); //local storage is used to override OS theme settings
+
+  if (localStorage.getItem("theme")) {
+    if (localStorage.getItem("theme") == "dark") {
+      var theme = "dark";
+      document.getElementById("mainLogo").src = "../images/logo.png";
+      document.getElementById("styleSheet").href = "../styles/dark_main.css";
+    }
+  } else if (!window.matchMedia) {
+    //matchMedia method not supported
+    document.getElementById("mainLogo").src = "../images/logo.svg";
+    document.getElementById("styleSheet").href = "../styles/main.css";
+    return false;
+  } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    //OS theme setting detected as dark
+    var theme = "dark";
+  } //dark theme preferred, set document with a `data-theme` attribute
+
+
+  if (theme == "dark") {
+    document.documentElement.setAttribute("data-theme", "dark");
+  }
+} //identify the toggle switch HTML element
+
+
+var toggleSwitch = document.querySelector('#theme-switch input[type="checkbox"]'); //function that changes the theme, and sets a localStorage variable to track the theme between page loads
+
+function switchTheme(e) {
+  if (e.target.checked) {
+    localStorage.setItem("theme", "dark");
+    document.documentElement.setAttribute("data-theme", "dark");
+    toggleSwitch.checked = true;
+  } else {
+    localStorage.setItem("theme", "light");
+    document.documentElement.setAttribute("data-theme", "light");
+    toggleSwitch.checked = false;
+  }
+} //listener for changing themes
+
+
+toggleSwitch.addEventListener("change", switchTheme, false); //pre-check the dark-theme checkbox if dark-theme is set
+
+if (document.documentElement.getAttribute("data-theme") == "dark") {
+  toggleSwitch.checked = true;
+} // modeChangerSun.addEventListener("click", () => {
 //   modeChangerMoon.classList.remove("hidden_class");
 //   modeChangerSun.classList.add("hidden_class");
 // });

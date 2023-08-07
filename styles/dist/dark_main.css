@@ -1,56 +1,48 @@
 @font-face {
-  font-family: 'silka_thin';
+  font-family: "silka_thin";
   src: url("../fonts/silka-thin-webfont.eot");
   src: url("../fonts/silka-thin-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/silka-thin-webfont.woff2") format("woff2"), url("../fonts/silka-thin-webfont.woff") format("woff"), url("../fonts/silka-thin-webfont.ttf") format("truetype");
 }
-
 @font-face {
-  font-family: 'silka_extralight';
+  font-family: "silka_extralight";
   src: url("../fonts/silka-extralight-webfont.eot");
   src: url("../fonts/silka-extralight-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/silka-extralight-webfont.woff2") format("woff2"), url("../fonts/silka-extralight-webfont.woff") format("woff"), url("../fonts/silka-extralight-webfont.ttf") format("truetype");
 }
-
 @font-face {
-  font-family: 'silka_light';
+  font-family: "silka_light";
   src: url("../fonts/silka-light-webfont.eot");
   src: url("../fonts/silka-light-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/silka-light-webfont.woff2") format("woff2"), url("../fonts/silka-light-webfont.woff") format("woff"), url("../fonts/silka-light-webfont.ttf") format("truetype");
 }
-
 @font-face {
-  font-family: 'silka_medium';
+  font-family: "silka_medium";
   src: url("../fonts/silka-medium-webfont.eot");
   src: url("../fonts/silka-medium-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/silka-medium-webfont.woff2") format("woff2"), url("../fonts/silka-medium-webfont.woff") format("woff"), url("../fonts/silka-medium-webfont.ttf") format("truetype");
 }
-
 @font-face {
-  font-family: 'silka_regular';
+  font-family: "silka_regular";
   src: url("../fonts/silka-regular-webfont.eot");
   src: url("../fonts/silka-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/silka-regular-webfont.woff2") format("woff2"), url("../fonts/silka-regular-webfont.woff") format("woff"), url("../fonts/silka-regular-webfont.ttf") format("truetype");
 }
-
 @font-face {
-  font-family: 'silka_semibold';
+  font-family: "silka_semibold";
   src: url("../fonts/silka-semibold-webfont.eot");
   src: url("../fonts/silka-semibold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/silka-semibold-webfont.woff2") format("woff2"), url("../fonts/silka-semibold-webfont.woff") format("woff"), url("../fonts/silka-semibold-webfont.ttf") format("truetype");
 }
-
 @font-face {
-  font-family: 'silka_bold';
+  font-family: "silka_bold";
   src: url("../fonts/silka-bold-webfont.eot");
   src: url("../fonts/silka-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/silka-bold-webfont.woff2") format("woff2"), url("../fonts/silka-bold-webfont.woff") format("woff"), url("../fonts/silka-bold-webfont.ttf") format("truetype");
 }
-
 @font-face {
-  font-family: 'silka_black';
+  font-family: "silka_black";
   src: url("../fonts/silka-black-webfont.eot");
   src: url("../fonts/silka-black-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/silka-black-webfont.woff2") format("woff2"), url("../fonts/silka-black-webfont.woff") format("woff"), url("../fonts/silka-black-webfont.ttf") format("truetype");
 }
-
 * {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
-  font-family: 'silka_regular';
+  font-family: "silka_regular";
 }
 
 body,
@@ -59,11 +51,11 @@ html {
   width: 100%;
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
   main {
     position: relative;
     min-height: calc(100vh - 28px);
-    font-family: 'silka_regular';
+    font-family: "silka_regular";
     width: 100%;
   }
   main #mainloader {
@@ -76,7 +68,7 @@ html {
   }
   main #mainloader .maintitle {
     color: #df9d3f;
-    font-family: 'silka_black';
+    font-family: "silka_black";
     font-weight: 900;
   }
   main #mainloader .maintitle .reveal {
@@ -136,7 +128,7 @@ html {
   main .follow_cursor {
     width: 30px;
     height: 30px;
-    border: 2px solid #000;
+    border: 2px solid #fff;
     border-radius: 50%;
     position: fixed;
     display: none;
@@ -152,10 +144,10 @@ html {
     position: absolute;
     border: 8px solid gray;
     border-radius: 50%;
-    opacity: .5;
+    opacity: 0.5;
     top: -8px;
     left: -8px;
-    animation: cursorAnim2 .5s infinite alternate;
+    animation: cursorAnim2 0.5s infinite alternate;
   }
   main .nav-container {
     position: relative;
@@ -184,8 +176,8 @@ html {
     align-items: flex-end;
   }
   main .nav-container .hamburger .nav-icon .nav-icon__line {
-    background-color: #000;
-    box-shadow: 0 1px 1px #000;
+    background-color: #fff;
+    box-shadow: 0 1px 1px #fff;
     height: 2px;
     pointer-events: none;
     transition: transform 0.5s cubic-bezier(0.7, 0, 0, 1);
@@ -195,8 +187,9 @@ html {
     width: 75%;
   }
   main .nav-container .hamburger .nav-links {
-    font-family: 'silka_regular';
-    color: #000;
+    font-family: "silka_regular";
+    color: #fff;
+    -webkit-clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
     clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
     display: flex;
     flex-direction: row;
@@ -204,13 +197,15 @@ html {
     position: absolute;
     right: 90px;
     top: 13px;
+    transition: -webkit-clip-path 0.5s cubic-bezier(0.7, 0, 0, 1);
     transition: clip-path 0.5s cubic-bezier(0.7, 0, 0, 1);
+    transition: clip-path 0.5s cubic-bezier(0.7, 0, 0, 1), -webkit-clip-path 0.5s cubic-bezier(0.7, 0, 0, 1);
   }
   main .nav-container .hamburger .nav-links a {
-    font-family: 'silka_regular';
+    font-family: "silka_regular";
     background: none;
     border: none;
-    color: #000;
+    color: #fff;
     font-size: 16px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -223,15 +218,17 @@ html {
     transform: rotate(45deg) translate(5px, 8px);
   }
   main .nav-container.nav-container--open .nav-icon__line:nth-child(2) {
-    transform: translate(MIN(-37vw, -700px));
+    transform: translate(min(-37vw, -700px));
     transition: transform 0.7s cubic-bezier(0.7, 0, 0, 1);
   }
   main .nav-container.nav-container--open .nav-icon__line:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -8px);
   }
   main .nav-container.nav-container--open .nav-links {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    transition: clip-path 0.7s cubic-bezier(0.7, 0, 0, 1);
+    transition: -webkit-clip-path 0.7s cubic-bezier(0.7, 0, 0, 1);
+    transition: clip-path 0.7s cubic-bezier(0.7, 0, 0, 1), -webkit-clip-path 0.7s cubic-bezier(0.7, 0, 0, 1);
   }
   main .nav-container.nav-container--open .nav-links a:hover {
     color: #DF9D3F;
@@ -255,7 +252,7 @@ html {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: rgba(25, 26, 30, 0.4);
+    color: rgba(211, 220, 255, 0.4);
     margin-bottom: 5px;
     cursor: default;
     position: relative;
@@ -351,13 +348,14 @@ html {
   main .left-social-links ul {
     display: flex;
     flex-direction: column;
+    -webkit-box-align: center;
     align-items: center;
     margin: 0px;
     padding: 0px;
     list-style: none;
   }
   main .left-social-links ul li a {
-    color: #000;
+    color: #fff;
     font-size: 24px;
     transition: 0.2s ease-in-out;
   }
@@ -399,6 +397,7 @@ html {
   main .right-bar div.right-mail-link {
     display: flex;
     flex-direction: column;
+    -webkit-box-align: center;
     align-items: center;
     position: relative;
   }
@@ -408,13 +407,14 @@ html {
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.1em;
+    -webkit-writing-mode: vertical-rl;
     writing-mode: vertical-rl;
-    color: #000;
+    color: #fff;
     transition: 0.2s ease-in-out;
   }
   main .right-bar div.right-mail-link a:hover {
     text-decoration: none;
-    color: rgba(25, 26, 30, 0.4);
+    color: rgba(211, 220, 255, 0.4);
     transition: 0.2s ease-in-out;
     transform: translateY(-5px);
   }
@@ -424,7 +424,7 @@ html {
     width: 3px;
     height: 90px;
     margin: 0px auto;
-    background-color: #000;
+    background-color: #fff;
   }
   main #Sun:hover {
     color: #DF9D3F;
@@ -463,11 +463,10 @@ html {
     stroke-width: 3;
   }
   main #scroll_mouse .line_scroll_overlay {
-    stroke: #000;
+    stroke: #fff;
     stroke-width: 7;
   }
 }
-
 @keyframes updown {
   from {
     transform: translateY(-50px);
@@ -476,7 +475,6 @@ html {
     transform: translateY(0%);
   }
 }
-
 @keyframes tubelight {
   0% {
     background: #2beb2b;
@@ -487,7 +485,6 @@ html {
     box-shadow: 0 0 10px #66ff66 0 0 20px #66ff66 0 0 40px #66ff66 0 0 80px #66ff66 0 0 160px #66ff66;
   }
 }
-
 .ham-icon1.change {
   transform: rotate(-45deg) translate(0px, 5px);
   background-color: black;
@@ -503,7 +500,6 @@ html {
 .ham-nav-item.change:hover > .icon-div > .ham-icon1 {
   transform: rotate(-45deg) translate(0px, 5px);
 }
-
 .ham-nav-item.change:hover > .icon-div > .ham-icon2 {
   transform: rotate(45deg) translate(0px, -5px);
 }
@@ -514,10 +510,8 @@ html {
     left: 28%;
   }
 }
-
 @media (max-width: 768px) {
   #left-hero {
     flex: 0 0 100% !important;
   }
 }
-/*# sourceMappingURL=main.css.map */

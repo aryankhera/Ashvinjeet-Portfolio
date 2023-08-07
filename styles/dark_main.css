@@ -59,7 +59,7 @@ html {
   width: 100%;
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
   main {
     position: relative;
     min-height: calc(100vh - 28px);
@@ -136,7 +136,7 @@ html {
   main .follow_cursor {
     width: 30px;
     height: 30px;
-    border: 2px solid #000;
+    border: 2px solid #fff;
     border-radius: 50%;
     position: fixed;
     display: none;
@@ -184,8 +184,8 @@ html {
     align-items: flex-end;
   }
   main .nav-container .hamburger .nav-icon .nav-icon__line {
-    background-color: #000;
-    box-shadow: 0 1px 1px #000;
+    background-color: #fff;
+    box-shadow: 0 1px 1px #fff;
     height: 2px;
     pointer-events: none;
     transition: transform 0.5s cubic-bezier(0.7, 0, 0, 1);
@@ -196,7 +196,7 @@ html {
   }
   main .nav-container .hamburger .nav-links {
     font-family: 'silka_regular';
-    color: #000;
+    color: #fff;
     clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
     display: flex;
     flex-direction: row;
@@ -210,7 +210,7 @@ html {
     font-family: 'silka_regular';
     background: none;
     border: none;
-    color: #000;
+    color: #fff;
     font-size: 16px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -255,7 +255,7 @@ html {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: rgba(25, 26, 30, 0.4);
+    color: rgba(211, 220, 255, 0.4);
     margin-bottom: 5px;
     cursor: default;
     position: relative;
@@ -357,7 +357,7 @@ html {
     list-style: none;
   }
   main .left-social-links ul li a {
-    color: #000;
+    color: #fff;
     font-size: 24px;
     transition: 0.2s ease-in-out;
   }
@@ -409,12 +409,12 @@ html {
     font-weight: 700;
     letter-spacing: 0.1em;
     writing-mode: vertical-rl;
-    color: #000;
+    color: #fff;
     transition: 0.2s ease-in-out;
   }
   main .right-bar div.right-mail-link a:hover {
     text-decoration: none;
-    color: rgba(25, 26, 30, 0.4);
+    color: rgba(211, 220, 255, 0.4);
     transition: 0.2s ease-in-out;
     transform: translateY(-5px);
   }
@@ -424,7 +424,7 @@ html {
     width: 3px;
     height: 90px;
     margin: 0px auto;
-    background-color: #000;
+    background-color: #fff;
   }
   main #Sun:hover {
     color: #DF9D3F;
@@ -463,7 +463,7 @@ html {
     stroke-width: 3;
   }
   main #scroll_mouse .line_scroll_overlay {
-    stroke: #000;
+    stroke: #fff;
     stroke-width: 7;
   }
 }
@@ -520,4 +520,4 @@ html {
     flex: 0 0 100% !important;
   }
 }
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=dark_main.css.map */

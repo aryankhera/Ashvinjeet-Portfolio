@@ -72,11 +72,6 @@
 }
 
 
-
-
-
-
-
 * {
     padding: 0px;
     margin: 0px;
@@ -90,12 +85,12 @@ html {
     width: 100%;
 }
 
-@media (prefers-color-scheme:light) {
+@media (prefers-color-scheme:dark) {
 
-    $font-color: #000;
-    $bg-color: rgb(243, 243, 243);
-    $secondary-color: rgba(25, 26, 30, .4);
+    $font-color: #fff;
+    $secondary-color: rgba(211, 220, 255, .4);
     $link-color: #DF9D3F;
+    $bg-color: #171717;
 
     main {
         position: relative;

@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Ashvinjeet Singh</title>
 	<!-- style.css -->
-	<link rel="stylesheet" href="./styles/main.css">
+	<link id="styleSheet" rel="stylesheet" href="">
 	<!-- bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -34,7 +34,7 @@
 		<!-- NAV START -->
 		<div class="nav-container">
 			<div class="nav-brand">
-				<img src="images/logo.svg" alt="logo" />
+				<img id="mainLogo" src="" alt="logo" />
 			</div>
 			<div class="hamburger">
 				<div class="nav-icon">
@@ -89,7 +89,9 @@
 			<div class="mode_changer">
 				<iconify-icon icon="ph:sun" width="37" height="37" id="Sun"></iconify-icon>
 				<iconify-icon icon="ph:moon" width="37" height="37" id="Moon"></iconify-icon>
-
+				<label id="theme-switch" class="theme-switch" for="checkbox_theme">
+					<input type="checkbox" id="checkbox_theme">
+				</label>
 			</div>
 			<div class="right-mail-link">
 				<a href="#">ashvinjeetsingh22@gmail.com</a>
@@ -98,17 +100,17 @@
 		<!-- RIGHT LINK END  -->
 
 
-		<section id="about-section">
-			<!-- <div class="loop-container">
+		<!-- <section id="about-section">
+				 <div class="loop-container">
 				<div class="item">HTML</div>
 				<div class="item">CSS</div>
 				<div class="item">JAVASCRIPT</div>
-				<!-- <div class="item">REACT</div>
+				<div class="item">REACT</div>
 				<div class="item">FIGMA</div>
 				<div class="item">ADOBE XD</div>
-				<div class="item">PHOTOSHOP</div> -->
-			</div> -->
-		</section>
+				<div class="item">PHOTOSHOP</div> 
+			</div>
+		</section> -->
 	</main>
 
 </body>
