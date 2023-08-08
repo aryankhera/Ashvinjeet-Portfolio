@@ -1,3 +1,8 @@
+$font-color: #fff;
+$secondary-color: rgba(211, 220, 255, .4);
+$link-color: #DF9D3F;
+$bg-color: #171717;
+
 // Importing local Font faces
 @font-face {
     font-family: 'silka_thin';
@@ -83,14 +88,11 @@ body,
 html {
     height: 100%;
     width: 100%;
+    background-color: $bg-color;
+    color: $font-color;
 }
 
 @media (prefers-color-scheme:dark) {
-
-    $font-color: #fff;
-    $secondary-color: rgba(211, 220, 255, .4);
-    $link-color: #DF9D3F;
-    $bg-color: #171717;
 
     main {
         position: relative;
@@ -215,6 +217,7 @@ html {
             justify-content: space-between;
             align-items: center;
             padding-top: 15px;
+            background-color: $bg-color;
 
             .nav-brand {
                 margin-left: calc(50vw - 910px);
@@ -326,6 +329,7 @@ html {
             height: calc(100vh - 95px);
             position: relative;
             text-align: center;
+            background-color: $bg-color;
 
             .hero-div {
                 position: absolute;
@@ -374,6 +378,7 @@ html {
                     cursor: default;
                     position: relative;
                     z-index: 2;
+                    color: $font-color;
                 }
 
                 .workbtn {
@@ -381,7 +386,7 @@ html {
                     display: inline-block;
                     line-height: 0;
                     position: relative;
-                    color: #3b2e1c;
+                    color: $font-color;
                     font-weight: 900;
                     border: 0;
                     background-color: transparent;
@@ -444,6 +449,7 @@ html {
                 transform: translate(-50%, 0px);
                 animation: updown 3s;
                 animation-iteration-count: infinite;
+                color: $font-color;
             }
         }
 
@@ -486,7 +492,7 @@ html {
                     width: 3px;
                     height: 90px;
                     margin: 0px auto;
-                    background-color: black;
+                    background-color: $font-color;
                 }
             }
         }
@@ -553,12 +559,16 @@ html {
         }
 
         #Sun {
+            color: $font-color;
+
             &:hover {
                 color: $link-color;
             }
         }
 
         #Moon {
+            color: $font-color;
+
             &:hover {
                 color: $link-color;
             }
@@ -570,6 +580,7 @@ html {
         }
 
         #scroll_mouse {
+            color: $font-color;
             opacity: 0;
             position: absolute;
             bottom: -1%;

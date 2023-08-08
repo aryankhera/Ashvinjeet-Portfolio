@@ -57,6 +57,8 @@ body,
 html {
   height: 100%;
   width: 100%;
+  background-color: #171717;
+  color: #fff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -164,6 +166,7 @@ html {
     justify-content: space-between;
     align-items: center;
     padding-top: 15px;
+    background-color: #171717;
   }
   main .nav-container .nav-brand {
     margin-left: calc(50vw - 910px);
@@ -240,6 +243,7 @@ html {
     height: calc(100vh - 95px);
     position: relative;
     text-align: center;
+    background-color: #171717;
   }
   main .hero-section .hero-div {
     position: absolute;
@@ -280,13 +284,14 @@ html {
     cursor: default;
     position: relative;
     z-index: 2;
+    color: #fff;
   }
   main .hero-section .hero-div .workbtn {
     height: 60px;
     display: inline-block;
     line-height: 0;
     position: relative;
-    color: #3b2e1c;
+    color: #fff;
     font-weight: 900;
     border: 0;
     background-color: transparent;
@@ -338,6 +343,7 @@ html {
     transform: translate(-50%, 0px);
     animation: updown 3s;
     animation-iteration-count: infinite;
+    color: #fff;
   }
   main .left-social-links {
     width: 40px;
@@ -373,7 +379,7 @@ html {
     width: 3px;
     height: 90px;
     margin: 0px auto;
-    background-color: black;
+    background-color: #fff;
   }
   main .right-bar {
     width: 40px;
@@ -426,8 +432,14 @@ html {
     margin: 0px auto;
     background-color: #fff;
   }
+  main #Sun {
+    color: #fff;
+  }
   main #Sun:hover {
     color: #DF9D3F;
+  }
+  main #Moon {
+    color: #fff;
   }
   main #Moon:hover {
     color: #DF9D3F;
@@ -437,6 +449,7 @@ html {
     transition: 2s ease-in-out;
   }
   main #scroll_mouse {
+    color: #fff;
     opacity: 0;
     position: absolute;
     bottom: -1%;
