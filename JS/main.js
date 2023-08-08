@@ -118,7 +118,6 @@ workBtn.onmouseleave = () => {
 var tl_modechange1 = gsap.timeline();
 //Mode changer button for Sun/Moon icon
 modeChangerMoon.addEventListener("click", () => {
-  document.getElementById("mainLogo").src = "../images/logo.svg";
   tl_modechange1
     .from("#Moon", {
       x: 0,
@@ -148,7 +147,6 @@ modeChangerMoon.addEventListener("click", () => {
 });
 
 modeChangerSun.addEventListener("click", () => {
-  document.getElementById("mainLogo").src = "../images/logo.svg";
   tl_modechange1
     .from("#Sun", {
       x: 0,
@@ -186,13 +184,16 @@ function detectColorScheme() {
       console.log("Dark theme incoming!!!");
       var theme = "dark";
       document.getElementById("styleSheet").href = "../styles/dark_main.css";
-      document.getElementById("mainLogo").src = "../images/logo.png";
+      document.getElementById("mainLogo").src = "../images/logo_bg_black.svg";
       document.getElementById("mainLogo").style.width = "2vw";
+      document.getElementById("mainLogo").style.maxHeight = "79.67px";
     } else if (localStorage.getItem("theme") == "light") {
       //matchMedia method not supported
       console.log("Light theme incoming!!!");
-      document.getElementById("mainLogo").src = "../images/logo.svg";
       document.getElementById("styleSheet").href = "../styles/main.css";
+      document.getElementById("mainLogo").src = "../images/logo.svg";
+      document.getElementById("mainLogo").style.width = "2vw";
+      document.getElementById("mainLogo").style.maxHeight = "79.67px";
       return false;
     }
   }
