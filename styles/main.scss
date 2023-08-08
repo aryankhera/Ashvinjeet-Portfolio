@@ -1,91 +1,80 @@
+$font-color: #000;
+$bg-color: rgb(243, 243, 243);
+$secondary-color: rgba(25, 26, 30, .4);
+$link-color: #DF9D3F;
+
 // Importing local Font faces
-@font-face {
-    font-family: 'silka_thin';
-    src: url('../fonts/silka-thin-webfont.eot');
-    src: url('../fonts/silka-thin-webfont.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/silka-thin-webfont.woff2') format('woff2'),
-        url('../fonts/silka-thin-webfont.woff') format('woff'),
-        url('../fonts/silka-thin-webfont.ttf') format('truetype');
-}
+// @font-face {
+//     font-family: 'silka_thin';
+//     src: url('../fonts/silka-thin-webfont.eot');
+//     src: url('../fonts/silka-thin-webfont.eot?#iefix') format('embedded-opentype'),
+//         url('../fonts/silka-thin-webfont.woff2') format('woff2'),
+//         url('../fonts/silka-thin-webfont.woff') format('woff'),
+//         url('../fonts/silka-thin-webfont.ttf') format('truetype');
+// }
 
-@font-face {
-    font-family: 'silka_extralight';
-    src: url('../fonts/silka-extralight-webfont.eot');
-    src: url('../fonts/silka-extralight-webfont.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/silka-extralight-webfont.woff2') format('woff2'),
-        url('../fonts/silka-extralight-webfont.woff') format('woff'),
-        url('../fonts/silka-extralight-webfont.ttf') format('truetype');
-}
+// @font-face {
+//     font-family: 'silka_extralight';
+//     src: url('../fonts/silka-extralight-webfont.eot');
+//     src: url('../fonts/silka-extralight-webfont.eot?#iefix') format('embedded-opentype'),
+//         url('../fonts/silka-extralight-webfont.woff2') format('woff2'),
+//         url('../fonts/silka-extralight-webfont.woff') format('woff'),
+//         url('../fonts/silka-extralight-webfont.ttf') format('truetype');
+// }
 
-@font-face {
-    font-family: 'silka_light';
-    src: url('../fonts/silka-light-webfont.eot');
-    src: url('../fonts/silka-light-webfont.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/silka-light-webfont.woff2') format('woff2'),
-        url('../fonts/silka-light-webfont.woff') format('woff'),
-        url('../fonts/silka-light-webfont.ttf') format('truetype');
-}
+// @font-face {
+//     font-family: 'silka_light';
+//     src: url('../fonts/silka-light-webfont.eot');
+//     src: url('../fonts/silka-light-webfont.eot?#iefix') format('embedded-opentype'),
+//         url('../fonts/silka-light-webfont.woff2') format('woff2'),
+//         url('../fonts/silka-light-webfont.woff') format('woff'),
+//         url('../fonts/silka-light-webfont.ttf') format('truetype');
+// }
 
-@font-face {
-    font-family: 'silka_medium';
-    src: url('../fonts/silka-medium-webfont.eot');
-    src: url('../fonts/silka-medium-webfont.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/silka-medium-webfont.woff2') format('woff2'),
-        url('../fonts/silka-medium-webfont.woff') format('woff'),
-        url('../fonts/silka-medium-webfont.ttf') format('truetype');
-}
+// @font-face {
+//     font-family: 'silka_medium';
+//     src: url('../fonts/silka-medium-webfont.eot');
+//     src: url('../fonts/silka-medium-webfont.eot?#iefix') format('embedded-opentype'),
+//         url('../fonts/silka-medium-webfont.woff2') format('woff2'),
+//         url('../fonts/silka-medium-webfont.woff') format('woff'),
+//         url('../fonts/silka-medium-webfont.ttf') format('truetype');
+// }
 
 @font-face {
     font-family: 'silka_regular';
-    src: url('../fonts/silka-regular-webfont.eot');
+    src: url('../fonts/silka-black-webfont.eot');
     src: url('../fonts/silka-regular-webfont.eot?#iefix') format('embedded-opentype'),
         url('../fonts/silka-regular-webfont.woff2') format('woff2'),
         url('../fonts/silka-regular-webfont.woff') format('woff'),
         url('../fonts/silka-regular-webfont.ttf') format('truetype');
 }
 
-@font-face {
-    font-family: 'silka_semibold';
-    src: url('../fonts/silka-semibold-webfont.eot');
-    src: url('../fonts/silka-semibold-webfont.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/silka-semibold-webfont.woff2') format('woff2'),
-        url('../fonts/silka-semibold-webfont.woff') format('woff'),
-        url('../fonts/silka-semibold-webfont.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'silka_bold';
-    src: url('../fonts/silka-bold-webfont.eot');
-    src: url('../fonts/silka-bold-webfont.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/silka-bold-webfont.woff2') format('woff2'),
-        url('../fonts/silka-bold-webfont.woff') format('woff'),
-        url('../fonts/silka-bold-webfont.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'silka_black';
-    src: url('../fonts/silka-black-webfont.eot');
-    src: url('../fonts/silka-black-webfont.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/silka-black-webfont.woff2') format('woff2'),
-        url('../fonts/silka-black-webfont.woff') format('woff'),
-        url('../fonts/silka-black-webfont.ttf') format('truetype');
-}
-
-
-// $font-stack: Helvetica,sans-serif;
-// @keyframes tubelight {
-//     0% {
-//         background: #2beb2b;
-//         box-shadow: none;
-//     }
-
-//     100% {
-//         background: #66ff66;
-//         box-shadow: 0 0 10px #66ff66 0 0 20px #66ff66 0 0 40px #66ff66 0 0 80px #66ff66 0 0 160px #66ff66;
-
-//     }
+// @font-face {
+//     font-family: 'silka_semibold';
+//     src: url('../fonts/silka-semibold-webfont.eot');
+//     src: url('../fonts/silka-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+//         url('../fonts/silka-semibold-webfont.woff2') format('woff2'),
+//         url('../fonts/silka-semibold-webfont.woff') format('woff'),
+//         url('../fonts/silka-semibold-webfont.ttf') format('truetype');
 // }
 
+// @font-face {
+//     font-family: 'silka_bold';
+//     src: url('../fonts/silka-bold-webfont.eot');
+//     src: url('../fonts/silka-bold-webfont.eot?#iefix') format('embedded-opentype'),
+//         url('../fonts/silka-bold-webfont.woff2') format('woff2'),
+//         url('../fonts/silka-bold-webfont.woff') format('woff'),
+//         url('../fonts/silka-bold-webfont.ttf') format('truetype');
+// }
+
+// @font-face {
+//     font-family: 'silka_black';
+//     src: url('../fonts/silka-black-webfont.eot');
+//     src: url('../fonts/silka-black-webfont.eot?#iefix') format('embedded-opentype'),
+//         url('../fonts/silka-black-webfont.woff2') format('woff2'),
+//         url('../fonts/silka-black-webfont.woff') format('woff'),
+//         url('../fonts/silka-black-webfont.ttf') format('truetype');
+// }
 
 * {
     padding: 0px;
@@ -97,19 +86,10 @@
 body,
 html {
     height: 100%;
-    width: 100%
+    width: 100%;
 }
 
-@media (prefers-color-scheme: dark) {
 
-    body,
-    html {
-        height: 100%;
-        width: 100%;
-        background-color: #000;
-        color: #fff;
-    }
-}
 
 main {
     position: relative;
@@ -204,7 +184,7 @@ main {
     .follow_cursor {
         width: 30px;
         height: 30px;
-        border: 2px solid black;
+        border: 2px solid $font-color;
         border-radius: 50%;
         position: fixed;
         display: none;
@@ -236,18 +216,14 @@ main {
         padding-top: 15px;
 
         .nav-brand {
-            // position: absolute;
             margin-left: calc(50vw - 910px);
-            // top: 60px;
             z-index: 1;
             height: 100%;
             width: 100%;
         }
 
         .hamburger {
-            // position: absolute;
             margin-right: calc(50vw - 910px);
-            // top: 60px;
             z-index: 1;
 
             .nav-icon {
@@ -259,8 +235,8 @@ main {
                 align-items: flex-end;
 
                 .nav-icon__line {
-                    background-color: #000;
-                    box-shadow: 0 1px 1px #000000;
+                    background-color: $font-color;
+                    box-shadow: 0 1px 1px $font-color;
                     height: 2px;
                     pointer-events: none;
                     transition: transform .5s cubic-bezier(.7, 0, 0, 1);
@@ -274,7 +250,7 @@ main {
 
             .nav-links {
                 font-family: 'silka_regular';
-                color: #000;
+                color: $font-color;
                 -webkit-clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
                 clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
                 display: flex;
@@ -292,7 +268,7 @@ main {
                     font-family: 'silka_regular';
                     background: none;
                     border: none;
-                    color: #000;
+                    color: $font-color;
                     font-size: 16px;
                     font-weight: 700;
                     letter-spacing: 2px;
@@ -338,7 +314,7 @@ main {
 
                 a {
                     &:hover {
-                        color: #df9d3f;
+                        color: $link-color;
                     }
                 }
             }
@@ -370,7 +346,7 @@ main {
                 font-weight: 500;
                 text-transform: uppercase;
                 letter-spacing: 2px;
-                color: rgba(25, 26, 30, .4);
+                color: $secondary-color;
                 margin-bottom: 5px;
                 cursor: default;
                 position: relative;
@@ -421,7 +397,7 @@ main {
 
 
                 &::after {
-                    background: #df9d3f;
+                    background: $link-color;
                     content: "";
                     height: 5px;
                     position: absolute;
@@ -490,14 +466,14 @@ main {
 
             li {
                 a {
-                    color: black;
+                    color: $font-color;
                     font-size: 24px;
                     transition: 0.2s ease-in-out;
 
                     &:hover {
                         transform: translateY(50px);
                         transform: scale(1.5);
-                        color: #df9d3f;
+                        color: $link-color;
                         transition: 0.2s ease-in-out;
                     }
                 }
@@ -552,12 +528,12 @@ main {
                 letter-spacing: 0.1em;
                 -webkit-writing-mode: vertical-rl;
                 writing-mode: vertical-rl;
-                color: black;
+                color: $font-color;
                 transition: 0.2s ease-in-out;
 
                 &:hover {
                     text-decoration: none;
-                    color: #797773;
+                    color: $secondary-color;
                     transition: 0.2s ease-in-out;
                     transform: translateY(-5px);
                 }
@@ -570,20 +546,20 @@ main {
                 width: 3px;
                 height: 90px;
                 margin: 0px auto;
-                background-color: black;
+                background-color: $font-color;
             }
         }
     }
 
     #Sun {
         &:hover {
-            color: #df9d3f;
+            color: $link-color;
         }
     }
 
     #Moon {
         &:hover {
-            color: #df9d3f;
+            color: $link-color;
         }
     }
 
@@ -623,59 +599,60 @@ main {
         }
 
         .line_scroll_overlay {
-            stroke: black;
+            stroke: $font-color;
             stroke-width: 7;
         }
     }
 
-
-    #about-section {
-        // max-width: 900px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto;
-        background-color: #000;
-        height: 100vh;
-        position: relative;
-
-        .loop-container {
-            margin-top: 500px;
-            white-space: nowrap;
-            font-weight: 100;
-            font-size: 9vw;
-            letter-spacing: 5px;
-            /* transform: rotate(7deg); */
-        }
-
-        .item {
-            position: absolute;
-        }
-
-    }
-
-    #project-section {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto;
-        background-color: #000;
-        height: 100vh;
-        position: relative;
-    }
-
-
-
-    #contact-form {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto;
-        background-color: #000;
-        height: 100vh;
-        position: relative;
-    }
 }
+
+// #about-section {
+//     // max-width: 900px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     margin: 0 auto;
+//     background-color: #000;
+//     height: 100vh;
+//     position: relative;
+
+//     .loop-container {
+//         margin-top: 500px;
+//         white-space: nowrap;
+//         font-weight: 100;
+//         font-size: 9vw;
+//         letter-spacing: 5px;
+//         /* transform: rotate(7deg); */
+//     }
+
+//     .item {
+//         position: absolute;
+//     }
+
+// }
+
+// #project-section {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     margin: 0 auto;
+//     background-color: #000;
+//     height: 100vh;
+//     position: relative;
+// }
+
+
+
+// #contact-form {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     margin: 0 auto;
+//     background-color: #000;
+//     height: 100vh;
+//     position: relative;
+// }
+
 
 
 
