@@ -10,7 +10,11 @@ const overlay = document.querySelector(".overlay");
 const Scroll_more = document.getElementById("scroll_mouse");
 var modeChangerSun = document.querySelector("#Sun");
 var modeChangerMoon = document.querySelector("#Moon");
+const toggleSwitch = document.querySelector(
+  '#theme-switch input[type="checkbox"]'
+);
 var tl = gsap.timeline();
+// localStorage.clear();
 detectColorScheme();
 // Moon button set to be hidden by default
 // var rule = CssRulePlugin.getRule(".scroll-time-menu-items:first-child");
@@ -80,13 +84,13 @@ tl.from(".reveal .child", {
     duration: 2,
     delay: -0.5,
   })
+  .to(".nav-container", { opacity: "1", duration: 0.2 }, "-=0.8")
   .to(".follow_cursor", {
     display: "block",
   })
   .to(".hero-div", { opacity: "1", duration: 0.8 }, "-=0.1")
   .to(".left-social-links", { opacity: "1", duration: 0.5 })
   .to(".right-bar", { opacity: "1", duration: 0.5 }, "-=0.5")
-  .to(".nav-container", { opacity: "1", duration: 0.5 }, "-=0.5")
   .to("#scroll_mouse", { opacity: "1", duration: 0.5 }, "-=0.5")
   .to(".scroll heading", { opacity: "0.8", duration: 0.5 }, "-=0.5");
 
@@ -179,6 +183,7 @@ modeChangerSun.addEventListener("click", () => {
 function detectColorScheme() {
   var theme = "light"; //default to light
   //local storage is used to override OS theme settings
+  console.log("Color scheme func called", localStorage.getItem("theme"));
   if (localStorage.getItem("theme")) {
     if (localStorage.getItem("theme") == "dark") {
       console.log("Dark theme incoming!!!");
@@ -187,6 +192,7 @@ function detectColorScheme() {
       document.getElementById("mainLogo").src = "../images/logo_bg_black.svg";
       document.getElementById("mainLogo").style.width = "2vw";
       document.getElementById("mainLogo").style.maxHeight = "79.67px";
+      toggleSwitch.checked = "true";
     } else if (localStorage.getItem("theme") == "light") {
       //matchMedia method not supported
       console.log("Light theme incoming!!!");
@@ -194,30 +200,28 @@ function detectColorScheme() {
       document.getElementById("mainLogo").src = "../images/logo.svg";
       document.getElementById("mainLogo").style.width = "2vw";
       document.getElementById("mainLogo").style.maxHeight = "79.67px";
+      toggleSwitch.checked = "false";
       return false;
     }
+  } else if (theme == "light") {
+    console.log("Light theme incoming!!!");
+    document.getElementById("styleSheet").href = "../styles/main.css";
+    document.getElementById("mainLogo").src = "../images/logo.svg";
+    document.getElementById("mainLogo").style.width = "2vw";
+    document.getElementById("mainLogo").style.maxHeight = "79.67px";
+    toggleSwitch.checked = "false";
+  } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    //OS theme setting detected as dark
+    console.log("Dark theme incoming!!!");
+    var theme = "dark";
+    document.getElementById("styleSheet").href = "../styles/dark_main.css";
+    document.getElementById("mainLogo").src = "../images/logo.png";
+    document.getElementById("mainLogo").style.width = "2vw";
+    toggleSwitch.checked = "true";
   }
-  // else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-  //   //OS theme setting detected as dark
-  //   console.log("Dark theme incoming!!!");
-  //   var theme = "dark";
-  //   document.getElementById("styleSheet").href = "../styles/dark_main.css";
-  //   document.getElementById("mainLogo").src = "../images/logo.png";
-  //   document.getElementById("mainLogo").style.width = "2vw";
-  // }
-
-  //dark theme preferred, set document with a `data-theme` attribute
-  // if (theme == "dark") {
-  //   document.getElementById("styleSheet").href = "../styles/dark_main.css";
-  //   document.getElementById("mainLogo").src = "../images/logo.png";
-  //   document.getElementById("mainLogo").style.width = "2vw";
-  // }
 }
 
 //identify the toggle switch HTML element
-const toggleSwitch = document.querySelector(
-  '#theme-switch input[type="checkbox"]'
-);
 
 //function that changes the theme, and sets a localStorage variable to track the theme between page loads
 function switchTheme(e) {
