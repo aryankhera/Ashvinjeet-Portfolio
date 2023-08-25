@@ -11,8 +11,10 @@ var workBtn = document.querySelector(".workbtn");
 var overlay = document.querySelector(".overlay");
 var Scroll_more = document.getElementById("scroll_mouse");
 var modeChangerSun = document.querySelector("#Sun");
-var modeChangerMoon = document.querySelector("#Moon");
-var toggleSwitch = document.querySelector('#theme-switch input[type="checkbox"]');
+var modeChangerMoon = document.querySelector("#Moon"); // const toggleSwitch = document.querySelector(
+//   '#theme-switch input[type="checkbox"]'
+// );
+
 var tl = gsap.timeline(); // localStorage.clear();
 
 detectColorScheme(); // Moon button set to be hidden by default
@@ -151,6 +153,8 @@ modeChangerMoon.addEventListener("click", function () {
     duration: 0.5,
     display: "inline"
   });
+  localStorage.setItem("theme", "light");
+  detectColorScheme();
 });
 modeChangerSun.addEventListener("click", function () {
   tl_modechange1.from("#Sun", {
@@ -163,8 +167,7 @@ modeChangerSun.addEventListener("click", function () {
     ease: Circ.easeInOut,
     duration: 0.5,
     display: "none"
-  }) // .to("#Sun", { display: "none", duration: 0.8 }, "-=0.5")
-  .from("#Moon", {
+  }).from("#Moon", {
     x: 100,
     ease: Circ.easeInOut,
     duration: 0.5,
@@ -174,7 +177,9 @@ modeChangerSun.addEventListener("click", function () {
     ease: Circ.easeInOut,
     duration: 0.5,
     display: "inline"
-  }); // .to("#Moon", { display: "inline", duration: 0.8 }, "-=0.5");
+  });
+  localStorage.setItem("theme", "dark");
+  detectColorScheme();
 });
 
 function detectColorScheme() {
@@ -185,21 +190,21 @@ function detectColorScheme() {
 
   if (localStorage.getItem("theme")) {
     if (localStorage.getItem("theme") == "dark") {
-      console.log("Dark theme incoming!!!");
       var theme = "dark";
       document.getElementById("styleSheet").href = "../styles/dark_main.css";
       document.getElementById("mainLogo").src = "../images/logo_bg_black.svg";
       document.getElementById("mainLogo").style.width = "2vw";
       document.getElementById("mainLogo").style.maxHeight = "79.67px";
-      toggleSwitch.checked = "true";
+      modeChangerSun.style.display = "none";
+      modeChangerMoon.style.display = "inline";
     } else if (localStorage.getItem("theme") == "light") {
-      //matchMedia method not supported
       console.log("Light theme incoming!!!");
       document.getElementById("styleSheet").href = "../styles/main.css";
       document.getElementById("mainLogo").src = "../images/logo.svg";
       document.getElementById("mainLogo").style.width = "2vw";
       document.getElementById("mainLogo").style.maxHeight = "79.67px";
-      toggleSwitch.checked = "false";
+      modeChangerSun.style.display = "inline";
+      modeChangerMoon.style.display = "none";
       return false;
     }
   } else if (theme == "light") {
@@ -208,7 +213,8 @@ function detectColorScheme() {
     document.getElementById("mainLogo").src = "../images/logo.svg";
     document.getElementById("mainLogo").style.width = "2vw";
     document.getElementById("mainLogo").style.maxHeight = "79.67px";
-    toggleSwitch.checked = "false";
+    modeChangerSun.style.display = "inline";
+    modeChangerMoon.style.display = "none";
   } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
     //OS theme setting detected as dark
     console.log("Dark theme incoming!!!");
@@ -216,31 +222,9 @@ function detectColorScheme() {
     document.getElementById("styleSheet").href = "../styles/dark_main.css";
     document.getElementById("mainLogo").src = "../images/logo.png";
     document.getElementById("mainLogo").style.width = "2vw";
-    toggleSwitch.checked = "true";
+    modeChangerSun.style.display = "none";
+    modeChangerMoon.style.display = "inline";
   }
-} //identify the toggle switch HTML element
-//function that changes the theme, and sets a localStorage variable to track the theme between page loads
-
-
-function switchTheme(e) {
-  console.log("switch triggered", document.documentElement.getAttribute("data-theme"));
-
-  if (e.target.checked) {
-    localStorage.setItem("theme", "dark");
-    detectColorScheme();
-    toggleSwitch.checked = true;
-  } else {
-    localStorage.setItem("theme", "light");
-    detectColorScheme();
-    toggleSwitch.checked = false;
-  }
-} //listener for changing themes
-
-
-toggleSwitch.addEventListener("change", switchTheme, false); //pre-check the dark-theme checkbox if dark-theme is set
-
-if (document.documentElement.getAttribute("data-theme") == "dark") {
-  toggleSwitch.checked = true;
 } // modeChangerSun.addEventListener("click", () => {
 //   modeChangerMoon.classList.remove("hidden_class");
 //   modeChangerSun.classList.add("hidden_class");
