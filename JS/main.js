@@ -122,62 +122,11 @@ workBtn.onmouseleave = () => {
 var tl_modechange1 = gsap.timeline();
 //Mode changer button for Sun/Moon icon
 modeChangerMoon.addEventListener("click", () => {
-  tl_modechange1
-    .from("#Moon", {
-      x: 0,
-      ease: Circ.easeInOut,
-      duration: 0.5,
-      display: "inline",
-    })
-    .to("#Moon", {
-      x: 100,
-      ease: Circ.easeInOut,
-      duration: 0.5,
-      display: "none",
-    })
-    // .to("#Moon", { display: "none", duration: 0.2 }, "-=0.15")
-    .from("#Sun", {
-      x: 100,
-      ease: Circ.easeInOut,
-      duration: 0.5,
-      display: "none",
-    })
-    .to("#Sun", {
-      x: 0,
-      ease: Circ.easeInOut,
-      duration: 0.5,
-      display: "inline",
-    });
   localStorage.setItem("theme", "light");
   detectColorScheme();
 });
 
 modeChangerSun.addEventListener("click", () => {
-  tl_modechange1
-    .from("#Sun", {
-      x: 0,
-      ease: Circ.easeInOut,
-      duration: 0.5,
-      display: "inline",
-    })
-    .to("#Sun", {
-      x: 100,
-      ease: Circ.easeInOut,
-      duration: 0.5,
-      display: "none",
-    })
-    .from("#Moon", {
-      x: 100,
-      ease: Circ.easeInOut,
-      duration: 0.5,
-      display: "none",
-    })
-    .to("#Moon", {
-      x: 0,
-      ease: Circ.easeInOut,
-      duration: 0.5,
-      display: "inline",
-    });
   localStorage.setItem("theme", "dark");
   detectColorScheme();
 });
