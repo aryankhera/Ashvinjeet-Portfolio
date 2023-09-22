@@ -138,7 +138,8 @@ function detectColorScheme() {
   if (localStorage.getItem("theme")) {
     if (localStorage.getItem("theme") == "dark") {
       var theme = "dark";
-      document.getElementById("styleSheet").href = "../styles/dark_main.css";
+      document.querySelector("body").classList.add("theme-dark");
+      document.querySelector("body").classList.remove("theme-light");
       document.getElementById("mainLogo").src = "../images/logo_bg_black.svg";
       document.getElementById("mainLogo").style.width = "2vw";
       document.getElementById("mainLogo").style.maxHeight = "79.67px";
@@ -146,7 +147,8 @@ function detectColorScheme() {
       modeChangerMoon.style.display = "inline";
     } else if (localStorage.getItem("theme") == "light") {
       console.log("Light theme incoming!!!");
-      document.getElementById("styleSheet").href = "../styles/main.css";
+      document.querySelector("body").classList.add("theme-light");
+      document.querySelector("body").classList.remove("theme-dark");
       document.getElementById("mainLogo").src = "../images/logo.svg";
       document.getElementById("mainLogo").style.width = "2vw";
       document.getElementById("mainLogo").style.maxHeight = "79.67px";
@@ -156,7 +158,8 @@ function detectColorScheme() {
     }
   } else if (theme == "light") {
     console.log("Light theme incoming!!!");
-    document.getElementById("styleSheet").href = "../styles/main.css";
+    document.querySelector("body").classList.add("theme-light");
+    document.querySelector("body").classList.remove("theme-dark");
     document.getElementById("mainLogo").src = "../images/logo.svg";
     document.getElementById("mainLogo").style.width = "2vw";
     document.getElementById("mainLogo").style.maxHeight = "79.67px";
@@ -166,7 +169,8 @@ function detectColorScheme() {
     //OS theme setting detected as dark
     console.log("Dark theme incoming!!!");
     var theme = "dark";
-    document.getElementById("styleSheet").href = "../styles/dark_main.css";
+    document.querySelector("body").classList.add("theme-dark");
+    document.querySelector("body").classList.remove("theme-light");
     document.getElementById("mainLogo").src = "../images/logo.png";
     document.getElementById("mainLogo").style.width = "2vw";
     modeChangerSun.style.display = "none";
