@@ -1,80 +1,61 @@
-$font-color: #000;
-$bg-color: rgb(243, 243, 243);
-$secondary-color: rgba(25, 26, 30, .4);
-$link-color: #DF9D3F;
+// @use 'abstracts/colors'as theme;
+// @use 'abstracts/fonts'as font;
+// $font-color: #000;
+// $bg-color: rgb(243, 243, 243);
+// $secondary-color: rgba(25, 26, 30, .4);
+// $link-color: #DF9D3F;
+/*
+ * Theme definitions
+ */
 
-// Importing local Font faces
-// @font-face {
-//     font-family: 'silka_thin';
-//     src: url('../fonts/silka-thin-webfont.eot');
-//     src: url('../fonts/silka-thin-webfont.eot?#iefix') format('embedded-opentype'),
-//         url('../fonts/silka-thin-webfont.woff2') format('woff2'),
-//         url('../fonts/silka-thin-webfont.woff') format('woff'),
-//         url('../fonts/silka-thin-webfont.ttf') format('truetype');
-// }
+$themes: (light: (backgroundColor: rgb(243, 243, 243),
+        textColor: #000,
+        secondaryColor: rgba(25, 26, 30, .4),
+        linkColor: #DF9D3F,
+        // buttonTextHoverColor: #61b0e7,
+        // buttonColor: #fff,
+        // buttonBorder: 2px solid #408bbd,
+    ),
+    dark: (backgroundColor: #171717,
+        textColor: #fff,
+        secondaryColor: rgba(211, 220, 255, .4),
+        linkColor: #DF9D3F,
+    ),
+);
 
-// @font-face {
-//     font-family: 'silka_extralight';
-//     src: url('../fonts/silka-extralight-webfont.eot');
-//     src: url('../fonts/silka-extralight-webfont.eot?#iefix') format('embedded-opentype'),
-//         url('../fonts/silka-extralight-webfont.woff2') format('woff2'),
-//         url('../fonts/silka-extralight-webfont.woff') format('woff'),
-//         url('../fonts/silka-extralight-webfont.ttf') format('truetype');
-// }
+@mixin themify($themes) {
 
-// @font-face {
-//     font-family: 'silka_light';
-//     src: url('../fonts/silka-light-webfont.eot');
-//     src: url('../fonts/silka-light-webfont.eot?#iefix') format('embedded-opentype'),
-//         url('../fonts/silka-light-webfont.woff2') format('woff2'),
-//         url('../fonts/silka-light-webfont.woff') format('woff'),
-//         url('../fonts/silka-light-webfont.ttf') format('truetype');
-// }
+    @each $theme,
+    $map in $themes {
+        .theme-#{$theme} & {
+            $theme-map: () !global;
 
-// @font-face {
-//     font-family: 'silka_medium';
-//     src: url('../fonts/silka-medium-webfont.eot');
-//     src: url('../fonts/silka-medium-webfont.eot?#iefix') format('embedded-opentype'),
-//         url('../fonts/silka-medium-webfont.woff2') format('woff2'),
-//         url('../fonts/silka-medium-webfont.woff') format('woff'),
-//         url('../fonts/silka-medium-webfont.ttf') format('truetype');
-// }
+            @each $key,
+            $submap in $map {
+                $value: map-get(map-get($themes, $theme), '#{$key}');
+                $theme-map: map-merge($theme-map, ($key: $value)) !global;
+            }
 
-@font-face {
-    font-family: 'silka_regular';
-    src: url('../fonts/silka-black-webfont.eot');
-    src: url('../fonts/silka-regular-webfont.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/silka-regular-webfont.woff2') format('woff2'),
-        url('../fonts/silka-regular-webfont.woff') format('woff'),
-        url('../fonts/silka-regular-webfont.ttf') format('truetype');
+            @content;
+            $theme-map: null !global;
+        }
+    }
 }
 
-// @font-face {
-//     font-family: 'silka_semibold';
-//     src: url('../fonts/silka-semibold-webfont.eot');
-//     src: url('../fonts/silka-semibold-webfont.eot?#iefix') format('embedded-opentype'),
-//         url('../fonts/silka-semibold-webfont.woff2') format('woff2'),
-//         url('../fonts/silka-semibold-webfont.woff') format('woff'),
-//         url('../fonts/silka-semibold-webfont.ttf') format('truetype');
+@function themed($key) {
+    @return map-get($theme-map, $key);
+}
+
+// at-root[data-theme="light"] {
+//     body {
+//         $font-color: #000;
+//         $bg-color: rgb(243, 243, 243);
+//         $secondary-color: rgba(25, 26, 30, .4);
+//         $link-color: #DF9D3F;
+//     }
+
 // }
 
-// @font-face {
-//     font-family: 'silka_bold';
-//     src: url('../fonts/silka-bold-webfont.eot');
-//     src: url('../fonts/silka-bold-webfont.eot?#iefix') format('embedded-opentype'),
-//         url('../fonts/silka-bold-webfont.woff2') format('woff2'),
-//         url('../fonts/silka-bold-webfont.woff') format('woff'),
-//         url('../fonts/silka-bold-webfont.ttf') format('truetype');
-// }
-
-// @font-face {
-//     font-family: 'silka_black';
-//     src: url('../fonts/silka-black-webfont.eot');
-//     src: url('../fonts/silka-black-webfont.eot?#iefix') format('embedded-opentype'),
-//         url('../fonts/silka-black-webfont.woff2') format('woff2'),
-//         url('../fonts/silka-black-webfont.woff') format('woff'),
-//         url('../fonts/silka-black-webfont.ttf') format('truetype');
-// }
 
 * {
     padding: 0px;
@@ -96,6 +77,12 @@ main {
     min-height: calc(100vh - 28px);
     font-family: 'silka_regular';
     width: 100%;
+
+    @include themify($themes) {
+        color: themed('textColor');
+        background-color: themed('backgroundColor');
+    }
+
 
     #mainloader {
         background-color: #0c0c0c;
@@ -184,7 +171,12 @@ main {
     .follow_cursor {
         width: 30px;
         height: 30px;
-        border: 2px solid $font-color;
+
+        @include themify($themes) {
+            border: 2px solid themed('textColor');
+        }
+
+        // border: 2px solid $font-color;
         border-radius: 50%;
         position: fixed;
         display: none;
@@ -214,6 +206,11 @@ main {
         justify-content: space-between;
         align-items: center;
         padding-top: 15px;
+        // background-color: $bg-color;
+
+        @include themify($themes) {
+            background-color: themed('backgroundColor');
+        }
 
         .nav-brand {
             margin-left: calc(50vw - 910px);
@@ -235,8 +232,13 @@ main {
                 align-items: flex-end;
 
                 .nav-icon__line {
-                    background-color: $font-color;
-                    box-shadow: 0 1px 1px $font-color;
+                    @include themify($themes) {
+                        background-color: themed('textColor');
+                        box-shadow: 0 1px 1px themed('textColor');
+                    }
+
+                    // background-color: font-color;
+                    // box-shadow: 0 1px 1px font-color;
                     height: 2px;
                     pointer-events: none;
                     transition: transform .5s cubic-bezier(.7, 0, 0, 1);
@@ -250,7 +252,11 @@ main {
 
             .nav-links {
                 font-family: 'silka_regular';
-                color: $font-color;
+
+                @include themify($themes) {
+                    color: themed('textColor');
+                }
+
                 -webkit-clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
                 clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
                 display: flex;
@@ -262,13 +268,17 @@ main {
                 transition: -webkit-clip-path .5s cubic-bezier(.7, 0, 0, 1);
                 transition: clip-path .5s cubic-bezier(.7, 0, 0, 1);
                 transition: clip-path .5s cubic-bezier(.7, 0, 0, 1),
-                    -webkit-clip-path .5s cubic-bezier(.7, 0, 0, 1);
+                -webkit-clip-path .5s cubic-bezier(.7, 0, 0, 1);
 
                 a {
                     font-family: 'silka_regular';
                     background: none;
                     border: none;
-                    color: $font-color;
+
+                    @include themify($themes) {
+                        color: themed('textColor');
+                    }
+
                     font-size: 16px;
                     font-weight: 700;
                     letter-spacing: 2px;
@@ -314,7 +324,9 @@ main {
 
                 a {
                     &:hover {
-                        color: $link-color;
+                        @include themify($themes) {
+                            color: themed('linkColor');
+                        }
                     }
                 }
             }
@@ -325,6 +337,10 @@ main {
         height: calc(100vh - 95px);
         position: relative;
         text-align: center;
+
+        @include themify($themes) {
+            background-color: themed('backgroundColor');
+        }
 
         .hero-div {
             position: absolute;
@@ -346,7 +362,12 @@ main {
                 font-weight: 500;
                 text-transform: uppercase;
                 letter-spacing: 2px;
-                color: $secondary-color;
+
+                @include themify($themes) {
+                    color: themed('secondaryColor');
+                }
+
+                // color: $secondary-color;
                 margin-bottom: 5px;
                 cursor: default;
                 position: relative;
@@ -373,6 +394,10 @@ main {
                 cursor: default;
                 position: relative;
                 z-index: 2;
+
+                @include themify($themes) {
+                    color: themed('textColor');
+                }
             }
 
             .workbtn {
@@ -380,7 +405,11 @@ main {
                 display: inline-block;
                 line-height: 0;
                 position: relative;
-                color: #3b2e1c;
+
+                @include themify($themes) {
+                    color: themed('textColor');
+                }
+
                 font-weight: 900;
                 border: 0;
                 background-color: transparent;
@@ -397,7 +426,10 @@ main {
 
 
                 &::after {
-                    background: $link-color;
+                    @include themify($themes) {
+                        background-color: themed('linkColor');
+                    }
+
                     content: "";
                     height: 5px;
                     position: absolute;
@@ -429,7 +461,15 @@ main {
                     &:after {
                         height: 55px;
                         z-index: -1;
-                        transition: all 0.5s ease-in-out;
+                        transition: all 0.5s cubic-bezier(0.75, 1, 0.50, 1);
+                        border-radius: 10px;
+
+                        @include themify($themes) {
+                            border: 4px solid themed('linkColor');
+                        }
+
+                        // border: 4px solid $link-color;
+                        background: transparent;
                         border-radius: 10px;
                     }
                 }
@@ -443,6 +483,10 @@ main {
             transform: translate(-50%, 0px);
             animation: updown 3s;
             animation-iteration-count: infinite;
+
+            @include themify($themes) {
+                color: themed('textColor');
+            }
         }
     }
 
@@ -466,14 +510,21 @@ main {
 
             li {
                 a {
-                    color: $font-color;
+                    @include themify($themes) {
+                        color: themed('textColor');
+                    }
+
                     font-size: 24px;
                     transition: 0.2s ease-in-out;
 
                     &:hover {
                         transform: translateY(50px);
                         transform: scale(1.5);
-                        color: $link-color;
+
+                        @include themify($themes) {
+                            color: themed('linkColor');
+                        }
+
                         transition: 0.2s ease-in-out;
                     }
                 }
@@ -485,7 +536,10 @@ main {
                 width: 3px;
                 height: 90px;
                 margin: 0px auto;
-                background-color: black;
+
+                @include themify($themes) {
+                    background-color: themed('linkColor');
+                }
             }
         }
     }
@@ -528,12 +582,20 @@ main {
                 letter-spacing: 0.1em;
                 -webkit-writing-mode: vertical-rl;
                 writing-mode: vertical-rl;
-                color: $font-color;
+
+                @include themify($themes) {
+                    color: themed('textColor');
+                }
+
                 transition: 0.2s ease-in-out;
 
                 &:hover {
                     text-decoration: none;
-                    color: $secondary-color;
+
+                    @include themify($themes) {
+                        color: themed('secondaryColor');
+                    }
+
                     transition: 0.2s ease-in-out;
                     transform: translateY(-5px);
                 }
@@ -546,20 +608,35 @@ main {
                 width: 3px;
                 height: 90px;
                 margin: 0px auto;
-                background-color: $font-color;
+
+                @include themify($themes) {
+                    background-color: themed('textColor');
+                }
             }
         }
     }
 
     #Sun {
+        @include themify($themes) {
+            color: themed('textColor');
+        }
+
         &:hover {
-            color: $link-color;
+            @include themify($themes) {
+                color: themed('linkColor');
+            }
         }
     }
 
     #Moon {
+        @include themify($themes) {
+            color: themed('textColor');
+        }
+
         &:hover {
-            color: $link-color;
+            @include themify($themes) {
+                color: themed('linkColor');
+            }
         }
     }
 
@@ -569,6 +646,10 @@ main {
     }
 
     #scroll_mouse {
+        @include themify($themes) {
+            color: themed('textColor');
+        }
+
         opacity: 0;
         position: absolute;
         bottom: -1%;
@@ -599,12 +680,16 @@ main {
         }
 
         .line_scroll_overlay {
-            stroke: $font-color;
+            @include themify($themes) {
+                stroke: themed('textColor');
+            }
+
             stroke-width: 7;
         }
     }
 
 }
+
 
 // #about-section {
 //     // max-width: 900px;
