@@ -1,20 +1,88 @@
-// @use 'abstracts/colors'as theme;
-// @use 'abstracts/fonts'as font;
-// $font-color: #000;
-// $bg-color: rgb(243, 243, 243);
-// $secondary-color: rgba(25, 26, 30, .4);
-// $link-color: #DF9D3F;
+/*
+*Font declarations
+*/
+@font-face {
+    font-family: 'silka_thin';
+    src: url('../fonts/silka-thin-webfont.eot');
+    src: url('../fonts/silka-thin-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/silka-thin-webfont.woff2') format('woff2'),
+        url('../fonts/silka-thin-webfont.woff') format('woff'),
+        url('../fonts/silka-thin-webfont.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'silka_extralight';
+    src: url('../fonts/silka-extralight-webfont.eot');
+    src: url('../fonts/silka-extralight-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/silka-extralight-webfont.woff2') format('woff2'),
+        url('../fonts/silka-extralight-webfont.woff') format('woff'),
+        url('../fonts/silka-extralight-webfont.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'silka_light';
+    src: url('../fonts/silka-light-webfont.eot');
+    src: url('../fonts/silka-light-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/silka-light-webfont.woff2') format('woff2'),
+        url('../fonts/silka-light-webfont.woff') format('woff'),
+        url('../fonts/silka-light-webfont.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'silka_medium';
+    src: url('../fonts/silka-medium-webfont.eot');
+    src: url('../fonts/silka-medium-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/silka-medium-webfont.woff2') format('woff2'),
+        url('../fonts/silka-medium-webfont.woff') format('woff'),
+        url('../fonts/silka-medium-webfont.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'silka_regular';
+    src: url('../fonts/silka-regular-webfont.eot');
+    src: url('../fonts/silka-regular-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/silka-regular-webfont.woff2') format('woff2'),
+        url('../fonts/silka-regular-webfont.woff') format('woff'),
+        url('../fonts/silka-regular-webfont.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'silka_semibold';
+    src: url('../fonts/silka-semibold-webfont.eot');
+    src: url('../fonts/silka-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/silka-semibold-webfont.woff2') format('woff2'),
+        url('../fonts/silka-semibold-webfont.woff') format('woff'),
+        url('../fonts/silka-semibold-webfont.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'silka_bold';
+    src: url('../fonts/silka-bold-webfont.eot');
+    src: url('../fonts/silka-bold-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/silka-bold-webfont.woff2') format('woff2'),
+        url('../fonts/silka-bold-webfont.woff') format('woff'),
+        url('../fonts/silka-bold-webfont.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'silka_black';
+    src: url('../fonts/silka-black-webfont.eot');
+    src: url('../fonts/silka-black-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/silka-black-webfont.woff2') format('woff2'),
+        url('../fonts/silka-black-webfont.woff') format('woff'),
+        url('../fonts/silka-black-webfont.ttf') format('truetype');
+}
+
 /*
  * Theme definitions
+ Learned from Dmitry Borody
+ https: //medium.com/@dmitriy.borodiy/easy-color-theming-with-scss-bc38fd5734d1
  */
 
 $themes: (light: (backgroundColor: rgb(243, 243, 243),
         textColor: #000,
         secondaryColor: rgba(25, 26, 30, .4),
         linkColor: #DF9D3F,
-        // buttonTextHoverColor: #61b0e7,
-        // buttonColor: #fff,
-        // buttonBorder: 2px solid #408bbd,
     ),
     dark: (backgroundColor: #171717,
         textColor: #fff,
@@ -610,7 +678,7 @@ main {
                 margin: 0px auto;
 
                 @include themify($themes) {
-                    background-color: themed('textColor');
+                    background-color: themed('linkColor');
                 }
             }
         }
@@ -688,6 +756,89 @@ main {
         }
     }
 
+    .hero-section {
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        min-height: 75vh;
+    }
+
+    // .scroller {
+    //     // max-width: 1250px;
+    // }
+
+    .loop-container {
+        padding-block: 1rem;
+        font-weight: 100;
+        font-size: 1vw;
+        letter-spacing: 5px;
+        font-weight: 600;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2em;
+        /* transform: rotate(7deg); */
+    }
+
+    .scroller[data-animated="true"] {
+        // border: 5px solid lime;
+        overflow: hidden;
+        mask: linear-gradient(90deg, transparent, white 5%, white 95%, transparent);
+        -webkit-mask: linear-gradient(90deg, transparent, white 5%, white 95%, transparent);
+    }
+
+    .scroller[data-animated="true"] .loop-container {
+        flex-wrap: nowrap;
+        width: max-content;
+        animation: scroll linear 40s infinite;
+        list-style: none;
+
+        &:hover {
+            animation-play-state: paused;
+        }
+    }
+
+
+    @keyframes scroll {
+        to {
+            transform: translate(calc(-50% - 0.5rem));
+        }
+    }
+
+    .item {
+        position: absolute;
+    }
+
+
+    .spacer {
+        height: 400px;
+    }
+
+    .marquee {
+        position: relative;
+        background-color: #0f0f0f;
+        color: #eee;
+        padding: 30px 0;
+        font-weight: 600;
+        font-size: 20px;
+        text-transform: uppercase;
+        overflow: hidden;
+    }
+
+    .marquee_inner {
+        display: flex;
+        width: fit-content;
+        flex-direction: row;
+        flex: auto;
+        white-space: nowrap;
+    }
+
+    .marquee_part {
+        // display: flex;
+        // align-items: center;
+        // flex-shrink: 0;
+        // padding: 0 20px;
+        position: absolute;
+    }
 }
 
 
