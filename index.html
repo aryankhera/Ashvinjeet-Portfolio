@@ -17,7 +17,12 @@
 </head>
 
 <body class="theme-light">
+			<div
+				class="absolute h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]" id="lightMode">
+			</div>
+			
 	<main>
+		
 		<!-- LOADING SCREEN START -->
 		<div id="mainloader">
 			<div class="maintitle">
@@ -36,19 +41,29 @@
 			<div class="nav-brand">
 				<img id="mainLogo" src="" alt="logo" />
 			</div>
-			<div class="hamburger">
-				<div class="nav-icon">
+			<!-- <div class="hamburger"> -->
+				<!-- <div class="nav-icon">
 					<div class="nav-icon__line"></div>
 					<div class="nav-icon__line"></div>
 					<div class="nav-icon__line"></div>
+				</div> -->
+				<div>
+					<nav class="nav-links">
+						<a href="/" class="router-link-active router-link-exact-active mouse-md"> Home </a>
+						<a href="/about" class="mouse-md"> About </a>
+						<a href="/portfolio" class="mouse-md"> Projects </a>
+						<a href="/contact" class="mouse-md"> Contact </a>
+				<!-- </div> -->
+				</nav>
 				</div>
-				<nav class="nav-links">
-					<a href="/" class="router-link-active router-link-exact-active mouse-md"> Home </a>
-					<a href="/about" class="mouse-md"> About </a>
-					<a href="/portfolio" class="mouse-md"> Projects </a>
-					<a href="/contact" class="mouse-md"> Contact </a>
+
+			<div class="mode_changer">
+				<iconify-icon icon="ph:sun" width="37" height="37" id="Sun"></iconify-icon>
+				<iconify-icon icon="ph:moon" width="37" height="37" id="Moon"></iconify-icon>
+				<!-- <label id="theme-switch" class="theme-switch" for="checkbox_theme">
+								<input type="checkbox" id="checkbox_theme">
+							</label> -->
 			</div>
-			</nav>
 		</div>
 		<!-- NAV END -->
 		<!-- HERO START -->
@@ -86,13 +101,7 @@
 
 		<!-- RIGHT LINK START  -->
 		<div orientation="right" class="right-bar">
-			<div class="mode_changer">
-				<iconify-icon icon="ph:sun" width="37" height="37" id="Sun"></iconify-icon>
-				<iconify-icon icon="ph:moon" width="37" height="37" id="Moon"></iconify-icon>
-				<!-- <label id="theme-switch" class="theme-switch" for="checkbox_theme">
-					<input type="checkbox" id="checkbox_theme">
-				</label> -->
-			</div>
+			
 			<div class="right-mail-link">
 				<a href="#">ashvinjeetsingh22@gmail.com</a>
 			</div>
@@ -283,6 +292,7 @@
 	</main>
 
 </body>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
 <script src="https://unpkg.com/split-type"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.1.3/pixi.min.js"></script>
@@ -306,5 +316,6 @@
 <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
 <!-- Scripts for iconify -->
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
 
 </html>
