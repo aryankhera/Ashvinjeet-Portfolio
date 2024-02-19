@@ -1,87 +1,48 @@
-/*
-*Font declarations
-*/
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @font-face {
-  font-family: 'silka_thin';
-  src: url("../fonts/silka-thin-webfont.eot");
-  src: url("../fonts/silka-thin-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/silka-thin-webfont.woff2") format("woff2"), url("../fonts/silka-thin-webfont.woff") format("woff"), url("../fonts/silka-thin-webfont.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: 'silka_extralight';
-  src: url("../fonts/silka-extralight-webfont.eot");
-  src: url("../fonts/silka-extralight-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/silka-extralight-webfont.woff2") format("woff2"), url("../fonts/silka-extralight-webfont.woff") format("woff"), url("../fonts/silka-extralight-webfont.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: 'silka_light';
-  src: url("../fonts/silka-light-webfont.eot");
-  src: url("../fonts/silka-light-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/silka-light-webfont.woff2") format("woff2"), url("../fonts/silka-light-webfont.woff") format("woff"), url("../fonts/silka-light-webfont.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: 'silka_medium';
-  src: url("../fonts/silka-medium-webfont.eot");
-  src: url("../fonts/silka-medium-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/silka-medium-webfont.woff2") format("woff2"), url("../fonts/silka-medium-webfont.woff") format("woff"), url("../fonts/silka-medium-webfont.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: 'silka_regular';
+  font-family: 'silkaregular';
   src: url("../fonts/silka-regular-webfont.eot");
   src: url("../fonts/silka-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/silka-regular-webfont.woff2") format("woff2"), url("../fonts/silka-regular-webfont.woff") format("woff"), url("../fonts/silka-regular-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: 'silka_semibold';
-  src: url("../fonts/silka-semibold-webfont.eot");
-  src: url("../fonts/silka-semibold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/silka-semibold-webfont.woff2") format("woff2"), url("../fonts/silka-semibold-webfont.woff") format("woff"), url("../fonts/silka-semibold-webfont.ttf") format("truetype");
+  font-family: 'silkaitalic';
+  src: url("../fonts/silka-regularitalic-webfont.eot");
+  src: url("../fonts/silka-regularitalic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/silka-regularitalic-webfont.woff2") format("woff2"), url("../fonts/silka-regularitalic-webfont.woff") format("woff"), url("../fonts/silka-regularitalic-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
-@font-face {
-  font-family: 'silka_bold';
-  src: url("../fonts/silka-bold-webfont.eot");
-  src: url("../fonts/silka-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/silka-bold-webfont.woff2") format("woff2"), url("../fonts/silka-bold-webfont.woff") format("woff"), url("../fonts/silka-bold-webfont.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: 'silka_black';
-  src: url("../fonts/silka-black-webfont.eot");
-  src: url("../fonts/silka-black-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/silka-black-webfont.woff2") format("woff2"), url("../fonts/silka-black-webfont.woff") format("woff"), url("../fonts/silka-black-webfont.ttf") format("truetype");
-}
-
-/*
- * Theme definitions
- Learned from Dmitry Borody
- https: //medium.com/@dmitriy.borodiy/easy-color-theming-with-scss-bc38fd5734d1
- */
 * {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
-  font-family: 'silka_regular';
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 body,
 html {
   height: 100%;
   width: 100%;
+  background-size: 16px 16px;
 }
 
 main {
   position: relative;
   min-height: calc(100vh - 28px);
-  font-family: 'silka_regular';
   width: 100%;
 }
 
 .theme-light main {
   color: #000;
-  background-color: #f3f3f3;
 }
 
 .theme-dark main {
   color: #fff;
-  background-color: #171717;
 }
 
 main #mainloader {
@@ -95,7 +56,7 @@ main #mainloader {
 
 main #mainloader .maintitle {
   color: #df9d3f;
-  font-family: 'silka_black';
+  font-family: silkaregular;
   font-weight: 900;
 }
 
@@ -205,80 +166,34 @@ main .nav-container {
   padding-top: 15px;
 }
 
-.theme-light main .nav-container {
-  background-color: #f3f3f3;
-}
-
-.theme-dark main .nav-container {
-  background-color: #171717;
-}
-
 main .nav-container .nav-brand {
   margin-left: calc(50vw - 910px);
   z-index: 1;
   height: 100%;
   width: 100%;
+  max-width: 60px;
 }
 
-main .nav-container .hamburger {
-  margin-right: calc(50vw - 910px);
-  z-index: 1;
-}
-
-main .nav-container .hamburger .nav-icon {
-  display: flex;
-  flex-direction: column;
-  height: 20px;
-  justify-content: space-between;
-  width: 30px;
-  align-items: flex-end;
-}
-
-main .nav-container .hamburger .nav-icon .nav-icon__line {
-  height: 2px;
-  pointer-events: none;
-  transition: transform 0.5s cubic-bezier(0.7, 0, 0, 1);
-  width: 100%;
-}
-
-.theme-light main .nav-container .hamburger .nav-icon .nav-icon__line {
-  background-color: #000;
-  box-shadow: 0 1px 1px #000;
-}
-
-.theme-dark main .nav-container .hamburger .nav-icon .nav-icon__line {
-  background-color: #fff;
-  box-shadow: 0 1px 1px #fff;
-}
-
-main .nav-container .hamburger .nav-icon .nav-icon__line:nth-child(2) {
-  width: 75%;
-}
-
-main .nav-container .hamburger .nav-links {
-  font-family: 'silka_regular';
-  clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+main .nav-container .nav-links {
+  font-family: silkaregular;
   display: flex;
   flex-direction: row;
   gap: 30px;
-  position: absolute;
-  right: 90px;
-  top: 13px;
-  transition: clip-path 0.5s cubic-bezier(0.7, 0, 0, 1);
 }
 
-.theme-light main .nav-container .hamburger .nav-links {
+.theme-light main .nav-container .nav-links {
   color: #000;
 }
 
-.theme-dark main .nav-container .hamburger .nav-links {
+.theme-dark main .nav-container .nav-links {
   color: #fff;
 }
 
-main .nav-container .hamburger .nav-links a {
-  font-family: 'silka_regular';
+main .nav-container .nav-links a {
+  font-family: silkaregular;
   background: none;
   border: none;
+  z-index: 9;
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 2px;
@@ -288,52 +203,35 @@ main .nav-container .hamburger .nav-links a {
   text-decoration: none;
 }
 
-.theme-light main .nav-container .hamburger .nav-links a {
+.theme-light main .nav-container .nav-links a {
   color: #000;
 }
 
-.theme-dark main .nav-container .hamburger .nav-links a {
+.theme-dark main .nav-container .nav-links a {
   color: #fff;
 }
 
-main .nav-container.nav-container--open .nav-icon__line:first-child {
-  transform: rotate(45deg) translate(5px, 8px);
-}
-
-main .nav-container.nav-container--open .nav-icon__line:nth-child(2) {
-  transform: translate(MIN(-37vw, -700px));
-  transition: transform 0.7s cubic-bezier(0.7, 0, 0, 1);
-}
-
-main .nav-container.nav-container--open .nav-icon__line:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -8px);
-}
-
-main .nav-container.nav-container--open .nav-links {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  transition: clip-path 0.7s cubic-bezier(0.7, 0, 0, 1);
-}
-
-.theme-light main .nav-container.nav-container--open .nav-links a:hover {
+.theme-light main .nav-container .nav-links a:hover {
   color: #DF9D3F;
 }
 
-.theme-dark main .nav-container.nav-container--open .nav-links a:hover {
+.theme-dark main .nav-container .nav-links a:hover {
   color: #DF9D3F;
+}
+
+main .nav-container div.mode_changer {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: flex-start;
+  transform: translateX(-5px);
+  margin-right: calc(50vw - 910px);
 }
 
 main .hero-section {
   height: calc(100vh - 95px);
   position: relative;
   text-align: center;
-}
-
-.theme-light main .hero-section {
-  background-color: #f3f3f3;
-}
-
-.theme-dark main .hero-section {
-  background-color: #171717;
 }
 
 main .hero-section .hero-div {
@@ -351,6 +249,7 @@ main .hero-section .hero-div #web_dev_tag {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 2px;
+  font-family: silkaregular;
   margin-bottom: 5px;
   cursor: default;
   position: relative;
@@ -400,6 +299,7 @@ main .hero-section .hero-div .workbtn {
   display: inline-block;
   line-height: 0;
   position: relative;
+  font-family: silkaregular;
   font-weight: 900;
   border: 0;
   background-color: transparent;
@@ -568,15 +468,7 @@ main .right-bar {
   opacity: 0;
   height: calc(100vh - 99px);
   flex-direction: column;
-  justify-content: space-between;
-}
-
-main .right-bar div.mode_changer {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  align-items: flex-start;
-  transform: translateX(-5px);
+  justify-content: flex-end;
 }
 
 main .right-bar div.right-mail-link {
@@ -589,6 +481,7 @@ main .right-bar div.right-mail-link {
 main .right-bar div.right-mail-link a {
   margin: 20px auto 0px;
   padding: 10px;
+  font-family: silkaregular;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.1em;

@@ -125,12 +125,12 @@ window.addEventListener("mousemove", (e) => {
   gsap.to(cursor, { x: clientX, y: clientY });
 });
 
-menu.addEventListener("mouseover", function () {
-  this.classList.add("nav-container--open");
-});
-menu.addEventListener("mouseout", function () {
-  this.classList.remove("nav-container--open");
-});
+// menu.addEventListener("mouseover", function () {
+//   this.classList.add("nav-container--open");
+// });
+// menu.addEventListener("mouseout", function () {
+//   this.classList.remove("nav-container--open");
+// });
 
 // cursor remove on work button hover homepage
 workBtn.onmouseover = () => {

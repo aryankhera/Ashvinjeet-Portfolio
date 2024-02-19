@@ -1,83 +1,108 @@
-/*
-*Font declarations
-*/
-@font-face {
-    font-family: 'silka_thin';
-    src: url('../fonts/silka-thin-webfont.eot');
-    src: url('../fonts/silka-thin-webfont.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/silka-thin-webfont.woff2') format('woff2'),
-        url('../fonts/silka-thin-webfont.woff') format('woff'),
-        url('../fonts/silka-thin-webfont.ttf') format('truetype');
-}
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 @font-face {
-    font-family: 'silka_extralight';
-    src: url('../fonts/silka-extralight-webfont.eot');
-    src: url('../fonts/silka-extralight-webfont.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/silka-extralight-webfont.woff2') format('woff2'),
-        url('../fonts/silka-extralight-webfont.woff') format('woff'),
-        url('../fonts/silka-extralight-webfont.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'silka_light';
-    src: url('../fonts/silka-light-webfont.eot');
-    src: url('../fonts/silka-light-webfont.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/silka-light-webfont.woff2') format('woff2'),
-        url('../fonts/silka-light-webfont.woff') format('woff'),
-        url('../fonts/silka-light-webfont.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'silka_medium';
-    src: url('../fonts/silka-medium-webfont.eot');
-    src: url('../fonts/silka-medium-webfont.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/silka-medium-webfont.woff2') format('woff2'),
-        url('../fonts/silka-medium-webfont.woff') format('woff'),
-        url('../fonts/silka-medium-webfont.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'silka_regular';
+    font-family: 'silkaregular';
     src: url('../fonts/silka-regular-webfont.eot');
     src: url('../fonts/silka-regular-webfont.eot?#iefix') format('embedded-opentype'),
         url('../fonts/silka-regular-webfont.woff2') format('woff2'),
         url('../fonts/silka-regular-webfont.woff') format('woff'),
         url('../fonts/silka-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
 }
+
+
+
 
 @font-face {
-    font-family: 'silka_semibold';
-    src: url('../fonts/silka-semibold-webfont.eot');
-    src: url('../fonts/silka-semibold-webfont.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/silka-semibold-webfont.woff2') format('woff2'),
-        url('../fonts/silka-semibold-webfont.woff') format('woff'),
-        url('../fonts/silka-semibold-webfont.ttf') format('truetype');
+    font-family: 'silkaitalic';
+    src: url('../fonts/silka-regularitalic-webfont.eot');
+    src: url('../fonts/silka-regularitalic-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/silka-regularitalic-webfont.woff2') format('woff2'),
+        url('../fonts/silka-regularitalic-webfont.woff') format('woff'),
+        url('../fonts/silka-regularitalic-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
-@font-face {
-    font-family: 'silka_bold';
-    src: url('../fonts/silka-bold-webfont.eot');
-    src: url('../fonts/silka-bold-webfont.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/silka-bold-webfont.woff2') format('woff2'),
-        url('../fonts/silka-bold-webfont.woff') format('woff'),
-        url('../fonts/silka-bold-webfont.ttf') format('truetype');
-}
+// @font-face {
+//     font-family: 'silka_thin';
+//     src: url('../fonts/silka-thin-webfont.eot');
+//     src: url('../fonts/silka-thin-webfont.eot?#iefix') format('embedded-opentype'),
+//         url('../fonts/silka-thin-webfont.woff2') format('woff2'),
+//         url('../fonts/silka-thin-webfont.woff') format('woff'),
+//         url('../fonts/silka-thin-webfont.ttf') format('truetype');
+// }
 
-@font-face {
-    font-family: 'silka_black';
-    src: url('../fonts/silka-black-webfont.eot');
-    src: url('../fonts/silka-black-webfont.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/silka-black-webfont.woff2') format('woff2'),
-        url('../fonts/silka-black-webfont.woff') format('woff'),
-        url('../fonts/silka-black-webfont.ttf') format('truetype');
-}
+// @font-face {
+//     font-family: 'silka_extralight';
+//     src: url('../fonts/silka-extralight-webfont.eot');
+//     src: url('../fonts/silka-extralight-webfont.eot?#iefix') format('embedded-opentype'),
+//         url('../fonts/silka-extralight-webfont.woff2') format('woff2'),
+//         url('../fonts/silka-extralight-webfont.woff') format('woff'),
+//         url('../fonts/silka-extralight-webfont.ttf') format('truetype');
+// }
 
-/*
- * Theme definitions
- Learned from Dmitry Borody
- https: //medium.com/@dmitriy.borodiy/easy-color-theming-with-scss-bc38fd5734d1
- */
+// @font-face {
+//     font-family: 'silka_light';
+//     src: url('../fonts/silka-light-webfont.eot');
+//     src: url('../fonts/silka-light-webfont.eot?#iefix') format('embedded-opentype'),
+//         url('../fonts/silka-light-webfont.woff2') format('woff2'),
+//         url('../fonts/silka-light-webfont.woff') format('woff'),
+//         url('../fonts/silka-light-webfont.ttf') format('truetype');
+// }
+
+// @font-face {
+//     font-family: 'silka_medium';
+//     src: url('../fonts/silka-medium-webfont.eot');
+//     src: url('../fonts/silka-medium-webfont.eot?#iefix') format('embedded-opentype'),
+//         url('../fonts/silka-medium-webfont.woff2') format('woff2'),
+//         url('../fonts/silka-medium-webfont.woff') format('woff'),
+//         url('../fonts/silka-medium-webfont.ttf') format('truetype');
+// }
+
+// @font-face {
+//     font-family: 'silka_regular';
+//     src: url('../fonts/silka-regular-webfont.eot');
+//     src: url('../fonts/silka-regular-webfont.eot?#iefix') format('embedded-opentype'),
+//         url('../fonts/silka-regular-webfont.woff2') format('woff2'),
+//         url('../fonts/silka-regular-webfont.woff') format('woff'),
+//         url('../fonts/silka-regular-webfont.ttf') format('truetype');
+// }
+
+// @font-face {
+//     font-family: 'silka_semibold';
+//     src: url('../fonts/silka-semibold-webfont.eot');
+//     src: url('../fonts/silka-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+//         url('../fonts/silka-semibold-webfont.woff2') format('woff2'),
+//         url('../fonts/silka-semibold-webfont.woff') format('woff'),
+//         url('../fonts/silka-semibold-webfont.ttf') format('truetype');
+// }
+
+// @font-face {
+//     font-family: 'silka_bold';
+//     src: url('../fonts/silka-bold-webfont.eot');
+//     src: url('../fonts/silka-bold-webfont.eot?#iefix') format('embedded-opentype'),
+//         url('../fonts/silka-bold-webfont.woff2') format('woff2'),
+//         url('../fonts/silka-bold-webfont.woff') format('woff'),
+//         url('../fonts/silka-bold-webfont.ttf') format('truetype');
+// }
+
+// @font-face {
+//     font-family: 'silka_black';
+//     src: url('../fonts/silka-black-webfont.eot');
+//     src: url('../fonts/silka-black-webfont.eot?#iefix') format('embedded-opentype'),
+//         url('../fonts/silka-black-webfont.woff2') format('woff2'),
+//         url('../fonts/silka-black-webfont.woff') format('woff'),
+//         url('../fonts/silka-black-webfont.ttf') format('truetype');
+// }
+
+//  Theme definitions
+//  Learned from Dmitry Borody
+//  https: //medium.com/@dmitriy.borodiy/easy-color-theming-with-scss-bc38fd5734d1
+
 
 $themes: (light: (backgroundColor: rgb(243, 243, 243),
         textColor: #000,
@@ -129,13 +154,19 @@ $themes: (light: (backgroundColor: rgb(243, 243, 243),
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-    font-family: 'silka_regular';
+    // font-family: 'silka_regular';
+    font-family: "Bebas Neue",
+        sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 body,
 html {
     height: 100%;
     width: 100%;
+    // background-image: radial-gradient(#e5e7eb 1px, transparent 0);
+    background-size: 16px 16px
 }
 
 
@@ -143,12 +174,12 @@ html {
 main {
     position: relative;
     min-height: calc(100vh - 28px);
-    font-family: 'silka_regular';
+    // font-family: silka_regular';
     width: 100%;
 
     @include themify($themes) {
         color: themed('textColor');
-        background-color: themed('backgroundColor');
+        // background-color: themed('backgroundColor');
     }
 
 
@@ -163,7 +194,7 @@ main {
         .maintitle {
 
             color: #df9d3f;
-            font-family: 'silka_black';
+            font-family: silkaregular;
             font-weight: 900;
 
 
@@ -277,7 +308,7 @@ main {
         // background-color: $bg-color;
 
         @include themify($themes) {
-            background-color: themed('backgroundColor');
+            // background-color: themed('backgroundColor');
         }
 
         .nav-brand {
@@ -285,63 +316,65 @@ main {
             z-index: 1;
             height: 100%;
             width: 100%;
+            max-width: 60px;
         }
 
-        .hamburger {
-            margin-right: calc(50vw - 910px);
-            z-index: 1;
+        // .hamburger {
+        //     margin-right: calc(50vw - 910px);
+        //     z-index: 1;
 
-            .nav-icon {
-                display: flex;
-                flex-direction: column;
-                height: 20px;
-                justify-content: space-between;
-                width: 30px;
-                align-items: flex-end;
+            // .nav-icon {
+            //     display: flex;
+            //     flex-direction: column;
+            //     height: 20px;
+            //     justify-content: space-between;
+            //     width: 30px;
+            //     align-items: flex-end;
 
-                .nav-icon__line {
-                    @include themify($themes) {
-                        background-color: themed('textColor');
-                        box-shadow: 0 1px 1px themed('textColor');
-                    }
+            //     .nav-icon__line {
+            //         @include themify($themes) {
+            //             background-color: themed('textColor');
+            //             box-shadow: 0 1px 1px themed('textColor');
+            //         }
 
-                    // background-color: font-color;
-                    // box-shadow: 0 1px 1px font-color;
-                    height: 2px;
-                    pointer-events: none;
-                    transition: transform .5s cubic-bezier(.7, 0, 0, 1);
-                    width: 100%;
+            //         // background-color: font-color;
+            //         // box-shadow: 0 1px 1px font-color;
+            //         height: 2px;
+            //         pointer-events: none;
+            //         transition: transform .5s cubic-bezier(.7, 0, 0, 1);
+            //         width: 100%;
 
-                    &:nth-child(2) {
-                        width: 75%;
-                    }
-                }
-            }
+            //         &:nth-child(2) {
+            //             width: 75%;
+            //         }
+            //     }
+            // }
 
             .nav-links {
-                font-family: 'silka_regular';
+                font-family: silkaregular;
 
                 @include themify($themes) {
                     color: themed('textColor');
                 }
 
-                -webkit-clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
-                clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+                // -webkit-clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+                // clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
                 display: flex;
                 flex-direction: row;
                 gap: 30px;
-                position: absolute;
-                right: 90px;
-                top: 13px;
-                transition: -webkit-clip-path .5s cubic-bezier(.7, 0, 0, 1);
-                transition: clip-path .5s cubic-bezier(.7, 0, 0, 1);
-                transition: clip-path .5s cubic-bezier(.7, 0, 0, 1),
-                -webkit-clip-path .5s cubic-bezier(.7, 0, 0, 1);
+                // position: absolute;
+                // right: 90px;
+                // top: 13px;
+                // transition: -webkit-clip-path .5s cubic-bezier(.7, 0, 0, 1);
+                // transition: clip-path .5s cubic-bezier(.7, 0, 0, 1);
+                // transition: clip-path .5s cubic-bezier(.7, 0, 0, 1),
+                // -webkit-clip-path .5s cubic-bezier(.7, 0, 0, 1);
 
                 a {
-                    font-family: 'silka_regular';
+                    font-family: silkaregular;
                     background: none;
                     border: none;
+                    z-index: 9;
 
                     @include themify($themes) {
                         color: themed('textColor');
@@ -356,41 +389,7 @@ main {
                     text-decoration: none;
                     // text-shadow: 0 2px 5px rgba(0, 0, 0, .2);
                     // text-transform: uppercase;
-                }
-            }
-        }
 
-
-
-
-        &.nav-container--open {
-
-            .nav-icon__line {
-                &:first-child {
-                    transform: rotate(45deg) translate(5px, 8px);
-                }
-
-                &:nth-child(2) {
-                    transform: translate(MIN(-37vw, -700px));
-                    transition: transform .7s cubic-bezier(.7, 0, 0, 1);
-                    // background-color: #df9d3f;
-                    // box-shadow: 0 1px 1px #df9d3f;
-                }
-
-                &:nth-child(3) {
-                    transform: rotate(-45deg) translate(5px, -8px);
-                }
-            }
-
-
-            .nav-links {
-                -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-                transition: -webkit-clip-path .7s cubic-bezier(.7, 0, 0, 1);
-                transition: clip-path .7s cubic-bezier(.7, 0, 0, 1),
-                    -webkit-clip-path .7s cubic-bezier(.7, 0, 0, 1);
-
-                a {
                     &:hover {
                         @include themify($themes) {
                             color: themed('linkColor');
@@ -398,7 +397,26 @@ main {
                     }
                 }
             }
-        }
+        // }
+
+
+
+
+        
+
+            
+
+
+            
+
+         div.mode_changer {
+             display: flex;
+             position: relative;
+             flex-direction: column;
+             align-items: flex-start;
+             transform: translateX(-5px);
+             margin-right: calc(50vw - 910px);
+         }
     }
 
     .hero-section {
@@ -407,7 +425,7 @@ main {
         text-align: center;
 
         @include themify($themes) {
-            background-color: themed('backgroundColor');
+            // background-color: themed('backgroundColor');
         }
 
         .hero-div {
@@ -430,6 +448,7 @@ main {
                 font-weight: 500;
                 text-transform: uppercase;
                 letter-spacing: 2px;
+                font-family: silkaregular;
 
                 @include themify($themes) {
                     color: themed('secondaryColor');
@@ -473,6 +492,7 @@ main {
                 display: inline-block;
                 line-height: 0;
                 position: relative;
+                font-family: silkaregular;
 
                 @include themify($themes) {
                     color: themed('textColor');
@@ -624,15 +644,9 @@ main {
         opacity: 0;
         height: calc(100vh - 99px);
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: flex-end;
 
-        div.mode_changer {
-            display: flex;
-            position: relative;
-            flex-direction: column;
-            align-items: flex-start;
-            transform: translateX(-5px);
-        }
+       
 
         div.right-mail-link {
             display: flex;
@@ -644,7 +658,7 @@ main {
             a {
                 margin: 20px auto 0px;
                 padding: 10px;
-
+                font-family: silkaregular;
                 font-size: 12px;
                 font-weight: 700;
                 letter-spacing: 0.1em;

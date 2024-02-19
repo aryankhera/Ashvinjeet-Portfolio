@@ -134,13 +134,13 @@ window.addEventListener("mousemove", function (e) {
     x: clientX,
     y: clientY
   });
-});
-menu.addEventListener("mouseover", function () {
-  this.classList.add("nav-container--open");
-});
-menu.addEventListener("mouseout", function () {
-  this.classList.remove("nav-container--open");
-}); // cursor remove on work button hover homepage
+}); // menu.addEventListener("mouseover", function () {
+//   this.classList.add("nav-container--open");
+// });
+// menu.addEventListener("mouseout", function () {
+//   this.classList.remove("nav-container--open");
+// });
+// cursor remove on work button hover homepage
 
 workBtn.onmouseover = function () {
   cursor.style.display = "none";
