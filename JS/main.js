@@ -165,6 +165,8 @@ function detectColorScheme() {
       document.getElementById("mainLogo").src = "../images/logo_bg_black.svg";
       document.getElementById("mainLogo").style.width = "2vw";
       document.getElementById("mainLogo").style.maxHeight = "79.67px";
+      document.getElementById("lightMode").classList.add("hidden");
+      document.getElementById("darkMode").classList.remove("hidden");
       modeChangerSun.style.display = "none";
       modeChangerMoon.style.display = "inline";
     } else if (localStorage.getItem("theme") == "light") {
@@ -176,6 +178,9 @@ function detectColorScheme() {
       document.getElementById("mainLogo").style.maxHeight = "79.67px";
       modeChangerSun.style.display = "inline";
       modeChangerMoon.style.display = "none";
+      console.log("first", document.getElementById("lightMode"));
+      document.getElementById("lightMode").classList.remove("hidden");
+      document.getElementById("darkMode").classList.add("hidden");
       return false;
     }
   } else if (theme == "light") {
@@ -187,6 +192,8 @@ function detectColorScheme() {
     document.getElementById("mainLogo").style.maxHeight = "79.67px";
     modeChangerSun.style.display = "inline";
     modeChangerMoon.style.display = "none";
+    document.getElementById("lightMode").classList.remove("hidden");
+    document.getElementById("darkMode").classList.add("hidden");
   } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
     //OS theme setting detected as dark
     console.log("Dark theme incoming!!!");
@@ -197,6 +204,8 @@ function detectColorScheme() {
     document.getElementById("mainLogo").style.width = "2vw";
     modeChangerSun.style.display = "none";
     modeChangerMoon.style.display = "inline";
+    document.getElementById("lightMode").classList.remove("hidden");
+      document.getElementById("darkMode").classList.add("hidden");
   }
 }
 
