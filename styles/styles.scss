@@ -190,6 +190,7 @@ main {
         position: fixed;
         z-index: 1;
         overflow: hidden;
+        font-size: 3.125em;
 
         .maintitle {
 
@@ -299,12 +300,14 @@ main {
     }
 
     .nav-container {
-        position: relative;
+        position: fixed;
+        width: 100%;
         opacity: 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding-top: 15px;
+        z-index: 9;
         // background-color: $bg-color;
 
         @include themify($themes) {
@@ -312,7 +315,9 @@ main {
         }
 
         .nav-brand {
-            margin-left: calc(50vw - 910px);
+            // margin-left: calc(50vw - 910px);
+            left: 40px;
+            position: relative;
             z-index: 1;
             height: 100%;
             width: 100%;
@@ -323,100 +328,93 @@ main {
         //     margin-right: calc(50vw - 910px);
         //     z-index: 1;
 
-            // .nav-icon {
-            //     display: flex;
-            //     flex-direction: column;
-            //     height: 20px;
-            //     justify-content: space-between;
-            //     width: 30px;
-            //     align-items: flex-end;
+        // .nav-icon {
+        //     display: flex;
+        //     flex-direction: column;
+        //     height: 20px;
+        //     justify-content: space-between;
+        //     width: 30px;
+        //     align-items: flex-end;
 
-            //     .nav-icon__line {
-            //         @include themify($themes) {
-            //             background-color: themed('textColor');
-            //             box-shadow: 0 1px 1px themed('textColor');
-            //         }
+        //     .nav-icon__line {
+        //         @include themify($themes) {
+        //             background-color: themed('textColor');
+        //             box-shadow: 0 1px 1px themed('textColor');
+        //         }
 
-            //         // background-color: font-color;
-            //         // box-shadow: 0 1px 1px font-color;
-            //         height: 2px;
-            //         pointer-events: none;
-            //         transition: transform .5s cubic-bezier(.7, 0, 0, 1);
-            //         width: 100%;
+        //         // background-color: font-color;
+        //         // box-shadow: 0 1px 1px font-color;
+        //         height: 2px;
+        //         pointer-events: none;
+        //         transition: transform .5s cubic-bezier(.7, 0, 0, 1);
+        //         width: 100%;
 
-            //         &:nth-child(2) {
-            //             width: 75%;
-            //         }
-            //     }
-            // }
+        //         &:nth-child(2) {
+        //             width: 75%;
+        //         }
+        //     }
+        // }
 
-            .nav-links {
+        .nav-links {
+            font-family: silkaregular;
+
+            @include themify($themes) {
+                color: themed('textColor');
+            }
+
+            // -webkit-clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+            // clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            // position: absolute;
+            // right: 90px;
+            // top: 13px;
+            // transition: -webkit-clip-path .5s cubic-bezier(.7, 0, 0, 1);
+            // transition: clip-path .5s cubic-bezier(.7, 0, 0, 1);
+            // transition: clip-path .5s cubic-bezier(.7, 0, 0, 1),
+            // -webkit-clip-path .5s cubic-bezier(.7, 0, 0, 1);
+
+            a {
                 font-family: silkaregular;
+                background: none;
+                border: none;
+                z-index: 9;
 
                 @include themify($themes) {
                     color: themed('textColor');
                 }
 
-                // -webkit-clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
-                // clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
-                display: flex;
-                flex-direction: row;
-                gap: 30px;
-                // position: absolute;
-                // right: 90px;
-                // top: 13px;
-                // transition: -webkit-clip-path .5s cubic-bezier(.7, 0, 0, 1);
-                // transition: clip-path .5s cubic-bezier(.7, 0, 0, 1);
-                // transition: clip-path .5s cubic-bezier(.7, 0, 0, 1),
-                // -webkit-clip-path .5s cubic-bezier(.7, 0, 0, 1);
+                font-size: 16px;
+                font-weight: 700;
+                letter-spacing: 2px;
+                margin: 0;
+                padding: 30px;
+                position: relative;
+                text-decoration: none;
+                // text-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+                // text-transform: uppercase;
 
-                a {
-                    font-family: silkaregular;
-                    background: none;
-                    border: none;
-                    z-index: 9;
-
+                &:hover {
                     @include themify($themes) {
-                        color: themed('textColor');
-                    }
-
-                    font-size: 16px;
-                    font-weight: 700;
-                    letter-spacing: 2px;
-                    margin: 0;
-                    padding: 30px;
-                    position: relative;
-                    text-decoration: none;
-                    // text-shadow: 0 2px 5px rgba(0, 0, 0, .2);
-                    // text-transform: uppercase;
-
-                    &:hover {
-                        @include themify($themes) {
-                            color: themed('linkColor');
-                        }
+                        color: themed('linkColor');
                     }
                 }
             }
+        }
+
         // }
 
+        div.mode_changer {
+            display: flex;
+            position: relative;
+            right: 40px;
+            flex-direction: column;
+            align-items: flex-start;
+            //  transform: translateX(-5px);
+            //  margin-right: calc(100vw - 50px);
 
-
-
-        
-
-            
-
-
-            
-
-         div.mode_changer {
-             display: flex;
-             position: relative;
-             flex-direction: column;
-             align-items: flex-start;
-             transform: translateX(-5px);
-             margin-right: calc(50vw - 910px);
-         }
+        }
     }
 
     .hero-section {
@@ -501,7 +499,7 @@ main {
                 font-weight: 900;
                 border: 0;
                 background-color: transparent;
-                width: 165px;
+                width: 150px;
                 transition: all 0.3s ease-in-out;
 
                 p {
@@ -550,7 +548,7 @@ main {
                         height: 55px;
                         z-index: -1;
                         transition: all 0.5s cubic-bezier(0.75, 1, 0.50, 1);
-                        border-radius: 10px;
+                        border-radius: 5px;
 
                         @include themify($themes) {
                             border: 4px solid themed('linkColor');
@@ -646,7 +644,7 @@ main {
         flex-direction: column;
         justify-content: flex-end;
 
-       
+
 
         div.right-mail-link {
             display: flex;
