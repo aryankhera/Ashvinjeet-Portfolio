@@ -17,12 +17,17 @@
 </head>
 
 <body class="theme-light">
-			<div
-				class="absolute h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]" id="lightMode">
-			</div>
-			
+	
+		<div class="absolute inset-0 -z-10 h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"
+			id="lightMode">
+		</div>
+
+		<div class="absolute inset-0 -z-10 h-full w-full bg-neutral-950 bg-[radial-gradient(#e1a1461a_1px,#0c0c0c_1px)] bg-[size:20px_20px]"
+			id="darkMode">
+		</div>
+
 	<main>
-		
+
 		<!-- LOADING SCREEN START -->
 		<div id="mainloader">
 			<div class="maintitle">
@@ -42,20 +47,20 @@
 				<img id="mainLogo" src="" alt="logo" />
 			</div>
 			<!-- <div class="hamburger"> -->
-				<!-- <div class="nav-icon">
+			<!-- <div class="nav-icon">
 					<div class="nav-icon__line"></div>
 					<div class="nav-icon__line"></div>
 					<div class="nav-icon__line"></div>
 				</div> -->
-				<div>
-					<nav class="nav-links">
-						<a href="/" class="router-link-active router-link-exact-active mouse-md"> Home </a>
-						<a href="/about" class="mouse-md"> About </a>
-						<a href="/portfolio" class="mouse-md"> Projects </a>
-						<a href="/contact" class="mouse-md"> Contact </a>
-				<!-- </div> -->
+			<div>
+				<nav class="nav-links">
+					<a href="/" class="router-link-active router-link-exact-active mouse-md"> Home </a>
+					<a href="/about" class="mouse-md"> About </a>
+					<a href="/portfolio" class="mouse-md"> Projects </a>
+					<a href="/contact" class="mouse-md"> Contact </a>
+					<!-- </div> -->
 				</nav>
-				</div>
+			</div>
 
 			<div class="mode_changer">
 				<iconify-icon icon="ph:sun" width="37" height="37" id="Sun"></iconify-icon>
@@ -101,7 +106,7 @@
 
 		<!-- RIGHT LINK START  -->
 		<div orientation="right" class="right-bar">
-			
+
 			<div class="right-mail-link">
 				<a href="#">ashvinjeetsingh22@gmail.com</a>
 			</div>
