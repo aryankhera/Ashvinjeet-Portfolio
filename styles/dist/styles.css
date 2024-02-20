@@ -47,6 +47,7 @@ main #mainloader {
   position: fixed;
   z-index: 1;
   overflow: hidden;
+  font-size: 3.125em;
 }
 main #mainloader .maintitle {
   color: #df9d3f;
@@ -137,15 +138,18 @@ main .follow_cursor ::after {
   animation: cursorAnim2 0.5s infinite alternate;
 }
 main .nav-container {
-  position: relative;
+  position: fixed;
+  width: 100%;
   opacity: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-top: 15px;
+  z-index: 9;
 }
 main .nav-container .nav-brand {
-  margin-left: calc(50vw - 910px);
+  left: 40px;
+  position: relative;
   z-index: 1;
   height: 100%;
   width: 100%;
@@ -191,10 +195,9 @@ main .nav-container .nav-links a {
 main .nav-container div.mode_changer {
   display: flex;
   position: relative;
+  right: 40px;
   flex-direction: column;
   align-items: flex-start;
-  transform: translateX(-5px);
-  margin-right: calc(50vw - 910px);
 }
 main .hero-section {
   height: calc(100vh - 95px);
@@ -262,7 +265,7 @@ main .hero-section .hero-div .workbtn {
   font-weight: 900;
   border: 0;
   background-color: transparent;
-  width: 165px;
+  width: 150px;
   transition: all 0.3s ease-in-out;
 }
 .theme-light main .hero-section .hero-div .workbtn {
@@ -312,7 +315,7 @@ main .hero-section .hero-div .workbtn:hover:after {
   height: 55px;
   z-index: -1;
   transition: all 0.5s cubic-bezier(0.75, 1, 0.5, 1);
-  border-radius: 10px;
+  border-radius: 5px;
   background: transparent;
   border-radius: 10px;
 }
