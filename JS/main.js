@@ -8,6 +8,7 @@ var cursor = document.querySelector(".follow_cursor");
 var workBtn = document.querySelector(".workbtn");
 const overlay = document.querySelector(".overlay");
 const Scroll_more = document.getElementById("scroll_mouse");
+const x =document.querySelector('#l_time');
 var modeChangerSun = document.querySelector("#Sun");
 var modeChangerMoon = document.querySelector("#Moon");
 const scrollers = document.querySelectorAll(".scroller");
@@ -163,6 +164,7 @@ function detectColorScheme() {
       document.querySelector("body").classList.add("theme-dark");
       document.querySelector("body").classList.remove("theme-light");
       document.getElementById("mainLogo").src = "../images/logo_bg_black.svg";
+      document.getElementById("juice").src = "../images/juice.png";
       document.getElementById("mainLogo").style.width = "2vw";
       document.getElementById("mainLogo").style.maxHeight = "79.67px";
       document.getElementById("lightMode").classList.add("hidden");
@@ -174,6 +176,7 @@ function detectColorScheme() {
       document.querySelector("body").classList.add("theme-light");
       document.querySelector("body").classList.remove("theme-dark");
       document.getElementById("mainLogo").src = "../images/logo.svg";
+      document.getElementById("juice").src = "../images/Juice_invert.png";
       document.getElementById("mainLogo").style.width = "2vw";
       document.getElementById("mainLogo").style.maxHeight = "79.67px";
       modeChangerSun.style.display = "inline";
@@ -188,6 +191,7 @@ function detectColorScheme() {
     document.querySelector("body").classList.add("theme-light");
     document.querySelector("body").classList.remove("theme-dark");
     document.getElementById("mainLogo").src = "../images/logo.svg";
+    document.getElementById("juice").src = "../images/Juice_invert.png";
     document.getElementById("mainLogo").style.width = "2vw";
     document.getElementById("mainLogo").style.maxHeight = "79.67px";
     modeChangerSun.style.display = "inline";
@@ -201,6 +205,7 @@ function detectColorScheme() {
     document.querySelector("body").classList.add("theme-dark");
     document.querySelector("body").classList.remove("theme-light");
     document.getElementById("mainLogo").src = "../images/logo.png";
+    document.getElementById("juice").src = "../images/juice.png";
     document.getElementById("mainLogo").style.width = "2vw";
     modeChangerSun.style.display = "none";
     modeChangerMoon.style.display = "inline";
@@ -400,3 +405,15 @@ function detectColorScheme() {
 // new LoopingElement(elements[4], -400, 0.08);
 // new LoopingElement(elements[5], -500, 0.08);
 // new LoopingElement(elements[6], -600, 0.08);
+
+
+const getDateTime=()=>{
+var date = new Date();
+// console.log(date);
+time = date.toLocaleTimeString("en-US");
+console.log("x_val before", x.value);
+x.innerText = time;
+console.log("x_val after",x.value)
+}
+
+getDateTime();
