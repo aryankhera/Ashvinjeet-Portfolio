@@ -148,7 +148,7 @@ main .nav-container {
   z-index: 9;
 }
 main .nav-container .nav-brand {
-  left: 40px;
+  margin-left: 40px;
   position: relative;
   z-index: 1;
   height: 100%;
@@ -219,9 +219,12 @@ main .hero-section .hero-div {
   z-index: 2;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
   position: relative;
+  align-self: center;
+  height: 50%;
+  row-gap: 10em;
 }
 main .hero-section .hero-div .copy_section {
   max-width: 56em;
@@ -301,12 +304,12 @@ main .hero-section .hero-div .copy_section .workbtn p {
 }
 main .hero-section .hero-div .floating_text {
   display: flex;
-  justify-content: space-between;
-  position: absolute;
-  bottom: 15em;
-  width: 40%;
-  right: 40px;
-  margin-right: 14em;
+  justify-content: center;
+  column-gap: 16em;
+  width: 100%;
+  max-width: 56em;
+  margin-left: -14em;
+  margin-right: -14em;
 }
 main .hero-section .hero-div .floating_text #child_one {
   display: flex;
@@ -672,6 +675,18 @@ main .marquee_part {
   transform: rotate(45deg) translate(0px, -5px);
 }
 
+@media screen and (max-width: 1920px) {
+  main .hero-section .hero-div {
+    row-gap: 5em;
+  }
+  main .hero-section .hero-div .copy_section {
+    max-width: 47em;
+  }
+  main .hero-section .hero-div .floating_text {
+    column-gap: 10em;
+    margin: 0 -11em;
+  }
+}
 @media screen and (max-width: 1500px) {
   main .faded-text-background {
     font-size: 10em;
