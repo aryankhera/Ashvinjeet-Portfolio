@@ -40,6 +40,19 @@ main {
 .theme-dark main {
   color: #fff;
 }
+main .line_container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  overflow: hidden;
+}
+main .line_container svg {
+  display: inline-block;
+  height: 100%;
+}
 main #mainloader {
   background-color: #0c0c0c;
   height: 100vh;
@@ -210,8 +223,42 @@ main .hero-section {
 main .hero-section .first_hero {
   height: 100%;
   width: 100%;
-  background-color: #2beb2b;
-  opacity: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  opacity: 0;
+}
+main .hero-section .first_hero #player {
+  width: 100%;
+  height: 100%;
+  max-width: 990px;
+  max-height: 300px;
+}
+.theme-light main .hero-section .first_hero q {
+  color: rgba(25, 26, 30, 0.4);
+}
+.theme-dark main .hero-section .first_hero q {
+  color: rgba(211, 220, 255, 0.4);
+}
+main .hero-section .first_hero q a {
+  text-decoration: none;
+}
+.theme-light main .hero-section .first_hero q a {
+  color: rgba(25, 26, 30, 0.4);
+}
+.theme-dark main .hero-section .first_hero q a {
+  color: rgba(211, 220, 255, 0.4);
+}
+main .hero-section .first_hero q a:hover {
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+}
+.theme-light main .hero-section .first_hero q a:hover {
+  color: #DF9D3F;
+}
+.theme-dark main .hero-section .first_hero q a:hover {
+  color: #DF9D3F;
 }
 main .hero-section .hero-div {
   width: 100%;
@@ -228,7 +275,6 @@ main .hero-section .hero-div {
 }
 main .hero-section .hero-div .copy_section {
   max-width: 56em;
-  margin-left: 8em;
   margin-right: 8em;
 }
 main .hero-section .hero-div .copy_section #web_dev_tag {
@@ -270,17 +316,32 @@ main .hero-section .hero-div .copy_section p {
   line-height: 32px;
   letter-spacing: 2px;
   margin-bottom: 2em;
+  cursor: default;
 }
 main .hero-section .hero-div .copy_section .workbtn {
   height: 54px;
-  display: inline-block;
+  display: flex;
   line-height: 0;
   position: relative;
+  transition: all 0.5s ease;
+  justify-content: center;
+  align-items: center;
   border: 0;
   border-radius: 40px;
-  width: 160px;
-  transition: all 0.3s ease-in-out;
   padding: 1em 2em;
+  gap: 0.5em;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 21px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  width: 100%;
+  max-width: 200px;
+  transform-style: preserve-3d;
+  transition: all 0.3s ease-in-out;
+  font-family: "Bebas Neue", sans-serif;
+  color: #000;
+  font-weight: 500;
 }
 .theme-light main .hero-section .hero-div .copy_section .workbtn {
   background-color: #DF9D3F;
@@ -288,28 +349,41 @@ main .hero-section .hero-div .copy_section .workbtn {
 .theme-dark main .hero-section .hero-div .copy_section .workbtn {
   background-color: #DF9D3F;
 }
-main .hero-section .hero-div .copy_section .workbtn p {
-  overflow: hidden;
-  font-size: 16px;
-  line-height: 21px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  width: 100%;
-  transform-style: preserve-3d;
-  transition: all 0.3s ease-in-out;
-  font-family: "Bebas Neue", sans-serif;
-  color: #000;
-  font-weight: 500;
-  margin-bottom: 0px;
+main .hero-section .hero-div .copy_section .workbtn .icon {
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .hero-section .hero-div .copy_section .workbtn .icon span {
+  background: black;
+  border-radius: 100%;
+  padding: 0rem;
+  width: 0rem;
+  height: 0rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-180deg);
+  transition: all 0.5s ease;
+}
+main .hero-section .hero-div .copy_section .workbtn:hover .icon span {
+  transform: rotate(0deg);
+  border-radius: 100%;
+  padding: 0.6rem;
+  width: 1.9rem;
+  height: 1.9rem;
 }
 main .hero-section .hero-div .floating_text {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   column-gap: 16em;
+  z-index: 2;
   width: 100%;
+  cursor: default;
   max-width: 56em;
   margin-left: -14em;
-  margin-right: -14em;
+  margin-right: -6.75em;
 }
 main .hero-section .hero-div .floating_text #child_one {
   display: flex;
@@ -346,43 +420,6 @@ main .hero-section .hero-div .floating_text p {
 }
 main .hero-section .hero-div .floating_text p #l_time {
   font-family: silkaregular;
-}
-main .hero-section .scroll_heading {
-  pointer-events: none;
-  cursor: pointer;
-}
-.theme-light main .hero-section .scroll_heading {
-  color: #000;
-}
-.theme-dark main .hero-section .scroll_heading {
-  color: #fff;
-}
-main .hero-section .scroll_heading.shimmer {
-  font-family: silkaregular;
-  font-size: 12px !important;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.1);
-  background: linear-gradient(to right, #DF9D3F 0%, #fff 50%, #DF9D3F 100%);
-  background-size: 125px 100%;
-  background-clip: text;
-  -webkit-animation-name: shimmer;
-  -moz-animation-name: shimmer;
-  animation-name: shimmer;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  background-repeat: no-repeat;
-  background-position: 0 0;
-  background-color: black;
-  font-weight: 700;
-  transition: 2s ease-in-out;
-}
-@keyframes shimmer {
-  0% {
-    background-position: top left;
-  }
-  100% {
-    background-position: top right;
-  }
 }
 main .left-social-links {
   width: 40px;
@@ -637,6 +674,17 @@ main .marquee_inner {
 main .marquee_part {
   position: absolute;
 }
+main .bg_line {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  z-index: -1;
+}
+
+.about_section {
+  height: 100vh;
+  background-color: lightblue;
+}
 
 @keyframes updown {
   from {
@@ -676,6 +724,13 @@ main .marquee_part {
 }
 
 @media screen and (max-width: 1920px) {
+  main .hero-section .first_hero {
+    padding-right: 2em;
+  }
+  main .hero-section .first_hero #player {
+    width: 100%;
+    max-width: 768px;
+  }
   main .hero-section .hero-div {
     row-gap: 5em;
   }
@@ -684,7 +739,7 @@ main .marquee_part {
   }
   main .hero-section .hero-div .floating_text {
     column-gap: 10em;
-    margin: 0 -11em;
+    margin-left: -5.25em;
   }
 }
 @media screen and (max-width: 1500px) {
