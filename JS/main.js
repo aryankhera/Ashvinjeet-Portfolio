@@ -163,10 +163,10 @@ function detectColorScheme() {
       var theme = "dark";
       document.querySelector("body").classList.add("theme-dark");
       document.querySelector("body").classList.remove("theme-light");
-      document.getElementById("mainLogo").src = "../images/logo_bg_black.svg";
+      document.getElementById("mainLogo").src = "../images/logo_2.svg";
       document.getElementById("juice").src = "../images/juice.png";
-      document.getElementById("mainLogo").style.width = "2vw";
-      document.getElementById("mainLogo").style.maxHeight = "79.67px";
+      // document.getElementById("mainLogo").style.width = "2vw";
+      // document.getElementById("mainLogo").style.maxHeight = "79.67px";
       document.getElementById("lightMode").classList.add("hidden");
       document.getElementById("darkMode").classList.remove("hidden");
       modeChangerSun.style.display = "none";
@@ -177,8 +177,8 @@ function detectColorScheme() {
       document.querySelector("body").classList.remove("theme-dark");
       document.getElementById("mainLogo").src = "../images/logo.svg";
       document.getElementById("juice").src = "../images/Juice_invert.png";
-      document.getElementById("mainLogo").style.width = "2vw";
-      document.getElementById("mainLogo").style.maxHeight = "79.67px";
+      // document.getElementById("mainLogo").style.width = "2vw";
+      // document.getElementById("mainLogo").style.maxHeight = "79.67px";
       modeChangerSun.style.display = "inline";
       modeChangerMoon.style.display = "none";
       console.log("first", document.getElementById("lightMode"));
@@ -192,8 +192,8 @@ function detectColorScheme() {
     document.querySelector("body").classList.remove("theme-dark");
     document.getElementById("mainLogo").src = "../images/logo.svg";
     document.getElementById("juice").src = "../images/Juice_invert.png";
-    document.getElementById("mainLogo").style.width = "2vw";
-    document.getElementById("mainLogo").style.maxHeight = "79.67px";
+    // document.getElementById("mainLogo").style.width = "2vw";
+    // document.getElementById("mainLogo").style.maxHeight = "79.67px";
     modeChangerSun.style.display = "inline";
     modeChangerMoon.style.display = "none";
     document.getElementById("lightMode").classList.remove("hidden");
@@ -204,9 +204,9 @@ function detectColorScheme() {
     var theme = "dark";
     document.querySelector("body").classList.add("theme-dark");
     document.querySelector("body").classList.remove("theme-light");
-    document.getElementById("mainLogo").src = "../images/logo.png";
+    document.getElementById("mainLogo").src = "../images/logo_2.svg";
     document.getElementById("juice").src = "../images/juice.png";
-    document.getElementById("mainLogo").style.width = "2vw";
+    // document.getElementById("mainLogo").style.width = "2vw";
     modeChangerSun.style.display = "none";
     modeChangerMoon.style.display = "inline";
     document.getElementById("lightMode").classList.remove("hidden");
