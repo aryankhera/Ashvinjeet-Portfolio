@@ -210,8 +210,41 @@ main .hero-section {
 main .hero-section .first_hero {
   height: 100%;
   width: 100%;
-  background-color: #2beb2b;
-  opacity: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+main .hero-section .first_hero #player {
+  width: 100%;
+  height: 100%;
+  max-width: 990px;
+  max-height: 300px;
+}
+.theme-light main .hero-section .first_hero q {
+  color: rgba(25, 26, 30, 0.4);
+}
+.theme-dark main .hero-section .first_hero q {
+  color: rgba(211, 220, 255, 0.4);
+}
+main .hero-section .first_hero q a {
+  text-decoration: none;
+}
+.theme-light main .hero-section .first_hero q a {
+  color: rgba(25, 26, 30, 0.4);
+}
+.theme-dark main .hero-section .first_hero q a {
+  color: rgba(211, 220, 255, 0.4);
+}
+main .hero-section .first_hero q a:hover {
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+}
+.theme-light main .hero-section .first_hero q a:hover {
+  color: #DF9D3F;
+}
+.theme-dark main .hero-section .first_hero q a:hover {
+  color: #DF9D3F;
 }
 main .hero-section .hero-div {
   width: 100%;
@@ -228,7 +261,6 @@ main .hero-section .hero-div {
 }
 main .hero-section .hero-div .copy_section {
   max-width: 56em;
-  margin-left: 8em;
   margin-right: 8em;
 }
 main .hero-section .hero-div .copy_section #web_dev_tag {
@@ -304,12 +336,12 @@ main .hero-section .hero-div .copy_section .workbtn p {
 }
 main .hero-section .hero-div .floating_text {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   column-gap: 16em;
   width: 100%;
   max-width: 56em;
   margin-left: -14em;
-  margin-right: -14em;
+  margin-right: -5em;
 }
 main .hero-section .hero-div .floating_text #child_one {
   display: flex;
@@ -676,6 +708,13 @@ main .marquee_part {
 }
 
 @media screen and (max-width: 1920px) {
+  main .hero-section .first_hero {
+    padding-right: 2em;
+  }
+  main .hero-section .first_hero #player {
+    width: 100%;
+    max-width: 768px;
+  }
   main .hero-section .hero-div {
     row-gap: 5em;
   }
@@ -684,7 +723,7 @@ main .marquee_part {
   }
   main .hero-section .hero-div .floating_text {
     column-gap: 10em;
-    margin: 0 -11em;
+    margin: 0 -3em;
   }
 }
 @media screen and (max-width: 1500px) {

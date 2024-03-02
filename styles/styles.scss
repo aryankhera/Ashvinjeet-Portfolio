@@ -429,8 +429,38 @@ main {
         .first_hero {
             height: 100%;
             width: 100%;
-            background-color: #2beb2b;
-            opacity: 20%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+
+            #player {
+                width: 100%;
+                height: 100%;
+                max-width: 990px;
+                max-height: 300px;
+                // margin-left: 2.5em;
+            }
+
+            q {
+                @include themify($themes) {
+                    color: themed('secondaryColor');
+                }
+                a {
+                    text-decoration: none;
+                    @include themify($themes) {
+                        color: themed('secondaryColor');
+                    }
+
+                    &:hover{
+                        text-decoration: none;
+                        @include themify($themes) {
+                            color: themed('linkColor');
+                        }
+                        transition: 0.3s ease-in-out;
+                    }
+                }
+            }
         }
 
 
@@ -449,15 +479,9 @@ main {
 
             .copy_section {
                 max-width: 56em;
-                margin-left: 8em;
+                // margin-left: 8em;
                 margin-right: 8em;
 
-
-                // &.overlay {
-                //     color: #df9d3f;
-                //     clip-path: circle(100px at var(--x, 50%) var(--y, 50%));
-                //     transition: clip-path 100ms;
-                // }
 
                 #web_dev_tag {
                     font-size: 0.75em;
@@ -602,7 +626,7 @@ main {
 
 
                 display: flex;
-                justify-content: center;
+                justify-content: flex-start;
                 column-gap: 16em;
                 // bottom: 15em;
                 width: 100%;
@@ -610,7 +634,7 @@ main {
                 // margin-right: 14em;
                 max-width: 56em;
                 margin-left: -14em;
-                margin-right: -14em;
+                margin-right: -5em;
 
                 #child_one {
 
@@ -1112,30 +1136,45 @@ main {
 @media screen and (max-width:1920px) {
     main {
         .hero-section {
+            .first_hero {
+                // align-items: center;
+                padding-right: 2em;
+
+                #player {
+                    width: 100%;
+                    max-width: 768px;
+
+
+                }
+            }
+
             .hero-div {
                 row-gap: 5em;
 
-                .copy_section{
+                .copy_section {
                     max-width: 47em;
                 }
+
                 .floating_text {
                     column-gap: 10em;
-                    margin: 0 -11em;
+                    margin: 0 -3em;
                 }
             }
         }
-    }}
-        @media screen and (max-width:1500px) {
-            main {
-                .faded-text-background {
-                    font-size: 10em;
-                    left: 28%;
-                }
-            }
-        }
+    }
+}
 
-        @media (max-width:768px) {
-            #left-hero {
-                flex: 0 0 100% !important;
-            }
+@media screen and (max-width:1500px) {
+    main {
+        .faded-text-background {
+            font-size: 10em;
+            left: 28%;
         }
+    }
+}
+
+@media (max-width:768px) {
+    #left-hero {
+        flex: 0 0 100% !important;
+    }
+}
