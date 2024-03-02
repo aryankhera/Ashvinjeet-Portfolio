@@ -227,6 +227,7 @@ main .hero-section .first_hero {
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
+  opacity: 0;
 }
 main .hero-section .first_hero #player {
   width: 100%;

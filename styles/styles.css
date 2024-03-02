@@ -262,6 +262,7 @@ main .hero-section .first_hero {
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
+  opacity: 0;
 }
 
 main .hero-section .first_hero #player {
@@ -392,7 +393,7 @@ main .hero-section .hero-div .copy_section .workbtn {
   max-width: 200px;
   transform-style: preserve-3d;
   transition: all 0.3s ease-in-out;
-  font-family: "Bebas Neue",sans-serif;
+  font-family: "Bebas Neue", sans-serif;
   color: #000;
   font-weight: 500;
 }

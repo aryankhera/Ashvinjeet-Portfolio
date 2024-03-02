@@ -112,10 +112,9 @@ tl.from(".reveal .child", {
     display: "block",
   })
   .to(".hero-div", { opacity: "1", duration: 0.8 }, "-=0.1")
+  .to(".first_hero", { opacity: "1", duration: 0.5 }, "-=0.2")
   .to(".left-social-links", { opacity: "1", duration: 0.5 })
-  .to(".right-bar", { opacity: "1", duration: 0.5 }, "-=0.5")
-  .to("#scroll_mouse", { opacity: "1", duration: 0.5 }, "-=0.5")
-  .to(".scroll heading", { opacity: "0.8", duration: 0.5 }, "-=0.5");
+  .to(".right-bar", { opacity: "1", duration: 0.5 }, "-=0.5");
 
 // Follow cursor
 gsap.set(cursor, { xPercent: -50, yPercent: -50 });

@@ -447,7 +447,7 @@ main {
             flex-direction: column;
             justify-content: center;
             align-items: flex-end;
-
+            opacity: 0;
             #player {
                 width: 100%;
                 height: 100%;
@@ -584,12 +584,13 @@ main {
                     max-width: 200px;
                     transform-style: preserve-3d;
                     transition: all 0.3s ease-in-out;
-                    font-family: "Bebas Neue",sans-serif;
+                    font-family: "Bebas Neue",
+                    sans-serif;
                     color: #000;
                     font-weight: 500;
 
 
-                   
+
 
 
                     .icon {
@@ -612,17 +613,17 @@ main {
                         }
                     }
 
-                     &:hover {
-                         .icon {
-                             span {
-                                 transform: rotate(0deg);
-                                 border-radius: 100%;
-                                 padding: 0.6rem;
-                                 width: 1.9rem;
-                                 height: 1.9rem;
-                             }
-                         }
-                     }
+                    &:hover {
+                        .icon {
+                            span {
+                                transform: rotate(0deg);
+                                border-radius: 100%;
+                                padding: 0.6rem;
+                                width: 1.9rem;
+                                height: 1.9rem;
+                            }
+                        }
+                    }
 
 
                     // &::after {
@@ -1161,7 +1162,7 @@ main {
 
                 .floating_text {
                     column-gap: 10em;
-                    margin-left:-5.25em;
+                    margin-left: -5.25em;
                 }
             }
         }
