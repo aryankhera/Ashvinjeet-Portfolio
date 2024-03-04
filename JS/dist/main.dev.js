@@ -15,6 +15,17 @@ var modeChangerSun = document.querySelector("#Sun");
 var modeChangerMoon = document.querySelector("#Moon");
 var scrollers = document.querySelectorAll(".scroller");
 
+var getDateTime = function getDateTime() {
+  var date = new Date(); // console.log(date);
+
+  time = date.toLocaleTimeString("en-US");
+  console.log("x_val before", x.value);
+  x.innerText = time;
+  console.log("x_val after", x.value);
+};
+
+getDateTime();
+
 if (!window.matchMedia("(prefers-reduced-motion:reduce)").matches) {
   addAnimation();
 }
@@ -132,13 +143,7 @@ window.addEventListener("mousemove", function (e) {
     x: clientX,
     y: clientY
   });
-}); // menu.addEventListener("mouseover", function () {
-//   this.classList.add("nav-container--open");
-// });
-// menu.addEventListener("mouseout", function () {
-//   this.classList.remove("nav-container--open");
-// });
-// cursor remove on work button hover homepage
+}); // cursor remove on work button hover homepage
 
 workBtn.onmouseover = function () {
   cursor.style.display = "none";
@@ -384,16 +389,7 @@ function detectColorScheme() {
 // new LoopingElement(elements[4], -400, 0.08);
 // new LoopingElement(elements[5], -500, 0.08);
 // new LoopingElement(elements[6], -600, 0.08);
-
-
-var getDateTime = function getDateTime() {
-  var date = new Date(); // console.log(date);
-
-  time = date.toLocaleTimeString("en-US");
-  console.log("x_val before", x.value);
-  x.innerText = time;
-  console.log("x_val after", x.value);
-}; // let path=document.querySelector('path')
+// let path=document.querySelector('path')
 // let pathLength=path.getTotalLength()
 // path.style.strokeDasharray=pathLength+ ' ' +pathLength;
 // path.style.strokeDashoffset=pathLength;
@@ -404,4 +400,6 @@ var getDateTime = function getDateTime() {
 // })
 
 
-getDateTime();
+document.addEventListener("scroll", function () {
+  window.scrollY > 70 ? menu.classList.add("Scrolled") : menu.classList.remove("Scrolled");
+});

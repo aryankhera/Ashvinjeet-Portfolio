@@ -151,14 +151,24 @@ main .follow_cursor ::after {
   animation: cursorAnim2 0.5s infinite alternate;
 }
 main .nav-container {
-  position: fixed;
+  position: sticky;
+  top: 0;
   width: 100%;
   opacity: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-top: 15px;
-  z-index: 9;
+  z-index: 9999;
+}
+main .nav-container.Scrolled {
+  transition: background-color 0.4s ease-in-out;
+}
+.theme-light main .nav-container.Scrolled {
+  background-color: rgba(25, 26, 30, 0.4);
+}
+.theme-dark main .nav-container.Scrolled {
+  background-color: rgba(211, 220, 255, 0.4);
 }
 main .nav-container .nav-brand {
   margin-left: 40px;
@@ -217,12 +227,12 @@ main .hero-section {
   position: relative;
   text-align: left;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-10%);
 }
 main .hero-section .first_hero {
-  height: 100%;
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -230,8 +240,6 @@ main .hero-section .first_hero {
   opacity: 0;
 }
 main .hero-section .first_hero #player {
-  width: 100%;
-  height: 100%;
   max-width: 990px;
   max-height: 300px;
 }
@@ -243,6 +251,7 @@ main .hero-section .first_hero #player {
 }
 main .hero-section .first_hero q a {
   text-decoration: none;
+  font-size: calc(0.35em + 0.390625vw);
 }
 .theme-light main .hero-section .first_hero q a {
   color: rgba(25, 26, 30, 0.4);
@@ -261,6 +270,7 @@ main .hero-section .first_hero q a:hover {
   color: #DF9D3F;
 }
 main .hero-section .hero-div {
+  margin-top: 2em;
   width: 100%;
   opacity: 0;
   z-index: 2;
@@ -270,15 +280,13 @@ main .hero-section .hero-div {
   flex-direction: column;
   position: relative;
   align-self: center;
-  height: 50%;
-  row-gap: 10em;
+  row-gap: 2em;
 }
 main .hero-section .hero-div .copy_section {
-  max-width: 56em;
-  margin-right: 8em;
+  max-width: 62em;
 }
 main .hero-section .hero-div .copy_section #web_dev_tag {
-  font-size: 0.75em;
+  font-size: calc(0.25em + 0.390625vw);
   line-height: 30px;
   font-weight: 500;
   text-transform: uppercase;
@@ -296,7 +304,7 @@ main .hero-section .hero-div .copy_section #web_dev_tag {
   color: rgba(211, 220, 255, 0.4);
 }
 main .hero-section .hero-div .copy_section .hero_copy_line {
-  font-size: 4em;
+  font-size: calc(2.95em + 0.390625vw);
   line-height: 64px;
   margin: 0 0 16px;
   cursor: default;
@@ -312,20 +320,21 @@ main .hero-section .hero-div .copy_section .hero_copy_line {
 }
 main .hero-section .hero-div .copy_section p {
   font-family: silkaregular;
-  font-size: 1em;
+  font-size: calc(0.5em + 0.390625vw);
   line-height: 32px;
   letter-spacing: 2px;
   margin-bottom: 2em;
   cursor: default;
 }
 main .hero-section .hero-div .copy_section .workbtn {
-  height: 54px;
+  height: 100%;
+  max-height: 54px;
   display: flex;
-  line-height: 0;
   position: relative;
   transition: all 0.5s ease;
   justify-content: center;
   align-items: center;
+  background-color: #fcad3d;
   border: 0;
   border-radius: 40px;
   padding: 1em 2em;
@@ -342,12 +351,6 @@ main .hero-section .hero-div .copy_section .workbtn {
   font-family: "Bebas Neue", sans-serif;
   color: #000;
   font-weight: 500;
-}
-.theme-light main .hero-section .hero-div .copy_section .workbtn {
-  background-color: #DF9D3F;
-}
-.theme-dark main .hero-section .hero-div .copy_section .workbtn {
-  background-color: #DF9D3F;
 }
 main .hero-section .hero-div .copy_section .workbtn .icon {
   height: 2rem;
@@ -376,14 +379,11 @@ main .hero-section .hero-div .copy_section .workbtn:hover .icon span {
 }
 main .hero-section .hero-div .floating_text {
   display: flex;
-  justify-content: flex-start;
-  column-gap: 16em;
+  justify-content: space-between;
   z-index: 2;
   width: 100%;
   cursor: default;
-  max-width: 56em;
-  margin-left: -14em;
-  margin-right: -6.75em;
+  max-width: 62em;
 }
 main .hero-section .hero-div .floating_text #child_one {
   display: flex;
@@ -723,29 +723,86 @@ main .bg_line {
   transform: rotate(45deg) translate(0px, -5px);
 }
 
-@media screen and (max-width: 1920px) {
-  main .hero-section .first_hero {
-    padding-right: 2em;
-  }
+@media screen and (max-width: 1921px) {
   main .hero-section .first_hero #player {
-    width: 100%;
     max-width: 768px;
   }
-  main .hero-section .hero-div {
-    row-gap: 5em;
-  }
   main .hero-section .hero-div .copy_section {
-    max-width: 47em;
+    max-width: 48em;
+  }
+  main .hero-section .hero-div .copy_section p {
+    line-height: 24px;
+    letter-spacing: 1px;
   }
   main .hero-section .hero-div .floating_text {
-    column-gap: 10em;
-    margin-left: -5.25em;
+    max-width: 48em;
   }
 }
-@media screen and (max-width: 1500px) {
-  main .faded-text-background {
-    font-size: 10em;
-    left: 28%;
+@media screen and (max-width: 1600px) {
+  main .hero-section .first_hero #player {
+    max-width: 660px;
+  }
+  main .hero-section .hero-div .copy_section {
+    max-width: 42em;
+  }
+  main .hero-section .hero-div .copy_section .hero_copy_line {
+    font-size: calc(2em + 0.390625vw);
+    line-height: 44px;
+  }
+  main .hero-section .hero-div .copy_section p {
+    font-size: calc(0.45em + 0.390625vw);
+    line-height: 24px;
+  }
+  main .hero-section .hero-div .copy_section .workbtn {
+    letter-spacing: 1px;
+    max-width: 148px;
+    max-height: 44px;
+    padding: 0.5em 1em;
+    gap: 0.5em;
+    font-size: calc(0.40em + 0.390625vw);
+  }
+  main .hero-section .hero-div .floating_text {
+    max-width: 42em;
+  }
+  main .hero-section .hero-div .floating_text p {
+    font-size: calc(0.40em + 0.390625vw);
+  }
+}
+@media screen and (max-width: 1366px) {
+  main .hero-section .first_hero #player {
+    max-width: 480px;
+  }
+  main .hero-section .hero-div {
+    row-gap: 1em;
+    margin-top: 0;
+  }
+  main .hero-section .hero-div .copy_section {
+    max-width: 30em;
+  }
+  main .hero-section .hero-div .copy_section .hero_copy_line {
+    font-size: calc(1.5em + 0.390625vw);
+    line-height: 28px;
+    margin: 0 0 8px;
+  }
+  main .hero-section .hero-div .copy_section #web_dev_tag {
+    line-height: inherit;
+    letter-spacing: 1px;
+  }
+  main .hero-section .hero-div .copy_section p {
+    line-height: 20px;
+    letter-spacing: inherit;
+    margin-bottom: 1em;
+  }
+  main .hero-section .hero-div .copy_section .workbtn {
+    max-width: 120px;
+    max-height: 36px;
+    gap: 0.15em;
+  }
+  main .hero-section .hero-div .floating_text {
+    max-width: 30em;
+  }
+  main .hero-section .hero-div .floating_text p {
+    font-size: calc(0.3em + 0.390625vw);
   }
 }
 @media (max-width: 768px) {

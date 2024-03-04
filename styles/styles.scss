@@ -314,18 +314,28 @@ main {
     }
 
     .nav-container {
-        position: fixed;
+        position: sticky;
+        top: 0;
         width: 100%;
         opacity: 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding-top: 15px;
-        z-index: 9;
+        z-index: 9999;
         // background-color: $bg-color;
 
         @include themify($themes) {
             // background-color: themed('backgroundColor');
+        }
+
+        &.Scrolled {
+            @include themify($themes) {
+                background-color: themed('secondaryColor');
+            }
+
+            transition: background-color 0.4s ease-in-out;
+
         }
 
         .nav-brand {
@@ -437,20 +447,22 @@ main {
         position: relative;
         text-align: left;
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateY(-10%);
 
         .first_hero {
-            height: 100%;
-            width: 100%;
+
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: flex-end;
             opacity: 0;
+
             #player {
-                width: 100%;
-                height: 100%;
+                // width: 100%;
+                // height: 100%;
                 max-width: 990px;
                 max-height: 300px;
                 // margin-left: 2.5em;
@@ -463,7 +475,7 @@ main {
 
                 a {
                     text-decoration: none;
-
+                    font-size: calc(0.35em + 0.390625vw);
                     @include themify($themes) {
                         color: themed('secondaryColor');
                     }
@@ -483,6 +495,7 @@ main {
 
 
         .hero-div {
+            margin-top: 2em;
             width: 100%;
             opacity: 0;
             z-index: 2;
@@ -492,17 +505,17 @@ main {
             flex-direction: column;
             position: relative;
             align-self: center;
-            height: 50%;
-            row-gap: 10em;
+            // height: 50%;
+            row-gap: 2em;
 
             .copy_section {
-                max-width: 56em;
+                max-width: 62em;
                 // margin-left: 8em;
-                margin-right: 8em;
+                // margin-right: 8em;
 
 
                 #web_dev_tag {
-                    font-size: 0.75em;
+                    font-size: calc(0.25em + 0.390625vw);
                     line-height: 30px;
                     font-weight: 500;
                     text-transform: uppercase;
@@ -534,7 +547,8 @@ main {
                 }
 
                 .hero_copy_line {
-                    font-size: 4em;
+                    // font-size: 4em;
+                    font-size: calc(2.95em + 0.390625vw);
                     line-height: 64px;
                     margin: 0 0 16px;
                     cursor: default;
@@ -549,7 +563,7 @@ main {
 
                 p {
                     font-family: silkaregular;
-                    font-size: 1em;
+                    font-size: calc(0.5em + 0.390625vw);
                     line-height: 32px;
                     letter-spacing: 2px;
                     margin-bottom: 2em;
@@ -557,18 +571,15 @@ main {
                 }
 
                 .workbtn {
-                    height: 54px;
+                    height: 100%;
+                    max-height: 54px;
                     display: flex;
-                    line-height: 0;
+                    // line-height: 0;
                     position: relative;
                     transition: all 0.5s ease;
                     justify-content: center;
                     align-items: center;
-
-                    @include themify($themes) {
-                        background-color: themed('linkColor');
-                    }
-
+                    background-color: #fcad3d;
                     border: 0;
                     border-radius: 40px;
                     // transition: all 0.3s ease-in-out;
@@ -585,7 +596,7 @@ main {
                     transform-style: preserve-3d;
                     transition: all 0.3s ease-in-out;
                     font-family: "Bebas Neue",
-                    sans-serif;
+                        sans-serif;
                     color: #000;
                     font-weight: 500;
 
@@ -624,71 +635,19 @@ main {
                             }
                         }
                     }
-
-
-                    // &::after {
-                    //     @include themify($themes) {
-                    //         background-color: themed('linkColor');
-                    //     }
-
-                    //     content: "";
-                    //     height: 5px;
-                    //     position: absolute;
-                    //     border-radius: 10px;
-                    //     transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
-                    //     width: 100%;
-                    //     bottom: 8px;
-                    //     left: -1px;
-
-                    // }
-
-                    // i {
-                    //     transition: all 0.3s ease-in-out;
-                    // }
-
-                    // &:hover {
-                    //     text-align: center;
-
-                    //     p {
-                    //         transform-style: preserve-3d;
-                    //         transition: all 0.5s ease-in-out;
-                    //     }
-
-                    //     i {
-                    //         transform: rotate(-45deg);
-                    //         transition: all 0.3s ease-in-out;
-                    //     }
-
-                    //     &:after {
-                    //         height: 55px;
-                    //         z-index: -1;
-                    //         transition: all 0.5s cubic-bezier(0.75, 1, 0.50, 1);
-                    //         border-radius: 5px;
-
-                    //         @include themify($themes) {
-                    //             border: 4px solid themed('linkColor');
-                    //         }
-
-                    //         // border: 4px solid $link-color;
-                    //         background: transparent;
-                    //         border-radius: 10px;
-                    //     }
-                    // }
                 }
             }
 
             .floating_text {
-
-
                 display: flex;
-                justify-content: flex-start;
-                column-gap: 16em;
+                justify-content: space-between;
+                // column-gap: 16em;
                 z-index: 2;
                 width: 100%;
                 cursor: default;
-                max-width: 56em;
-                margin-left: -14em;
-                margin-right: -6.75em;
+                max-width: 62em;
+                // margin-left: -14em;
+                // margin-right: -6.75em;
 
                 #child_one {
 
@@ -1138,45 +1097,130 @@ main {
 }
 
 // Responsive CSS classes
-@media screen and (max-width:1920px) {
+@media screen and (max-width:1921px) {
     main {
         .hero-section {
             .first_hero {
-                // align-items: center;
-                padding-right: 2em;
-
                 #player {
-                    width: 100%;
                     max-width: 768px;
-
-
                 }
             }
 
             .hero-div {
-                row-gap: 5em;
-
                 .copy_section {
-                    max-width: 47em;
+
+                    max-width: 48em;
+
+                    p {
+                        line-height: 24px;
+                        letter-spacing: 1px;
+                    }
+
+                    
                 }
 
                 .floating_text {
-                    column-gap: 10em;
-                    margin-left: -5.25em;
+                    max-width: 48em;
+                }
+            }
+
+
+        }
+    }
+}
+
+@media screen and (max-width:1600px) {
+    main {
+        .hero-section {
+            .first_hero {
+                #player {
+                    max-width: 660px;
+                }
+            }
+
+            .hero-div {
+                .copy_section {
+
+                    max-width: 42em;
+                    .hero_copy_line{
+                        font-size: calc(2em + 0.390625vw);
+                        line-height: 44px;
+                    }
+
+                    p {
+                        font-size: calc(0.45em + 0.390625vw);
+                        line-height: 24px;
+                    }
+
+                    .workbtn{
+                        letter-spacing: 1px;
+                        max-width: 148px;
+                        max-height: 44px;
+                        padding: 0.5em 1em;
+                        gap: 0.5em;
+                        font-size: calc(0.40em + 0.390625vw);
+                    }
+                }
+                 .floating_text {
+                     max-width: 42em;
+
+                     p{
+                        font-size: calc(0.40em + 0.390625vw);
+                     }
+                 }
+            }    
+        }
+    }
+}
+
+
+@media screen and (max-width:1366px) {
+    main {
+        .hero-section {
+            .first_hero {
+                #player {
+                    max-width: 480px;
+                }
+            }
+
+            .hero-div {
+                row-gap: 1em;
+                margin-top: 0;
+                .copy_section {
+                    max-width: 30em;
+                    .hero_copy_line{
+                        font-size: calc(1.5em + 0.390625vw);
+                        line-height: 28px;
+                        margin: 0 0 8px;
+                    }
+                    #web_dev_tag{
+                        line-height: inherit;
+                        // margin-bottom: 0;
+                        letter-spacing: 1px;
+                    }
+                    p {
+                        line-height: 20px;
+                        letter-spacing: inherit;
+                        margin-bottom: 1em;
+                    }
+                    .workbtn {
+                        max-width: 120px;
+                        max-height: 36px;
+                       gap: 0.15em;
+                    }
+                }
+
+                .floating_text {
+                    max-width: 30em;
+                    p {
+                        font-size: calc(0.3em + 0.390625vw);
+                    }
                 }
             }
         }
     }
 }
 
-@media screen and (max-width:1500px) {
-    main {
-        .faded-text-background {
-            font-size: 10em;
-            left: 28%;
-        }
-    }
-}
 
 @media (max-width:768px) {
     #left-hero {
