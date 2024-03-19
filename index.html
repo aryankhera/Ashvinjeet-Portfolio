@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Ashvinjeet Singh</title>
 	<!-- style.css -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
 	<link id="styleSheet" rel="stylesheet" href="./styles/styles.css">
 	<!-- bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -28,7 +29,7 @@
 		id="darkMode">
 	</div>
 
-	<main>
+	<main data-scroll-container>
 
 		<!-- LOADING SCREEN START -->
 		<div id="mainloader">
@@ -83,7 +84,7 @@
 		</div> -->
 		<!-- NAV END -->
 		<!-- HERO START -->
-		<section class="hero-section">
+		<section class="hero-section panel">
 			<div class="first_hero">
 				<!-- <div class="c-about-cards js-cards">
 					<div style="transform: translate3d(0px, -4.0333%, 0px) rotate(-8.8421deg);"><img src="../images/card1.a0552dbc.png"
@@ -151,8 +152,48 @@
 				</svg>  -->
 			</div>
 		</section>
-		]<section class="about_section">
-<h1>HELLO THERE</h1>
+		<section class="about_section panel">
+			<div>
+				<h1>About me</h1>
+				<p>Hey there! I'm a software developer with experience from HSBC and a Master's from the University of
+					Windsor. I've got a
+					thing for crafting cool stuff on the web, especially when it comes to software development
+					especially
+					frontend
+					techniques.
+					<br />
+					I'm all about that sweet spot where creativity meets tech. I get a kick out of working on frontend
+					projects that not
+					only look awesome but also run like a well-oiled machine. You know, the kind that challenges you to
+					make
+					things both
+					super fast and super slick.
+					<br />
+					I'm all about the challenge of creating sites that are both lightning-fast and visually captivating.
+					I've made it my
+					mission to explore inventive ways to design seamless, user-friendly experiences.
+				</p>
+			</div>
+			<div class="wrapper">
+				<div class="services__header">
+					<h2>I can help you with ...</h2>
+				</div>
+				<div class="services__list">
+					<div class="services__item"><span>01</span>
+						<h2>Design</h2>
+						<p>I make web designs that engage your audience and create the user experience you want.</p>
+					</div>
+					<div class="services__item"><span>02</span>
+						<h2>Development</h2>
+						<p>Bringing visuals to life through developing highly functional web solutions.</p>
+					</div>
+					<div class="services__item"><span>03</span>
+						<h2>The Full Package</h2>
+						<p>Get the best of both worlds for your website, capture your brand identity and get fully functional
+							features.</p>
+					</div>
+				</div>
+			</div>	
 		</section>
 		<!-- HERO END  -->
 		<!-- LEFT LINK  -->
@@ -358,7 +399,7 @@
 				<div class="item">PHOTOSHOP</div> 
 			</div>
 		</section> -->
-		
+
 	</main>
 
 </body>
@@ -370,8 +411,9 @@
 <!--css plugin GSAP -->
 <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/CSSRulePlugin3.min.js"></script>
 <!-- Scroll Trigger GSAP -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <!-- main.js -->
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
 <script src="./JS/main.js"></script>
 
 <!-- bootstrap -->
@@ -389,5 +431,11 @@
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
 <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.js"></script>
+<!-- <script>
+	(function () {
+		const locomotiveScroll = new LocomotiveScroll();
+	})();
+</script> -->
+
 
 </html>

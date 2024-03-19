@@ -12,6 +12,7 @@ const x =document.querySelector('#l_time');
 var modeChangerSun = document.querySelector("#Sun");
 var modeChangerMoon = document.querySelector("#Moon");
 const scrollers = document.querySelectorAll(".scroller");
+gsap.registerPlugin(ScrollTrigger);
 const getDateTime = () => {
   var date = new Date();
   // console.log(date);
@@ -140,17 +141,18 @@ window.addEventListener("mousemove", (e) => {
 
 
 // cursor remove on work button hover homepage
-workBtn.onmouseover = () => {
-  cursor.style.display = "none";
-};
+// workBtn.onmouseover = () => {
+//   cursor.style.display = "none";
+// };
 
-workBtn.onmouseleave = () => {
-  cursor.style.display = "block";
-};
+// workBtn.onmouseleave = () => {
+//   cursor.style.display = "block";
+// };
 
 var tl_modechange1 = gsap.timeline();
 //Mode changer button for Sun/Moon icon
 modeChangerMoon.addEventListener("click", () => {
+  console.log("Am I clicked")
   localStorage.setItem("theme", "light");
   detectColorScheme();
 });
@@ -158,6 +160,7 @@ modeChangerMoon.addEventListener("click", () => {
 modeChangerSun.addEventListener("click", () => {
   localStorage.setItem("theme", "dark");
   detectColorScheme();
+    console.log("Am I clicked");
 });
 
 function detectColorScheme() {
@@ -219,6 +222,41 @@ function detectColorScheme() {
       document.getElementById("darkMode").classList.add("hidden");
   }
 }
+
+
+
+let panels = gsap.utils.toArray(".panel");
+// let tops = panels.map((panel) =>
+//   ScrollTrigger.create({ trigger: panel, start: "top top" })
+// );
+ScrollTrigger.create({ trigger: panels[1], start: "top top",markers:true });
+console.log(panels[1])
+console.log(tops)
+
+panels.forEach((panel, i) => {
+  ScrollTrigger.create({
+    trigger: panel,
+    start: () =>
+      panel.offsetHeight < window.innerHeight ? "top top" : "bottom bottom", // if it's shorter than the viewport, we prefer to pin it at the top
+    pin: true,
+    pinSpacing: false,
+  });
+});
+
+ScrollTrigger.create({
+  snap: {
+    snapTo: (progress, self) => {
+      let panelStarts = tops.map((st) => st.start), // an Array of all the starting scroll positions. We do this on each scroll to make sure it's totally responsive. Starting positions may change when the user resizes the viewport
+        snapScroll = gsap.utils.snap(panelStarts, self.scroll()); // find the closest one
+      return gsap.utils.normalize(
+        0,
+        ScrollTrigger.maxScroll(window),
+        snapScroll
+      ); // snapping requires a progress value, so convert the scroll position into a normalized progress value between 0 and 1
+    },
+    duration: 0.5,
+  },
+});
 
 // class LoopingElement {
 //   constructor(element, currentTranslation, speed) {
@@ -428,8 +466,18 @@ function detectColorScheme() {
 // })
 
 
+  const scroll = new LocomotiveScroll({
+    el: document.querySelector("[data-scroll-container]"),
+    smooth: true,
+  });
 
-document.addEventListener("scroll",()=>{
-  window.scrollY > 70
-    ? (menu.classList.add("Scrolled")) : (menu.classList.remove("Scrolled"));
-})
+// document.addEventListener("scroll",()=>{
+//   window.scrollY > 70 ? (menu.classList.add("Scrolled")) : (menu.classList.remove("Scrolled"));
+// })
+
+// gsap.registerPlugin(ScrollTrigger);
+
+// ScrollTrigger.defaults({
+//   toggleActions: "restart pause resume pause",
+//   scroller: ".container",
+// });

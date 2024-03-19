@@ -31,8 +31,6 @@ html {
 
 main {
   position: relative;
-  min-height: calc(100vh - 28px);
-  width: 100%;
 }
 .theme-light main {
   color: #000;
@@ -490,7 +488,7 @@ main .left-social-links ul::after {
 main .right-bar {
   width: 40px;
   position: fixed;
-  bottom: 0px;
+  top: 100%;
   left: auto;
   right: 40px;
   z-index: 1;
@@ -549,6 +547,10 @@ main .right-bar div.right-mail-link::after {
 .theme-dark main .right-bar div.right-mail-link::after {
   background-color: #DF9D3F;
 }
+main #Sun {
+  z-index: 999;
+  cursor: pointer;
+}
 .theme-light main #Sun {
   color: #000;
 }
@@ -560,6 +562,9 @@ main .right-bar div.right-mail-link::after {
 }
 .theme-dark main #Sun:hover {
   color: #DF9D3F;
+}
+main #Moon {
+  z-index: 999;
 }
 .theme-light main #Moon {
   color: #000;
@@ -682,8 +687,65 @@ main .bg_line {
 }
 
 .about_section {
-  height: 100vh;
   background-color: lightblue;
+  position: relative;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 85vw;
+  border-radius: 100px;
+  transform: translate(10%, -35%);
+}
+.about_section h1 {
+  font-size: calc(2.95em + 0.390625vw);
+  line-height: 64px;
+  margin: 0 0 16px;
+  cursor: default;
+  position: relative;
+  z-index: 2;
+  letter-spacing: 2px;
+}
+.about_section .services__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 1.25em;
+}
+.about_section .services__list .services__header {
+  padding-bottom: 3.75em;
+}
+.about_section .services__list .services__item {
+  padding-left: 2em;
+  position: relative;
+}
+.about_section .services__list .services__item::before {
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  background-color: rgba(17, 20, 20, 0.1);
+  top: 0;
+  z-index: 999;
+}
+.about_section .services__list .services__item span {
+  display: block;
+  margin-bottom: 80px;
+  opacity: 0.1;
+  font-size: 3.58em;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.about_section .services__list .services__item h2 {
+  margin-bottom: 0.5em;
+  font-size: 1.59em;
+  line-height: 1;
+  letter-spacing: 0;
+}
+.about_section .services__list .services__item p {
+  max-width: 17em;
+  font-size: 1.0626em;
+  line-height: 1.5;
+  letter-spacing: 0;
 }
 
 @keyframes updown {
