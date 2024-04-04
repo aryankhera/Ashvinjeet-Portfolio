@@ -231,10 +231,17 @@ var panels = gsap.utils.toArray(".panel"); // let tops = panels.map((panel) =>
 //   ScrollTrigger.create({ trigger: panel, start: "top top" })
 // );
 
-ScrollTrigger.create({
-  trigger: panels[1],
-  start: "top top",
-  markers: true
+gsap.to(".about_section", {
+  scrollTrigger: {
+    trigger: ".about_section",
+    start: "-250px center",
+    end: "200px center",
+    scrub: true // markers:true
+
+  },
+  width: "100%",
+  borderRadius: "0px",
+  duration: 1
 });
 console.log(panels[1]);
 console.log(tops);
