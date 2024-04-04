@@ -26,19 +26,18 @@ body,
 html {
   height: 100%;
   width: 100%;
-  background-size: 16px 16px;
 }
 
 main {
   position: relative;
-  min-height: calc(100vh - 28px);
-  width: 100%;
 }
 .theme-light main {
   color: #000;
+  background-color: #f3f3f3;
 }
 .theme-dark main {
   color: #fff;
+  background-color: #0c0c0c;
 }
 main .line_container {
   position: fixed;
@@ -158,7 +157,6 @@ main .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 15px;
   z-index: 9999;
 }
 main .nav-container.Scrolled {
@@ -490,7 +488,7 @@ main .left-social-links ul::after {
 main .right-bar {
   width: 40px;
   position: fixed;
-  bottom: 0px;
+  bottom: 0;
   left: auto;
   right: 40px;
   z-index: 1;
@@ -549,6 +547,10 @@ main .right-bar div.right-mail-link::after {
 .theme-dark main .right-bar div.right-mail-link::after {
   background-color: #DF9D3F;
 }
+main #Sun {
+  z-index: 999;
+  cursor: pointer;
+}
 .theme-light main #Sun {
   color: #000;
 }
@@ -560,6 +562,9 @@ main .right-bar div.right-mail-link::after {
 }
 .theme-dark main #Sun:hover {
   color: #DF9D3F;
+}
+main #Moon {
+  z-index: 999;
 }
 .theme-light main #Moon {
   color: #000;
@@ -681,9 +686,102 @@ main .bg_line {
   z-index: -1;
 }
 
-.about_section {
+.panel-about {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
-  background-color: lightblue;
+}
+.panel-about .about_section {
+  text-align: justify;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 100px;
+  transform: translateY(-15%);
+  height: 100%;
+  width: 45%;
+}
+.theme-light .panel-about .about_section {
+  background-color: #0c0c0c;
+  color: #fff;
+}
+.theme-dark .panel-about .about_section {
+  background-color: #f3f3f3;
+  color: #000;
+}
+.panel-about .about_section .intro {
+  max-width: 62em;
+  margin-bottom: 3em;
+}
+.panel-about .about_section .intro h1 {
+  font-size: calc(2.95em + 0.390625vw);
+  line-height: 64px;
+  margin: 0 0 16px;
+  cursor: default;
+  position: relative;
+  z-index: 2;
+  letter-spacing: 2px;
+}
+.panel-about .about_section .intro p {
+  font-family: silkaregular !important;
+  word-spacing: 3px;
+  letter-spacing: 0;
+  line-height: 32px;
+}
+.panel-about .about_section .whatcanIdo {
+  max-width: 62em;
+}
+.panel-about .about_section .whatcanIdo .services__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 1.25em;
+}
+.panel-about .about_section .whatcanIdo .services__list .services__header {
+  padding-bottom: 3.75em;
+}
+.panel-about .about_section .whatcanIdo .services__list .services__item {
+  padding-left: 2em;
+  position: relative;
+}
+.panel-about .about_section .whatcanIdo .services__list .services__item::before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  left: 10px;
+  height: 100%;
+  top: 0;
+  z-index: 999;
+}
+.theme-light .panel-about .about_section .whatcanIdo .services__list .services__item::before {
+  background-color: #efefef1a;
+}
+.theme-dark .panel-about .about_section .whatcanIdo .services__list .services__item::before {
+  background-color: #1114141a;
+}
+.panel-about .about_section .whatcanIdo .services__list .services__item span {
+  display: block;
+  margin-bottom: 16px;
+  opacity: 0.1;
+  font-size: 3.58em;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.panel-about .about_section .whatcanIdo .services__list .services__item h2 {
+  margin-bottom: 0.5em;
+  font-size: 1.59em;
+  line-height: 1;
+  letter-spacing: 0;
+}
+.panel-about .about_section .whatcanIdo .services__list .services__item p {
+  max-width: 17em;
+  font-size: 1.0626em;
+  line-height: 1.5em;
+  letter-spacing: 0;
+  font-family: silkaregular !important;
 }
 
 @keyframes updown {
@@ -737,6 +835,12 @@ main .bg_line {
   main .hero-section .hero-div .floating_text {
     max-width: 48em;
   }
+  main .panel-about .about_section .intro {
+    max-width: 48em;
+  }
+  main .panel-about .about_section .whatcanIdo {
+    max-width: 48em;
+  }
 }
 @media screen and (max-width: 1600px) {
   main .hero-section .first_hero #player {
@@ -766,6 +870,12 @@ main .bg_line {
   }
   main .hero-section .hero-div .floating_text p {
     font-size: calc(0.40em + 0.390625vw);
+  }
+  main .panel-about .about_section .intro {
+    max-width: 42em;
+  }
+  main .panel-about .about_section .whatcanIdo {
+    max-width: 42em;
   }
 }
 @media screen and (max-width: 1366px) {
@@ -803,6 +913,12 @@ main .bg_line {
   }
   main .hero-section .hero-div .floating_text p {
     font-size: calc(0.3em + 0.390625vw);
+  }
+  main .panel-about .about_section .intro {
+    max-width: 30em;
+  }
+  main .panel-about .about_section .whatcanIdo {
+    max-width: 30em;
   }
 }
 @media (max-width: 768px) {

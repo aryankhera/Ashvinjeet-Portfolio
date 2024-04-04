@@ -1,3 +1,5 @@
+$tw-bg-opacity: 1;
+
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 @font-face {
@@ -13,8 +15,6 @@
 }
 
 
-
-
 @font-face {
     font-family: 'silkaitalic';
     src: url('../fonts/silka-regularitalic-webfont.eot');
@@ -27,92 +27,22 @@
 
 }
 
-// @font-face {
-//     font-family: 'silka_thin';
-//     src: url('../fonts/silka-thin-webfont.eot');
-//     src: url('../fonts/silka-thin-webfont.eot?#iefix') format('embedded-opentype'),
-//         url('../fonts/silka-thin-webfont.woff2') format('woff2'),
-//         url('../fonts/silka-thin-webfont.woff') format('woff'),
-//         url('../fonts/silka-thin-webfont.ttf') format('truetype');
-// }
-
-// @font-face {
-//     font-family: 'silka_extralight';
-//     src: url('../fonts/silka-extralight-webfont.eot');
-//     src: url('../fonts/silka-extralight-webfont.eot?#iefix') format('embedded-opentype'),
-//         url('../fonts/silka-extralight-webfont.woff2') format('woff2'),
-//         url('../fonts/silka-extralight-webfont.woff') format('woff'),
-//         url('../fonts/silka-extralight-webfont.ttf') format('truetype');
-// }
-
-// @font-face {
-//     font-family: 'silka_light';
-//     src: url('../fonts/silka-light-webfont.eot');
-//     src: url('../fonts/silka-light-webfont.eot?#iefix') format('embedded-opentype'),
-//         url('../fonts/silka-light-webfont.woff2') format('woff2'),
-//         url('../fonts/silka-light-webfont.woff') format('woff'),
-//         url('../fonts/silka-light-webfont.ttf') format('truetype');
-// }
-
-// @font-face {
-//     font-family: 'silka_medium';
-//     src: url('../fonts/silka-medium-webfont.eot');
-//     src: url('../fonts/silka-medium-webfont.eot?#iefix') format('embedded-opentype'),
-//         url('../fonts/silka-medium-webfont.woff2') format('woff2'),
-//         url('../fonts/silka-medium-webfont.woff') format('woff'),
-//         url('../fonts/silka-medium-webfont.ttf') format('truetype');
-// }
-
-// @font-face {
-//     font-family: 'silka_regular';
-//     src: url('../fonts/silka-regular-webfont.eot');
-//     src: url('../fonts/silka-regular-webfont.eot?#iefix') format('embedded-opentype'),
-//         url('../fonts/silka-regular-webfont.woff2') format('woff2'),
-//         url('../fonts/silka-regular-webfont.woff') format('woff'),
-//         url('../fonts/silka-regular-webfont.ttf') format('truetype');
-// }
-
-// @font-face {
-//     font-family: 'silka_semibold';
-//     src: url('../fonts/silka-semibold-webfont.eot');
-//     src: url('../fonts/silka-semibold-webfont.eot?#iefix') format('embedded-opentype'),
-//         url('../fonts/silka-semibold-webfont.woff2') format('woff2'),
-//         url('../fonts/silka-semibold-webfont.woff') format('woff'),
-//         url('../fonts/silka-semibold-webfont.ttf') format('truetype');
-// }
-
-// @font-face {
-//     font-family: 'silka_bold';
-//     src: url('../fonts/silka-bold-webfont.eot');
-//     src: url('../fonts/silka-bold-webfont.eot?#iefix') format('embedded-opentype'),
-//         url('../fonts/silka-bold-webfont.woff2') format('woff2'),
-//         url('../fonts/silka-bold-webfont.woff') format('woff'),
-//         url('../fonts/silka-bold-webfont.ttf') format('truetype');
-// }
-
-// @font-face {
-//     font-family: 'silka_black';
-//     src: url('../fonts/silka-black-webfont.eot');
-//     src: url('../fonts/silka-black-webfont.eot?#iefix') format('embedded-opentype'),
-//         url('../fonts/silka-black-webfont.woff2') format('woff2'),
-//         url('../fonts/silka-black-webfont.woff') format('woff'),
-//         url('../fonts/silka-black-webfont.ttf') format('truetype');
-// }
-
-//  Theme definitions
-//  Learned from Dmitry Borody
-//  https: //medium.com/@dmitriy.borodiy/easy-color-theming-with-scss-bc38fd5734d1
-
 
 $themes: (light: (backgroundColor: rgb(243, 243, 243),
         textColor: #000,
         secondaryColor: rgba(25, 26, 30, .4),
         linkColor: #DF9D3F,
+        alternateBg: #0c0c0c,
+        smallLine:#efefef1a,
+        alternateText:#fff,
     ),
-    dark: (backgroundColor: #171717,
+    dark: (backgroundColor: #0c0c0c,
+        alternateBg:rgb(243, 243, 243),
         textColor: #fff,
         secondaryColor: rgba(211, 220, 255, .4),
         linkColor: #DF9D3F,
+        smallLine:#1114141a,
+        alternateText:#000,
     ),
 );
 
@@ -166,21 +96,23 @@ html {
     height: 100%;
     width: 100%;
     // background-image: radial-gradient(#e5e7eb 1px, transparent 0);
-    background-size: 16px 16px
+    // @include themify($themes) {
+    //     background-color: themed('backgroundColor');
+    //     // background-color: themed('backgroundColor');
+    // }
 }
-
-
 
 main {
     position: relative;
-    min-height: calc(100vh - 28px);
+    // min-height: calc(100vh - 28px);
     // font-family: silka_regular';
-    width: 100%;
+    // width: 100%;
 
     @include themify($themes) {
         color: themed('textColor');
-        // background-color: themed('backgroundColor');
+        background-color: themed('backgroundColor');
     }
+
 
     .line_container {
         position: fixed;
@@ -321,7 +253,7 @@ main {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-top: 15px;
+        // padding-top: 15px;
         z-index: 9999;
         // background-color: $bg-color;
 
@@ -476,6 +408,7 @@ main {
                 a {
                     text-decoration: none;
                     font-size: calc(0.35em + 0.390625vw);
+
                     @include themify($themes) {
                         color: themed('secondaryColor');
                     }
@@ -771,7 +704,7 @@ main {
     .right-bar {
         width: 40px;
         position: fixed;
-        bottom: 0px;
+        bottom: 0;
         left: auto;
         right: 40px;
         z-index: 1;
@@ -839,6 +772,9 @@ main {
             color: themed('textColor');
         }
 
+        z-index: 999;
+        cursor: pointer;
+
         &:hover {
             @include themify($themes) {
                 color: themed('linkColor');
@@ -856,6 +792,8 @@ main {
                 color: themed('linkColor');
             }
         }
+
+        z-index: 999;
     }
 
     .hidden_class {
@@ -992,11 +930,114 @@ main {
     }
 }
 
-
-.about_section {
+.panel-about {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
-    background-color: lightblue;
+
+
+    .about_section {
+        @include themify($themes) {
+            background-color: themed('alternateBg');
+            color: themed('alternateText')
+        }
+
+        // font-family: silkaregular;
+        text-align: justify;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 100px;
+        transform: translateY(-15%);
+        height: 100%;
+        width: 45%;
+
+        .intro {
+            max-width: 62em;
+margin-bottom: 3em;
+            h1 {
+                font-size: calc(2.95em + 0.390625vw);
+                line-height: 64px;
+                margin: 0 0 16px;
+                cursor: default;
+                position: relative;
+                z-index: 2;
+                letter-spacing: 2px;
+            }
+
+            p {
+                font-family: silkaregular !important;
+                word-spacing: 3px;
+                letter-spacing: 0;
+                line-height: 32px;
+            }
+        }
+
+        .whatcanIdo {
+            max-width: 62em;
+            .services__list {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-column-gap: 1.25em;
+
+                .services__header {
+                    padding-bottom: 3.75em;
+                }
+
+                .services__item {
+                    padding-left: 2em;
+                    position: relative;
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        width: 1px;
+                        left: 10px;
+                        height: 100%;
+                         @include themify($themes) {
+                             background-color: themed('smallLine');
+                         }
+                        // background-color: rgba(17, 20, 20, .1);
+                        top: 0;
+                        z-index: 999;
+                    }
+
+                    span {
+                        display: block;
+                        margin-bottom:16px;
+                        opacity: .1;
+                        font-size: 3.58em;
+                        line-height: 1.1;
+                        letter-spacing: -.02em;
+                    }
+
+                    h2 {
+                        margin-bottom: 0.5em;
+                        font-size: 1.59em;
+                        line-height: 1;
+                        letter-spacing: 0;
+                    }
+
+                    p {
+                        max-width: 17em;
+                        font-size: 1.0626em;
+                        line-height: 1.5em;
+                        letter-spacing: 0;
+                        font-family: silkaregular !important;
+                    }
+                }
+            }
+        }
+
+
+
+    }
 }
+
 
 // #about-section {
 //     // max-width: 900px;
@@ -1108,7 +1149,6 @@ main {
 
             .hero-div {
                 .copy_section {
-
                     max-width: 48em;
 
                     p {
@@ -1116,7 +1156,7 @@ main {
                         letter-spacing: 1px;
                     }
 
-                    
+
                 }
 
                 .floating_text {
@@ -1125,6 +1165,17 @@ main {
             }
 
 
+        }
+
+        .panel-about {
+            .about_section {
+                .intro{
+                    max-width: 48em;
+                }
+                .whatcanIdo {
+                    max-width: 48em
+                }
+            }
         }
     }
 }
@@ -1142,7 +1193,8 @@ main {
                 .copy_section {
 
                     max-width: 42em;
-                    .hero_copy_line{
+
+                    .hero_copy_line {
                         font-size: calc(2em + 0.390625vw);
                         line-height: 44px;
                     }
@@ -1152,7 +1204,7 @@ main {
                         line-height: 24px;
                     }
 
-                    .workbtn{
+                    .workbtn {
                         letter-spacing: 1px;
                         max-width: 148px;
                         max-height: 44px;
@@ -1161,14 +1213,26 @@ main {
                         font-size: calc(0.40em + 0.390625vw);
                     }
                 }
-                 .floating_text {
-                     max-width: 42em;
 
-                     p{
+                .floating_text {
+                    max-width: 42em;
+
+                    p {
                         font-size: calc(0.40em + 0.390625vw);
-                     }
-                 }
-            }    
+                    }
+                }
+            }
+        }
+
+        .panel-about {
+            .about_section {
+                .intro {
+                    max-width: 42em;
+                }
+                .whatcanIdo {
+                    max-width: 42em
+                }
+            }
         }
     }
 }
@@ -1186,35 +1250,53 @@ main {
             .hero-div {
                 row-gap: 1em;
                 margin-top: 0;
+
                 .copy_section {
                     max-width: 30em;
-                    .hero_copy_line{
+
+                    .hero_copy_line {
                         font-size: calc(1.5em + 0.390625vw);
                         line-height: 28px;
                         margin: 0 0 8px;
                     }
-                    #web_dev_tag{
+
+                    #web_dev_tag {
                         line-height: inherit;
                         // margin-bottom: 0;
                         letter-spacing: 1px;
                     }
+
                     p {
                         line-height: 20px;
                         letter-spacing: inherit;
                         margin-bottom: 1em;
                     }
+
                     .workbtn {
                         max-width: 120px;
                         max-height: 36px;
-                       gap: 0.15em;
+                        gap: 0.15em;
                     }
                 }
 
                 .floating_text {
                     max-width: 30em;
+
                     p {
                         font-size: calc(0.3em + 0.390625vw);
                     }
+                }
+            }
+        }
+
+        .panel-about {
+            .about_section {
+                .intro {
+                    max-width: 30em;
+                }
+
+                .whatcanIdo {
+                    max-width: 30em
                 }
             }
         }

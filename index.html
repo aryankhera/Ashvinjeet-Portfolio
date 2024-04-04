@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Ashvinjeet Singh</title>
 	<!-- style.css -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
 	<link id="styleSheet" rel="stylesheet" href="./styles/styles.css">
 	<!-- bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -20,15 +21,15 @@
 
 <body class="theme-light">
 
-	<div class="absolute inset-0 -z-10 h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"
+	<!-- <div class="absolute inset-0 -z-10 h-full w-full   bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"
 		id="lightMode">
 	</div>
 
 	<div class="absolute inset-0 -z-10 h-full w-full bg-neutral-950 bg-[radial-gradient(#d6983f1a_1px,#0c0c0c_1px)] bg-[size:20px_20px]"
 		id="darkMode">
-	</div>
+	</div> -->
 
-	<main>
+	<main data-scroll-container>
 
 		<!-- LOADING SCREEN START -->
 		<div id="mainloader">
@@ -82,18 +83,37 @@
 			
 		</div> -->
 		<!-- NAV END -->
-		<!-- HERO START -->
-		<section class="hero-section">
-			<div class="first_hero">
-				<!-- <div class="c-about-cards js-cards">
-					<div style="transform: translate3d(0px, -4.0333%, 0px) rotate(-8.8421deg);"><img src="../images/card1.a0552dbc.png"
-							alt="User"></div>
-					<div style="transform: translate3d(0px, -3.7874%, 0px) rotate(-3.1562deg);"><img src="../images/card1.a0552dbc.png"
-							alt="Precedes"></div>
-					<div style="transform: translate3d(0px, -2.6533%, 0px) rotate(-0.0301deg);"><img src="../images/card1.a0552dbc.png" alt="All">
-					</div>
-				</div> -->
+		<!-- LEFT LINK  -->
+		<div orientation="left" class="left-social-links">
+			<div class="Floating_text">
+				<img id="juice" src="../images/juice.png" />
+			</div>
+			<ul>
+				<li style="padding: 10px;"><a href="#"><i class="fa fa-github"></i></a></li>
+				<li style="padding: 10px;"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+				<li style="padding: 10px;"><a href="#"><i class="fa fa-twitter"></i></a></li>
+			</ul>
+		</div>
+		<!-- LEFT LINK END-->
 
+		<!-- RIGHT LINK START  -->
+		<div orientation="right" class="right-bar">
+
+			<div class="right-mail-link">
+				<a href="#">ashvinjeetsingh22@gmail.com</a>
+			</div>
+		</div>
+		<!-- RIGHT LINK END  -->
+		<!-- HERO START -->
+		<section class="hero-section panel">
+			<div class="absolute inset-0 -z-10 h-full w-full   bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"
+				id="lightMode">
+			</div>
+
+			<div class="absolute inset-0 -z-10 h-full w-full bg-neutral-950 bg-[radial-gradient(#dbdbdb1a_1px,#0c0c0c_1px)] bg-[size:20px_20px]"
+				id="darkMode">
+			</div>
+			<div class="first_hero">
 				<dotlottie-player id="player"
 					src="https://lottie.host/4564b66d-0c45-4476-96cb-70f67ecb0205/ZNW6LPXEaA.lottie"
 					background="transparent" speed="1" direction="1" playMode="normal" loop autoplay></dotlottie-player>
@@ -151,33 +171,58 @@
 				</svg>  -->
 			</div>
 		</section>
-		]<section class="about_section">
-<h1>HELLO THERE</h1>
+		<section class="panel-about">
+			<!-- about_section  -->
+
+			<div class="about_section">
+				<div class="intro">
+					<h1>About me</h1>
+					<p>Hey there! I'm a software developer with experience from HSBC and a Master's from the University
+						of
+						Windsor. I've got a
+						thing for crafting cool stuff on the web, especially when it comes to software development
+						especially
+						frontend
+						techniques.
+						<br />
+						I'm all about that sweet spot where creativity meets tech. I get a kick out of working on
+						frontend
+						projects that not
+						only look awesome but also run like a well-oiled machine. You know, the kind that challenges you
+						to
+						make
+						things both
+						super fast and super slick.
+					</p>
+				</div>
+
+
+				<div class="whatcanIdo">
+					<div class="services__header">
+						<h2>I can help you with ...</h2>
+					</div>
+					<div class="services__list">
+						<div class="services__item"><span>01</span>
+							<h2>Design</h2>
+							<p>I make web designs that engage your audience and create the user experience you want.</p>
+						</div>
+						<div class="services__item"><span>02</span>
+							<h2>Development</h2>
+							<p>Bringing visuals to life through developing highly functional web solutions.</p>
+						</div>
+						<div class="services__item"><span>03</span>
+							<h2>The Full Package</h2>
+							<p>Get the best of both worlds for your website, capture your brand identity and get fully
+								functional
+								features.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
 		</section>
 		<!-- HERO END  -->
-		<!-- LEFT LINK  -->
-		<div orientation="left" class="left-social-links">
-			<div class="Floating_text">
-				<img id="juice" src="../images/juice.png" />
-			</div>
-			<ul>
-				<li style="padding: 10px;"><a href="#"><i class="fa fa-github"></i></a></li>
-				<li style="padding: 10px;"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-				<li style="padding: 10px;"><a href="#"><i class="fa fa-twitter"></i></a></li>
-			</ul>
-		</div>
-		<!-- LEFT LINK END-->
 
-		<!-- RIGHT LINK START  -->
-		<div orientation="right" class="right-bar">
-
-			<div class="right-mail-link">
-				<a href="#">ashvinjeetsingh22@gmail.com</a>
-			</div>
-
-
-		</div>
-		<!-- RIGHT LINK END  -->
 		<!-- <section class="spacer">
 			<section class="marquee">
 				<div class="marquee_inner">
@@ -358,7 +403,7 @@
 				<div class="item">PHOTOSHOP</div> 
 			</div>
 		</section> -->
-		
+
 	</main>
 
 </body>
@@ -370,8 +415,9 @@
 <!--css plugin GSAP -->
 <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/CSSRulePlugin3.min.js"></script>
 <!-- Scroll Trigger GSAP -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <!-- main.js -->
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
 <script src="./JS/main.js"></script>
 
 <!-- bootstrap -->
@@ -389,5 +435,11 @@
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
 <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.js"></script>
+<!-- <script>
+	(function () {
+		const locomotiveScroll = new LocomotiveScroll();
+	})();
+</script> -->
+
 
 </html>
