@@ -8,7 +8,7 @@ var cursor = document.querySelector(".follow_cursor");
 var workBtn = document.querySelector(".workbtn");
 const overlay = document.querySelector(".overlay");
 const Scroll_more = document.getElementById("scroll_mouse");
-const x =document.querySelector('#l_time');
+const x = document.querySelector("#l_time");
 var modeChangerSun = document.querySelector("#Sun");
 var modeChangerMoon = document.querySelector("#Moon");
 const scrollers = document.querySelectorAll(".scroller");
@@ -23,7 +23,6 @@ const getDateTime = () => {
 };
 
 getDateTime();
-
 
 if (!window.matchMedia("(prefers-reduced-motion:reduce)").matches) {
   addAnimation();
@@ -138,8 +137,6 @@ window.addEventListener("mousemove", (e) => {
   gsap.to(cursor, { x: clientX, y: clientY });
 });
 
-
-
 // cursor remove on work button hover homepage
 // workBtn.onmouseover = () => {
 //   cursor.style.display = "none";
@@ -152,7 +149,7 @@ window.addEventListener("mousemove", (e) => {
 var tl_modechange1 = gsap.timeline();
 //Mode changer button for Sun/Moon icon
 modeChangerMoon.addEventListener("click", () => {
-  console.log("Am I clicked")
+  console.log("Am I clicked");
   localStorage.setItem("theme", "light");
   detectColorScheme();
 });
@@ -160,13 +157,12 @@ modeChangerMoon.addEventListener("click", () => {
 modeChangerSun.addEventListener("click", () => {
   localStorage.setItem("theme", "dark");
   detectColorScheme();
-    console.log("Am I clicked");
+  console.log("Am I clicked");
 });
 
 function detectColorScheme() {
   var theme = "light"; //default to light
   //local storage is used to override OS theme settings
-  console.log("Color scheme func called", localStorage.getItem("theme"));
   if (localStorage.getItem("theme")) {
     if (localStorage.getItem("theme") == "dark") {
       var theme = "dark";
@@ -174,8 +170,6 @@ function detectColorScheme() {
       document.querySelector("body").classList.remove("theme-light");
       document.getElementById("mainLogo").src = "../images/logo_2.svg";
       document.getElementById("juice").src = "../images/juice.png";
-      // document.getElementById("mainLogo").style.width = "2vw";
-      // document.getElementById("mainLogo").style.maxHeight = "79.67px";
       document.getElementById("lightMode").classList.add("hidden");
       document.getElementById("darkMode").classList.remove("hidden");
       modeChangerSun.style.display = "none";
@@ -219,11 +213,9 @@ function detectColorScheme() {
     modeChangerSun.style.display = "none";
     modeChangerMoon.style.display = "inline";
     document.getElementById("lightMode").classList.remove("hidden");
-      document.getElementById("darkMode").classList.add("hidden");
+    document.getElementById("darkMode").classList.add("hidden");
   }
 }
-
-
 
 let panels = gsap.utils.toArray(".panel");
 // let tops = panels.map((panel) =>
@@ -239,13 +231,13 @@ gsap.to(".about_section", {
     // markers:true
   },
   width: "100%",
-  borderRadius:"0px",
+  borderRadius: "0px",
+  transform: "TranslateY(0%)",
   duration: 1,
 });
-	
 
-console.log(panels[1])
-console.log(tops)
+console.log(panels[1]);
+console.log(tops);
 
 panels.forEach((panel, i) => {
   ScrollTrigger.create({
@@ -464,9 +456,6 @@ ScrollTrigger.create({
 // new LoopingElement(elements[5], -500, 0.08);
 // new LoopingElement(elements[6], -600, 0.08);
 
-
-
-
 // let path=document.querySelector('path')
 // let pathLength=path.getTotalLength()
 
@@ -479,11 +468,10 @@ ScrollTrigger.create({
 //   path.style.strokeDashoffset = pathLength - drawLength;
 // })
 
-
-  const scroll = new LocomotiveScroll({
-    el: document.querySelector("[data-scroll-container]"),
-    smooth: true,
-  });
+const scroll = new LocomotiveScroll({
+  el: document.querySelector("[data-scroll-container]"),
+  smooth: true,
+});
 
 // document.addEventListener("scroll",()=>{
 //   window.scrollY > 70 ? (menu.classList.add("Scrolled")) : (menu.classList.remove("Scrolled"));

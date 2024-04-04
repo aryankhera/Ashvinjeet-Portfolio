@@ -10,7 +10,7 @@ var cursor = document.querySelector(".follow_cursor");
 var workBtn = document.querySelector(".workbtn");
 var overlay = document.querySelector(".overlay");
 var Scroll_more = document.getElementById("scroll_mouse");
-var x = document.querySelector('#l_time');
+var x = document.querySelector("#l_time");
 var modeChangerSun = document.querySelector("#Sun");
 var modeChangerMoon = document.querySelector("#Moon");
 var scrollers = document.querySelectorAll(".scroller");
@@ -169,17 +169,13 @@ function detectColorScheme() {
   var theme = "light"; //default to light
   //local storage is used to override OS theme settings
 
-  console.log("Color scheme func called", localStorage.getItem("theme"));
-
   if (localStorage.getItem("theme")) {
     if (localStorage.getItem("theme") == "dark") {
       var theme = "dark";
       document.querySelector("body").classList.add("theme-dark");
       document.querySelector("body").classList.remove("theme-light");
       document.getElementById("mainLogo").src = "../images/logo_2.svg";
-      document.getElementById("juice").src = "../images/juice.png"; // document.getElementById("mainLogo").style.width = "2vw";
-      // document.getElementById("mainLogo").style.maxHeight = "79.67px";
-
+      document.getElementById("juice").src = "../images/juice.png";
       document.getElementById("lightMode").classList.add("hidden");
       document.getElementById("darkMode").classList.remove("hidden");
       modeChangerSun.style.display = "none";
@@ -241,6 +237,7 @@ gsap.to(".about_section", {
   },
   width: "100%",
   borderRadius: "0px",
+  transform: "TranslateY(0%)",
   duration: 1
 });
 console.log(panels[1]);
