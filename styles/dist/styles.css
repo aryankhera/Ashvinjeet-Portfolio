@@ -735,6 +735,10 @@ main .bg_line {
 .panel-about .about_section .whatcanIdo {
   max-width: 62em;
 }
+.panel-about .about_section .whatcanIdo h2 {
+  font-size: 2em;
+  margin-bottom: 2em;
+}
 .panel-about .about_section .whatcanIdo .services__list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -750,8 +754,8 @@ main .bg_line {
 .panel-about .about_section .whatcanIdo .services__list .services__item::before {
   content: "";
   position: absolute;
-  width: 1px;
-  left: 10px;
+  width: 2px;
+  left: 0px;
   height: 100%;
   top: 0;
   z-index: 999;
@@ -782,6 +786,7 @@ main .bg_line {
   line-height: 1.5em;
   letter-spacing: 0;
   font-family: silkaregular !important;
+  text-align: left;
 }
 
 @keyframes updown {

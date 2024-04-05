@@ -979,6 +979,11 @@ margin-bottom: 3em;
 
         .whatcanIdo {
             max-width: 62em;
+
+            h2{
+                font-size: 2em;
+                margin-bottom: 2em;
+            }
             .services__list {
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr;
@@ -995,8 +1000,8 @@ margin-bottom: 3em;
                     &::before {
                         content: "";
                         position: absolute;
-                        width: 1px;
-                        left: 10px;
+                        width: 2px;
+                        left: 0px;
                         height: 100%;
                          @include themify($themes) {
                              background-color: themed('smallLine');
@@ -1028,6 +1033,7 @@ margin-bottom: 3em;
                         line-height: 1.5em;
                         letter-spacing: 0;
                         font-family: silkaregular !important;
+                        text-align: left;
                     }
                 }
             }

@@ -17,12 +17,9 @@ var scrollers = document.querySelectorAll(".scroller");
 gsap.registerPlugin(ScrollTrigger);
 
 var getDateTime = function getDateTime() {
-  var date = new Date(); // console.log(date);
-
+  var date = new Date();
   time = date.toLocaleTimeString("en-US");
-  console.log("x_val before", x.value);
   x.innerText = time;
-  console.log("x_val after", x.value);
 };
 
 getDateTime();
@@ -46,14 +43,9 @@ function addAnimation() {
 }
 
 var currentScroll = 0;
-var isScrollingDown = true; // const toggleSwitch = document.querySelector(
-//   '#theme-switch input[type="checkbox"]'
-// );
-
-var tl = gsap.timeline(); // localStorage.clear();
-
+var isScrollingDown = true;
+var tl = gsap.timeline();
 detectColorScheme(); // Moon button set to be hidden by default
-// var rule = CssRulePlugin.getRule(".scroll-time-menu-items:first-child");
 // basic function to convert reveal class into sub elements
 
 var revealToSpan = function revealToSpan(classname) {
@@ -155,14 +147,12 @@ window.addEventListener("mousemove", function (e) {
 var tl_modechange1 = gsap.timeline(); //Mode changer button for Sun/Moon icon
 
 modeChangerMoon.addEventListener("click", function () {
-  console.log("Am I clicked");
   localStorage.setItem("theme", "light");
   detectColorScheme();
 });
 modeChangerSun.addEventListener("click", function () {
   localStorage.setItem("theme", "dark");
   detectColorScheme();
-  console.log("Am I clicked");
 });
 
 function detectColorScheme() {
@@ -185,47 +175,35 @@ function detectColorScheme() {
       document.querySelector("body").classList.add("theme-light");
       document.querySelector("body").classList.remove("theme-dark");
       document.getElementById("mainLogo").src = "../images/logo.svg";
-      document.getElementById("juice").src = "../images/Juice_invert.png"; // document.getElementById("mainLogo").style.width = "2vw";
-      // document.getElementById("mainLogo").style.maxHeight = "79.67px";
-
+      document.getElementById("juice").src = "../images/Juice_invert.png";
       modeChangerSun.style.display = "inline";
       modeChangerMoon.style.display = "none";
-      console.log("first", document.getElementById("lightMode"));
       document.getElementById("lightMode").classList.remove("hidden");
       document.getElementById("darkMode").classList.add("hidden");
       return false;
     }
   } else if (theme == "light") {
-    console.log("Light theme incoming!!!");
     document.querySelector("body").classList.add("theme-light");
     document.querySelector("body").classList.remove("theme-dark");
     document.getElementById("mainLogo").src = "../images/logo.svg";
-    document.getElementById("juice").src = "../images/Juice_invert.png"; // document.getElementById("mainLogo").style.width = "2vw";
-    // document.getElementById("mainLogo").style.maxHeight = "79.67px";
-
+    document.getElementById("juice").src = "../images/Juice_invert.png";
     modeChangerSun.style.display = "inline";
     modeChangerMoon.style.display = "none";
     document.getElementById("lightMode").classList.remove("hidden");
     document.getElementById("darkMode").classList.add("hidden");
   } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
     //OS theme setting detected as dark
-    console.log("Dark theme incoming!!!");
     var theme = "dark";
     document.querySelector("body").classList.add("theme-dark");
     document.querySelector("body").classList.remove("theme-light");
     document.getElementById("mainLogo").src = "../images/logo_2.svg";
-    document.getElementById("juice").src = "../images/juice.png"; // document.getElementById("mainLogo").style.width = "2vw";
-
+    document.getElementById("juice").src = "../images/juice.png";
     modeChangerSun.style.display = "none";
     modeChangerMoon.style.display = "inline";
     document.getElementById("lightMode").classList.remove("hidden");
     document.getElementById("darkMode").classList.add("hidden");
   }
 }
-
-var panels = gsap.utils.toArray(".panel"); // let tops = panels.map((panel) =>
-//   ScrollTrigger.create({ trigger: panel, start: "top top" })
-// );
 
 gsap.to(".about_section", {
   scrollTrigger: {
@@ -240,32 +218,25 @@ gsap.to(".about_section", {
   transform: "TranslateY(0%)",
   duration: 1
 });
-console.log(panels[1]);
-console.log(tops);
-panels.forEach(function (panel, i) {
-  ScrollTrigger.create({
-    trigger: panel,
-    start: function start() {
-      return panel.offsetHeight < window.innerHeight ? "top top" : "bottom bottom";
-    },
-    // if it's shorter than the viewport, we prefer to pin it at the top
-    pin: true,
-    pinSpacing: false
-  });
-});
-ScrollTrigger.create({
-  snap: {
-    snapTo: function snapTo(progress, self) {
-      var panelStarts = tops.map(function (st) {
-        return st.start;
-      }),
-          // an Array of all the starting scroll positions. We do this on each scroll to make sure it's totally responsive. Starting positions may change when the user resizes the viewport
-      snapScroll = gsap.utils.snap(panelStarts, self.scroll()); // find the closest one
 
-      return gsap.utils.normalize(0, ScrollTrigger.maxScroll(window), snapScroll); // snapping requires a progress value, so convert the scroll position into a normalized progress value between 0 and 1
-    },
-    duration: 0.5
-  }
+var callback = function callback(entries) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+      console.log("entry name if", entry);
+      if (entry.target.className == "high") modeChangerSun.style.color = "white";else modeChangerSun.style.color = "black";
+      console.log("entry name else", entry.target);
+    }
+  });
+};
+
+var options = {
+  threshold: 0.5
+};
+var observer = new IntersectionObserver(callback, options);
+var sections = document.querySelectorAll("section");
+console.log("Sections rae", sections);
+sections.forEach(function (s) {
+  return observer.observe(s);
 }); // class LoopingElement {
 //   constructor(element, currentTranslation, speed) {
 //     this.element = element;
@@ -440,11 +411,11 @@ ScrollTrigger.create({
 //   var drawLength = pathLength * scrollPercentage;
 //   path.style.strokeDashoffset = pathLength - drawLength;
 // })
-
-var scroll = new LocomotiveScroll({
-  el: document.querySelector("[data-scroll-container]"),
-  smooth: true
-}); // document.addEventListener("scroll",()=>{
+// const scroll = new LocomotiveScroll({
+//   el: document.querySelector("[data-scroll-container]"),
+//   smooth: true,
+// });
+// document.addEventListener("scroll",()=>{
 //   window.scrollY > 70 ? (menu.classList.add("Scrolled")) : (menu.classList.remove("Scrolled"));
 // })
 // gsap.registerPlugin(ScrollTrigger);

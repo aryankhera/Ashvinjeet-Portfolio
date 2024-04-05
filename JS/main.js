@@ -15,11 +15,8 @@ const scrollers = document.querySelectorAll(".scroller");
 gsap.registerPlugin(ScrollTrigger);
 const getDateTime = () => {
   var date = new Date();
-  // console.log(date);
   time = date.toLocaleTimeString("en-US");
-  console.log("x_val before", x.value);
   x.innerText = time;
-  console.log("x_val after", x.value);
 };
 
 getDateTime();
@@ -45,14 +42,9 @@ function addAnimation() {
 }
 let currentScroll = 0;
 let isScrollingDown = true;
-// const toggleSwitch = document.querySelector(
-//   '#theme-switch input[type="checkbox"]'
-// );
 var tl = gsap.timeline();
-// localStorage.clear();
 detectColorScheme();
 // Moon button set to be hidden by default
-// var rule = CssRulePlugin.getRule(".scroll-time-menu-items:first-child");
 // basic function to convert reveal class into sub elements
 const revealToSpan = (classname) => {
   document.querySelectorAll(`.${classname}`).forEach((elem) => {
@@ -149,7 +141,6 @@ window.addEventListener("mousemove", (e) => {
 var tl_modechange1 = gsap.timeline();
 //Mode changer button for Sun/Moon icon
 modeChangerMoon.addEventListener("click", () => {
-  console.log("Am I clicked");
   localStorage.setItem("theme", "light");
   detectColorScheme();
 });
@@ -157,7 +148,6 @@ modeChangerMoon.addEventListener("click", () => {
 modeChangerSun.addEventListener("click", () => {
   localStorage.setItem("theme", "dark");
   detectColorScheme();
-  console.log("Am I clicked");
 });
 
 function detectColorScheme() {
@@ -180,36 +170,28 @@ function detectColorScheme() {
       document.querySelector("body").classList.remove("theme-dark");
       document.getElementById("mainLogo").src = "../images/logo.svg";
       document.getElementById("juice").src = "../images/Juice_invert.png";
-      // document.getElementById("mainLogo").style.width = "2vw";
-      // document.getElementById("mainLogo").style.maxHeight = "79.67px";
       modeChangerSun.style.display = "inline";
       modeChangerMoon.style.display = "none";
-      console.log("first", document.getElementById("lightMode"));
       document.getElementById("lightMode").classList.remove("hidden");
       document.getElementById("darkMode").classList.add("hidden");
       return false;
     }
   } else if (theme == "light") {
-    console.log("Light theme incoming!!!");
     document.querySelector("body").classList.add("theme-light");
     document.querySelector("body").classList.remove("theme-dark");
     document.getElementById("mainLogo").src = "../images/logo.svg";
     document.getElementById("juice").src = "../images/Juice_invert.png";
-    // document.getElementById("mainLogo").style.width = "2vw";
-    // document.getElementById("mainLogo").style.maxHeight = "79.67px";
     modeChangerSun.style.display = "inline";
     modeChangerMoon.style.display = "none";
     document.getElementById("lightMode").classList.remove("hidden");
     document.getElementById("darkMode").classList.add("hidden");
   } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
     //OS theme setting detected as dark
-    console.log("Dark theme incoming!!!");
     var theme = "dark";
     document.querySelector("body").classList.add("theme-dark");
     document.querySelector("body").classList.remove("theme-light");
     document.getElementById("mainLogo").src = "../images/logo_2.svg";
     document.getElementById("juice").src = "../images/juice.png";
-    // document.getElementById("mainLogo").style.width = "2vw";
     modeChangerSun.style.display = "none";
     modeChangerMoon.style.display = "inline";
     document.getElementById("lightMode").classList.remove("hidden");
@@ -217,10 +199,7 @@ function detectColorScheme() {
   }
 }
 
-let panels = gsap.utils.toArray(".panel");
-// let tops = panels.map((panel) =>
-//   ScrollTrigger.create({ trigger: panel, start: "top top" })
-// );
+
 
 gsap.to(".about_section", {
   scrollTrigger: {
@@ -236,33 +215,28 @@ gsap.to(".about_section", {
   duration: 1,
 });
 
-console.log(panels[1]);
-console.log(tops);
 
-panels.forEach((panel, i) => {
-  ScrollTrigger.create({
-    trigger: panel,
-    start: () =>
-      panel.offsetHeight < window.innerHeight ? "top top" : "bottom bottom", // if it's shorter than the viewport, we prefer to pin it at the top
-    pin: true,
-    pinSpacing: false,
+
+
+const callback = (entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      console.log("entry name if",entry)
+      if (entry.target.className == "high")
+        modeChangerSun.style.color = "white";
+      else 
+        modeChangerSun.style.color = "black";
+        console.log("entry name else",entry.target)
+    }
   });
-});
+};
 
-ScrollTrigger.create({
-  snap: {
-    snapTo: (progress, self) => {
-      let panelStarts = tops.map((st) => st.start), // an Array of all the starting scroll positions. We do this on each scroll to make sure it's totally responsive. Starting positions may change when the user resizes the viewport
-        snapScroll = gsap.utils.snap(panelStarts, self.scroll()); // find the closest one
-      return gsap.utils.normalize(
-        0,
-        ScrollTrigger.maxScroll(window),
-        snapScroll
-      ); // snapping requires a progress value, so convert the scroll position into a normalized progress value between 0 and 1
-    },
-    duration: 0.5,
-  },
-});
+const options = { threshold: 0.5 };
+const observer = new IntersectionObserver(callback, options);
+
+const sections = document.querySelectorAll("section");
+console.log("Sections rae", sections);
+sections.forEach((s) => observer.observe(s));
 
 // class LoopingElement {
 //   constructor(element, currentTranslation, speed) {
@@ -468,10 +442,13 @@ ScrollTrigger.create({
 //   path.style.strokeDashoffset = pathLength - drawLength;
 // })
 
-const scroll = new LocomotiveScroll({
-  el: document.querySelector("[data-scroll-container]"),
-  smooth: true,
-});
+// const scroll = new LocomotiveScroll({
+//   el: document.querySelector("[data-scroll-container]"),
+//   smooth: true,
+// });
+
+
+
 
 // document.addEventListener("scroll",()=>{
 //   window.scrollY > 70 ? (menu.classList.add("Scrolled")) : (menu.classList.remove("Scrolled"));
