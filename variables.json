@@ -1,0 +1,20 @@
+{
+  "light": {
+    "backgroundColor": "rgb(243, 243, 243)",
+    "textColor": "#000",
+    "secondaryColor": "rgba(25, 26, 30, .4)",
+    "linkColor": "#DF9D3F",
+    "alternateBg": "#0c0c0c",
+    "smallLine": "#efefef1a",
+    "alternateText": "#fff"
+  },
+  "dark": {
+    "backgroundColor": "#0c0c0c",
+    "alternateBg": "rgb(243, 243, 243)",
+    "textColor": "#fff",
+    "secondaryColor": "rgba(211, 220, 255, .4)",
+    "linkColor": "#DF9D3F",
+    "smallLine": "#1114141a",
+    "alternateText": "red"
+  }
+}

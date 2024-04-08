@@ -1,7 +1,14 @@
 "use strict";
 
+var _variables = _interopRequireDefault(require("../variables.json"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
 // const { element } = require("prop-types");
-var menu = document.querySelector(".nav-container"); // var textOnly = document.querySelector(".text_only");
+var menu = document.querySelector(".nav-container");
+var root = document.documentElement;
+var p1 = getComputedStyle(root); // console.log(p1.getPropertyValue())
+// var textOnly = document.querySelector(".text_only");
 // const myText = new SplitType(textOnly);
 // var textOnlyChar = document.querySelectorAll(".text_only .line .word .char");
 
@@ -13,12 +20,14 @@ var Scroll_more = document.getElementById("scroll_mouse");
 var x = document.querySelector("#l_time");
 var modeChangerSun = document.querySelector("#Sun");
 var modeChangerMoon = document.querySelector("#Moon");
+var leftLink = document.querySelectorAll(".left-social-links ul li a");
+var rightLink = document.querySelector(".right-mail-link a");
 var scrollers = document.querySelectorAll(".scroller");
 gsap.registerPlugin(ScrollTrigger);
 
 var getDateTime = function getDateTime() {
   var date = new Date();
-  time = date.toLocaleTimeString("en-US");
+  var time = date.toLocaleTimeString("en-US");
   x.innerText = time;
 };
 
@@ -156,6 +165,7 @@ modeChangerSun.addEventListener("click", function () {
 });
 
 function detectColorScheme() {
+  helloTheme();
   var theme = "light"; //default to light
   //local storage is used to override OS theme settings
 
@@ -219,25 +229,128 @@ gsap.to(".about_section", {
   duration: 1
 });
 
-var callback = function callback(entries) {
-  entries.forEach(function (entry) {
-    if (entry.isIntersecting) {
-      console.log("entry name if", entry);
-      if (entry.target.className == "high") modeChangerSun.style.color = "white";else modeChangerSun.style.color = "black";
-      console.log("entry name else", entry.target);
-    }
-  });
-};
+function helloTheme() {
+  console.log("theme incoing is in", localStorage.getItem("theme"));
+  gsap.to(leftLink, {
+    scrollTrigger: {
+      trigger: ".about_section",
+      start: "-250px center",
+      end: "200px center",
+      scrub: true // markers:true
 
-var options = {
-  threshold: 0.5
-};
-var observer = new IntersectionObserver(callback, options);
-var sections = document.querySelectorAll("section");
-console.log("Sections rae", sections);
-sections.forEach(function (s) {
-  return observer.observe(s);
-}); // class LoopingElement {
+    },
+    color: localStorage.getItem("theme") && localStorage.getItem("theme") != "light" ? _variables["default"] && _variables["default"].dark.alternateText : _variables["default"] && _variables["default"].light.alternateText
+  });
+  gsap.to(rightLink, {
+    scrollTrigger: {
+      trigger: ".about_section",
+      start: "-250px center",
+      end: "200px center",
+      scrub: true,
+      markers: true
+    },
+    color: localStorage.getItem("theme") == "dark" ? _variables["default"].dark.alternateText : _variables["default"].light.alternateText
+  });
+  gsap.to(cursor, {
+    scrollTrigger: {
+      trigger: ".about_section",
+      start: "-250px center",
+      end: "200px center",
+      scrub: true // markers:true
+
+    },
+    borderColor: localStorage.getItem("theme") == "dark" ? _variables["default"].dark.alternateText : _variables["default"].light.alternateText
+  });
+} // console.log("color",leftLink.style)
+// function changeLinkColors(){
+//   if(document && document.getElementsByClassName(""))
+// }
+// const callback = (entries) => {
+//   entries.forEach((entry) => {
+//     if (entry.isIntersecting) {
+//       if (localStorage.getItem("theme") == "light") {
+//         console.log("Am I in!", localStorage.getItem("theme"));
+//         leftLink.forEach((leftLink) => {
+//           leftLink.style.color = themes.light.alternateText;
+//           leftLink.onmouseover = function () {
+//             this.style.color = themes.light.linkColor;
+//           };
+//           leftLink.onmouseleave = function () {
+//             this.style.color = themes.light.alternateText;
+//           };
+//         });
+//         rightLink.style.color = themes.light.alternateText;
+//       } else if (localStorage.getItem("theme") == "dark") {
+//         leftLink.forEach((leftLink) => {
+//           leftLink.style.color = themes.dark.alternateText;
+//           leftLink.onmouseover = function () {
+//             this.style.color = themes.light.linkColor;
+//           };
+//           leftLink.onmouseleave = function () {
+//             this.style.color = themes.light.alternateText;
+//           };
+//         });
+//         rightLink.style.color = themes.dark.alternateText;
+//       }
+//       // if (entry.target.className == "high")
+//       //   modeChangerSun.style.color = "white";
+//       // else
+//       //   modeChangerSun.style.color = "black";
+//       //   console.log("entry name else",entry.target)
+//     } else {
+//       if (localStorage.getItem("theme") == "light") {
+//         leftLink.forEach((leftLink) => {
+//           leftLink.style.color = themes.light.textColor;
+//           leftLink.onmouseover = function () {
+//             this.style.color = themes.light.linkColor;
+//           };
+//           leftLink.onmouseleave = function () {
+//             this.style.color = themes.light.textColor;
+//           };
+//         });
+//         rightLink.style.color = themes.light.textColor;
+//       } else if (localStorage.getItem("theme") == "dark") {
+//         leftLink.forEach((leftLink) => {
+//           leftLink.style.color = themes.dark.textColor;
+//           leftLink.onmouseover = function () {
+//             this.style.color = themes.light.linkColor;
+//           };
+//           leftLink.onmouseleave = function () {
+//             this.style.color = themes.light.textColor;
+//           };
+//         });
+//         rightLink.style.color = themes.dark.textColor;
+//       }
+//     }
+//   });
+// };
+// const callback = (entries) => {
+//   entries.forEach((entry) => {
+//     if (entry.isIntersecting) {
+//       if (localStorage.getItem("theme") == "light") {
+//         localStorage.setItem("theme", "dark");
+//       }
+//       if (localStorage.getItem("theme") == "dark") {
+//         localStorage.setItem("theme", "light");
+//       }
+//     }
+//     else{
+//       if (localStorage.getItem("theme") == "light") {
+//         localStorage.setItem("theme", "light");
+//       }
+//       if (localStorage.getItem("theme") == "dark") {
+//         localStorage.setItem("theme", "light");
+//       }
+//     }
+//   });
+// };
+// const options = {
+//   threshold: 0.5,
+// };
+// const observer = new IntersectionObserver(callback, options);
+// const sections = document.querySelectorAll(".high");
+// sections.forEach((s) => observer.observe(s));
+// class LoopingElement {
 //   constructor(element, currentTranslation, speed) {
 //     this.element = element;
 //     this.currentTranslation = currentTranslation;

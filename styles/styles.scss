@@ -46,6 +46,10 @@ $themes: (light: (backgroundColor: rgb(243, 243, 243),
     ),
 );
 
+// :export {
+//     t1: "$themes";
+// }
+
 @mixin themify($themes) {
 
     @each $theme,
@@ -113,6 +117,12 @@ main {
         background-color: themed('backgroundColor');
     }
 
+    // section:nth-child(even){
+    //     @include themify($themes) {
+    //         background-color: themed('alternateBg');
+    //         color: themed('alternateText')
+    //     }
+    // }
 
     .line_container {
         position: fixed;
@@ -670,7 +680,7 @@ main {
                     @include themify($themes) {
                         color: themed('textColor');
                     }
-
+                    // mix-blend-mode: difference;
                     font-size: 24px;
                     transition: 0.2s ease-in-out;
 
@@ -1315,3 +1325,4 @@ margin-bottom: 3em;
         flex: 0 0 100% !important;
     }
 }
+
