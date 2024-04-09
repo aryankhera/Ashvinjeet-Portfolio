@@ -15,6 +15,6 @@
     "secondaryColor": "rgba(211, 220, 255, .4)",
     "linkColor": "#DF9D3F",
     "smallLine": "#1114141a",
-    "alternateText": "red"
+    "alternateText": "#000"
   }
 }

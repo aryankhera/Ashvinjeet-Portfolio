@@ -1,8 +1,11 @@
 // const { element } = require("prop-types");
 import themes from "../variables.json";
+gsap.registerPlugin(ScrollTrigger);
 var menu = document.querySelector(".nav-container");
 var root = document.documentElement;
 const p1 = getComputedStyle(root);
+var leftLink = document.querySelectorAll(".left-social-links ul li a");
+var rightLink = document.querySelector(".right-mail-link a");
 // console.log(p1.getPropertyValue())
 // var textOnly = document.querySelector(".text_only");
 // const myText = new SplitType(textOnly);
@@ -15,8 +18,6 @@ const Scroll_more = document.getElementById("scroll_mouse");
 const x = document.querySelector("#l_time");
 var modeChangerSun = document.querySelector("#Sun");
 var modeChangerMoon = document.querySelector("#Moon");
-var leftLink = document.querySelectorAll(".left-social-links ul li a");
-var rightLink = document.querySelector(".right-mail-link a");
 const scrollers = document.querySelectorAll(".scroller");
 gsap.registerPlugin(ScrollTrigger);
 const getDateTime = () => {
@@ -144,7 +145,6 @@ window.addEventListener("mousemove", (e) => {
 //   cursor.style.display = "block";
 // };
 
-var tl_modechange1 = gsap.timeline();
 //Mode changer button for Sun/Moon icon
 modeChangerMoon.addEventListener("click", () => {
   localStorage.setItem("theme", "light");
@@ -157,7 +157,6 @@ modeChangerSun.addEventListener("click", () => {
 });
 
 function detectColorScheme() {
-  helloTheme()
   var theme = "light"; //default to light
   //local storage is used to override OS theme settings
   if (localStorage.getItem("theme")) {
@@ -171,6 +170,7 @@ function detectColorScheme() {
       document.getElementById("darkMode").classList.remove("hidden");
       modeChangerSun.style.display = "none";
       modeChangerMoon.style.display = "inline";
+      helloTheme(theme);
     } else if (localStorage.getItem("theme") == "light") {
       console.log("Light theme incoming!!!");
       document.querySelector("body").classList.add("theme-light");
@@ -181,6 +181,7 @@ function detectColorScheme() {
       modeChangerMoon.style.display = "none";
       document.getElementById("lightMode").classList.remove("hidden");
       document.getElementById("darkMode").classList.add("hidden");
+      helloTheme(theme);
       return false;
     }
   } else if (theme == "light") {
@@ -192,6 +193,7 @@ function detectColorScheme() {
     modeChangerMoon.style.display = "none";
     document.getElementById("lightMode").classList.remove("hidden");
     document.getElementById("darkMode").classList.add("hidden");
+    helloTheme(theme);
   } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
     //OS theme setting detected as dark
     var theme = "dark";
@@ -203,51 +205,66 @@ function detectColorScheme() {
     modeChangerMoon.style.display = "inline";
     document.getElementById("lightMode").classList.remove("hidden");
     document.getElementById("darkMode").classList.add("hidden");
+    helloTheme(theme);
   }
 }
 
-gsap
-  .to(".about_section", {
-    scrollTrigger: {
-      trigger: ".about_section",
-      start: "-250px center",
-      end: "200px center",
-      scrub: true,
-      // markers:true
-    },
-    width: "100%",
-    borderRadius: "0px",
-    transform: "TranslateY(0%)",
-    duration: 1,
-  })
+gsap.to(".about_section", {
+  scrollTrigger: {
+    trigger: ".about_section",
+    start: "-250px center",
+    end: "200px center",
+    scrub: true,
+    // markers:true
+  },
+  width: "100%",
+  borderRadius: "0px",
+  transform: "TranslateY(0%)",
+  duration: 1,
+});
 
-  function helloTheme(){
-    console.log("theme incoing is in", localStorage.getItem("theme"));
-  gsap.to(leftLink, {
-    scrollTrigger: {
-      trigger: ".about_section",
-      start: "-250px center",
-      end: "200px center",
-      scrub: true,
-      // markers:true
-    },
-    color:
-      localStorage.getItem("theme") && localStorage.getItem("theme") != "light"
-        ? themes && themes.dark.alternateText
-        : themes && themes.light.alternateText,
-  });
+function helloTheme(theme) {
+  const textColor = themes[theme].textColor;
+  const alternateText = themes[theme].alternateText;
+  var newColor;
+  console.log("info",theme,textColor,alternateText)
+  leftLink &&
+    leftLink.forEach((item) => {
+      gsap.to(item, {
+        scrollTrigger: {
+          trigger: ".about_section",
+          start: "-250px center",
+          end: "200px center",
+          scrub: true,
+          markers: true,
+          onUpdate: (self) => {
+            // Update text color based on scroll position
+            const progress = self.progress;
+            newColor = gsap.utils.interpolate(
+              textColor,
+              alternateText,
+              progress
+            );
+            item.style.color = newColor;
+          },
+        },
+      });
+    });
+
   gsap.to(rightLink, {
     scrollTrigger: {
       trigger: ".about_section",
       start: "-250px center",
       end: "200px center",
       scrub: true,
-      markers:true
+      markers: true,
+      onUpdate: (self) => {
+        // Update text color based on scroll position
+        const progress = self.progress;
+        newColor = gsap.utils.interpolate(textColor, alternateText, progress);
+        rightLink.style.color = newColor;
+      },
     },
-    color:
-      localStorage.getItem("theme") == "dark"
-        ? themes.dark.alternateText
-        : themes.light.alternateText,
   });
   gsap.to(cursor, {
     scrollTrigger: {
@@ -255,109 +272,19 @@ gsap
       start: "-250px center",
       end: "200px center",
       scrub: true,
-      // markers:true
+      markers: true,
+      onUpdate: (self) => {
+        // Update text color based on scroll position
+        const progress = self.progress;
+        newColor = gsap.utils.interpolate(textColor, alternateText, progress);
+        cursor.style.borderColor = newColor;
+      },
     },
-    borderColor:
-      localStorage.getItem("theme") == "dark"
-        ? themes.dark.alternateText
-        : themes.light.alternateText,
   });
-  }
-  // console.log("color",leftLink.style)
+}
 
 
-// function changeLinkColors(){
-//   if(document && document.getElementsByClassName(""))
-// }
 
-// const callback = (entries) => {
-//   entries.forEach((entry) => {
-//     if (entry.isIntersecting) {
-//       if (localStorage.getItem("theme") == "light") {
-//         console.log("Am I in!", localStorage.getItem("theme"));
-//         leftLink.forEach((leftLink) => {
-//           leftLink.style.color = themes.light.alternateText;
-//           leftLink.onmouseover = function () {
-//             this.style.color = themes.light.linkColor;
-//           };
-//           leftLink.onmouseleave = function () {
-//             this.style.color = themes.light.alternateText;
-//           };
-//         });
-//         rightLink.style.color = themes.light.alternateText;
-//       } else if (localStorage.getItem("theme") == "dark") {
-//         leftLink.forEach((leftLink) => {
-//           leftLink.style.color = themes.dark.alternateText;
-//           leftLink.onmouseover = function () {
-//             this.style.color = themes.light.linkColor;
-//           };
-//           leftLink.onmouseleave = function () {
-//             this.style.color = themes.light.alternateText;
-//           };
-//         });
-//         rightLink.style.color = themes.dark.alternateText;
-//       }
-//       // if (entry.target.className == "high")
-//       //   modeChangerSun.style.color = "white";
-//       // else
-//       //   modeChangerSun.style.color = "black";
-//       //   console.log("entry name else",entry.target)
-//     } else {
-//       if (localStorage.getItem("theme") == "light") {
-//         leftLink.forEach((leftLink) => {
-//           leftLink.style.color = themes.light.textColor;
-//           leftLink.onmouseover = function () {
-//             this.style.color = themes.light.linkColor;
-//           };
-//           leftLink.onmouseleave = function () {
-//             this.style.color = themes.light.textColor;
-//           };
-//         });
-
-//         rightLink.style.color = themes.light.textColor;
-//       } else if (localStorage.getItem("theme") == "dark") {
-//         leftLink.forEach((leftLink) => {
-//           leftLink.style.color = themes.dark.textColor;
-//           leftLink.onmouseover = function () {
-//             this.style.color = themes.light.linkColor;
-//           };
-//           leftLink.onmouseleave = function () {
-//             this.style.color = themes.light.textColor;
-//           };
-//         });
-
-//         rightLink.style.color = themes.dark.textColor;
-//       }
-//     }
-//   });
-// };
-
-// const callback = (entries) => {
-//   entries.forEach((entry) => {
-//     if (entry.isIntersecting) {
-//       if (localStorage.getItem("theme") == "light") {
-//         localStorage.setItem("theme", "dark");
-//       }
-//       if (localStorage.getItem("theme") == "dark") {
-//         localStorage.setItem("theme", "light");
-//       }
-//     }
-//     else{
-//       if (localStorage.getItem("theme") == "light") {
-//         localStorage.setItem("theme", "light");
-//       }
-//       if (localStorage.getItem("theme") == "dark") {
-//         localStorage.setItem("theme", "light");
-//       }
-//     }
-//   });
-// };
-// const options = {
-//   threshold: 0.5,
-// };
-// const observer = new IntersectionObserver(callback, options);
-// const sections = document.querySelectorAll(".high");
-// sections.forEach((s) => observer.observe(s));
 
 // class LoopingElement {
 //   constructor(element, currentTranslation, speed) {
