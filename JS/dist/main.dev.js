@@ -179,6 +179,7 @@ function detectColorScheme() {
       document.getElementById("darkMode").classList.remove("hidden");
       modeChangerSun.style.display = "none";
       modeChangerMoon.style.display = "inline";
+      console.log("1");
       helloTheme(theme);
     } else if (localStorage.getItem("theme") == "light") {
       console.log("Light theme incoming!!!");
@@ -191,6 +192,7 @@ function detectColorScheme() {
       document.getElementById("lightMode").classList.remove("hidden");
       document.getElementById("darkMode").classList.add("hidden");
       helloTheme(theme);
+      console.log("2");
       return false;
     }
   } else if (theme == "light") {
@@ -202,6 +204,7 @@ function detectColorScheme() {
     modeChangerMoon.style.display = "none";
     document.getElementById("lightMode").classList.remove("hidden");
     document.getElementById("darkMode").classList.add("hidden");
+    console.log("3");
     helloTheme(theme);
   } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
     //OS theme setting detected as dark
@@ -214,6 +217,7 @@ function detectColorScheme() {
     modeChangerMoon.style.display = "inline";
     document.getElementById("lightMode").classList.remove("hidden");
     document.getElementById("darkMode").classList.add("hidden");
+    console.log("4");
     helloTheme(theme);
   }
 }
@@ -235,54 +239,59 @@ gsap.to(".about_section", {
 function helloTheme(theme) {
   var textColor = _variables["default"][theme].textColor;
   var alternateText = _variables["default"][theme].alternateText;
-  var newColor;
-  console.log("info", theme, textColor, alternateText);
+  var newColor; // cursor.style.borderColor = textColor;
+  // rightLink.style.color = textColor;
+  // console.log("info",theme,textColor,alternateText)
+
   leftLink && leftLink.forEach(function (item) {
     gsap.to(item, {
       scrollTrigger: {
         trigger: ".about_section",
-        start: "-250px center",
-        end: "200px center",
+        start: "top top",
+        end: "bottom bottom",
         scrub: true,
-        markers: true,
-        onUpdate: function onUpdate(self) {
-          // Update text color based on scroll position
-          var progress = self.progress;
-          newColor = gsap.utils.interpolate(textColor, alternateText, progress);
-          item.style.color = newColor;
-        }
-      }
+        markers: true
+      },
+      color: alternateText
     });
-  });
+  }); // rightLink.style.color = newColor;
+
   gsap.to(rightLink, {
     scrollTrigger: {
       trigger: ".about_section",
-      start: "-250px center",
-      end: "200px center",
-      scrub: true,
-      markers: true,
-      onUpdate: function onUpdate(self) {
-        // Update text color based on scroll position
-        var progress = self.progress;
-        newColor = gsap.utils.interpolate(textColor, alternateText, progress);
-        rightLink.style.color = newColor;
-      }
-    }
+      start: "top top",
+      end: "bottom bottom",
+      scrub: true // markers: true,
+      // onEnter: () => ScrollTrigger.direction = 1, // Scroll direction is down
+      // onLeave: () => ScrollTrigger.direction = -1 ,// Scroll direction is up
+      // onUpdate: (self) => {
+      //   // Update text color based on scroll position
+      //   // const progress = self.progress;
+      //   console.log("before update ",alternateText,textColor)
+      //  newColor =
+      //     ScrollTrigger.direction === 1 ? alternateText : textColor;
+      //   // console.log("interpolate",textColor,alternateText,newColor)
+      //   rightLink.style.color = newColor;
+      // },
+
+    },
+    color: alternateText
   });
   gsap.to(cursor, {
     scrollTrigger: {
       trigger: ".about_section",
-      start: "-250px center",
-      end: "200px center",
-      scrub: true,
-      markers: true,
-      onUpdate: function onUpdate(self) {
-        // Update text color based on scroll position
-        var progress = self.progress;
-        newColor = gsap.utils.interpolate(textColor, alternateText, progress);
-        cursor.style.borderColor = newColor;
-      }
-    }
+      start: "top top",
+      end: "bottom bottom",
+      scrub: true // markers: true,
+      // onUpdate: (self) => {
+      //   // Update text color based on scroll position
+      //   const progress = self.progress;
+      //   newColor = gsap.utils.interpolate(textColor, alternateText, progress);
+      //   cursor.style.borderColor = newColor;
+      // },
+
+    },
+    borderColor: alternateText
   });
 } // class LoopingElement {
 //   constructor(element, currentTranslation, speed) {
