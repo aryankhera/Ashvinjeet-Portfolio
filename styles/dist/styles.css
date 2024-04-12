@@ -789,6 +789,28 @@ main .bg_line {
   text-align: left;
 }
 
+.work {
+  padding: 6.25em 0;
+}
+.work .projects__header {
+  display: grid;
+  align-items: flex-end;
+  padding-bottom: 1.25em;
+  grid-template-columns: 8fr 4fr;
+  grid-column-gap: 1.25em;
+}
+.work .projects__header div {
+  display: flex;
+}
+.work .projects__header div h3 {
+  font-size: 2.39em;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+.work .projects__header div h3 span {
+  margin-left: 4px;
+}
+
 @keyframes updown {
   from {
     transform: translateY(-50px);
