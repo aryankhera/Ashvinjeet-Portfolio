@@ -13,12 +13,18 @@ var rightLink = document.querySelector(".right-mail-link a");
 var menu_link = document.querySelector(".nav-links");
 var cursor = document.querySelector(".follow_cursor");
 var workBtn = document.querySelector(".workbtn");
-const overlay = document.querySelector(".overlay");
 const Scroll_more = document.getElementById("scroll_mouse");
 const x = document.querySelector("#l_time");
 var modeChangerSun = document.querySelector("#Sun");
 var modeChangerMoon = document.querySelector("#Moon");
 const scrollers = document.querySelectorAll(".scroller");
+
+// const cursor1 = document.querySelector(".cursor");
+const overlay = document.querySelectorAll(".project");
+var f1 = false;
+// const preview = document.querySelector(".preview");
+// const preview_img = document.querySelector(".preview-img");
+
 gsap.registerPlugin(ScrollTrigger);
 const getDateTime = () => {
   var date = new Date();
@@ -170,7 +176,7 @@ function detectColorScheme() {
       document.getElementById("darkMode").classList.remove("hidden");
       modeChangerSun.style.display = "none";
       modeChangerMoon.style.display = "inline";
-      console.log("1")
+      console.log("1");
       helloTheme(theme);
     } else if (localStorage.getItem("theme") == "light") {
       console.log("Light theme incoming!!!");
@@ -228,7 +234,6 @@ gsap.to(".about_section", {
 });
 
 function helloTheme(theme) {
-  
   var textColor = themes[theme].textColor;
   var alternateText = themes[theme].alternateText;
   var newColor;
@@ -248,28 +253,28 @@ function helloTheme(theme) {
         color: alternateText,
       });
     });
-    // rightLink.style.color = newColor;
-    gsap.to(rightLink, {
-      scrollTrigger: {
-        trigger: ".about_section",
-        start: "top top",
-        end: "bottom bottom",
-        scrub: true,
-        // markers: true,
-        // onEnter: () => ScrollTrigger.direction = 1, // Scroll direction is down
-        // onLeave: () => ScrollTrigger.direction = -1 ,// Scroll direction is up
-        // onUpdate: (self) => {
-        //   // Update text color based on scroll position
-        //   // const progress = self.progress;
-        //   console.log("before update ",alternateText,textColor)
-        //  newColor =
-        //     ScrollTrigger.direction === 1 ? alternateText : textColor;
-        //   // console.log("interpolate",textColor,alternateText,newColor)
-        //   rightLink.style.color = newColor;
-        // },
-      },
-      color: alternateText,
-    });
+  // rightLink.style.color = newColor;
+  gsap.to(rightLink, {
+    scrollTrigger: {
+      trigger: ".about_section",
+      start: "top top",
+      end: "bottom bottom",
+      scrub: true,
+      // markers: true,
+      // onEnter: () => ScrollTrigger.direction = 1, // Scroll direction is down
+      // onLeave: () => ScrollTrigger.direction = -1 ,// Scroll direction is up
+      // onUpdate: (self) => {
+      //   // Update text color based on scroll position
+      //   // const progress = self.progress;
+      //   console.log("before update ",alternateText,textColor)
+      //  newColor =
+      //     ScrollTrigger.direction === 1 ? alternateText : textColor;
+      //   // console.log("interpolate",textColor,alternateText,newColor)
+      //   rightLink.style.color = newColor;
+      // },
+    },
+    color: alternateText,
+  });
   gsap.to(cursor, {
     scrollTrigger: {
       trigger: ".about_section",
@@ -284,229 +289,116 @@ function helloTheme(theme) {
       //   cursor.style.borderColor = newColor;
       // },
     },
-   borderColor: alternateText,
+    borderColor: alternateText,
   });
 }
 
+// let isInside = false;
+// const bgPosition = {
+//   p1: "0 0",
+//   p2: "0 50% ",
+//   p3: "0 100%",
+// };
 
+// const moveStuff = (e) => {
+//   const mouseInside = isMouseInsideContainer(e);
 
-
-// class LoopingElement {
-//   constructor(element, currentTranslation, speed) {
-//     this.element = element;
-//     this.currentTranslation = currentTranslation;
-//     this.speed = speed;
-//     this.direction = true;
-//     this.scrollTop = 0;
-//     this.metric = 100;
-
-//     this.lerp = {
-//       current: this.currentTranslation,
-//       target: this.currentTranslation,
-//       factor: 0.2,
-//     };
-
-//     this.events();
-//     this.render();
-//   }
-
-//   events() {
-//     window.addEventListener("scroll", (e) => {
-//       let direction = window.pageYOffset || document.documentElement.scrollTop;
-//       if (direction > this.scrollTop) {
-//         this.direction = true;
-//         this.lerp.target += this.speed * 5;
-//       } else {
-//         this.direction = false;
-//         this.lerp.target -= this.speed * 5;
-//       }
-//       this.scrollTop = direction <= 0 ? 0 : direction;
-//     });
-//   }
-
-//   lerpFunc(current, target, factor) {
-//     this.lerp.current = current * (1 - factor) + target * factor;
-//   }
-
-//   goForward() {
-//     this.lerp.target += this.speed;
-//     if (this.lerp.target > this.metric) {
-//       this.lerp.current -= this.metric * 2;
-//       this.lerp.target -= this.metric * 2;
+//   if (mouseInside != isInside) {
+//     isInside = mouseInside;
+//     if (isInside) {
+//       gsap.to(preview, 0.3, {
+//         scale: 1,
+//       });
+//     } else {
+//       gsap.to(preview, 0.3, {
+//         scale: 0,
+//       });
 //     }
 //   }
+// };
 
-//   goBackward() {
-//     this.lerp.target -= this.speed;
-//     if (this.lerp.target < -this.metric) {
-//       this.lerp.current -= -this.metric * 2;
-//       this.lerp.target -= -this.metric * 2;
-//     }
-//   }
+// const moveProject = (e) => {
+//   const previewrect = preview.getBoundingClientRect();
+//   const offsetX = previewrect.width / 2;
+//   const offsetY = previewrect.height / 2;
 
-//   animate() {
-//     this.direction ? this.goForward() : this.goBackward();
-//     this.lerpFunc(this.lerp.current, this.lerp.target, this.lerp.factor);
+//   preview.style.left = e.pageX - offsetX + "px";
+//   preview.style.top = e.pageY - offsetY + "px";
+// };
 
-//     this.element.style.transform = `translateX(${this.lerp.current}%)`;
-//   }
-
-//   render() {
-//     this.animate();
-//     window.requestAnimationFrame(() => this.render());
-//   }
-// }
-
-// let elements = document.querySelectorAll(".item");
-
-// new LoopingElement(elements[0], 100, 0.04);
-// new LoopingElement(elements[1], 0, 0.04);
-// new LoopingElement(elements[2], -100, 0.08);
-// new LoopingElement(elements[3], -100, 0.08);
-// new LoopingElement(elements[4], -100, 0.08);
-// new LoopingElement(elements[5], -100, 0.08);
-// new LoopingElement(elements[6], -100, 0.08);
-// new LoopingElement(elements[7], -100, 0.08);
-// new LoopingElement(elements[8], -100, 0.08);
-// new LoopingElement(elements[9], -100, 0.08);
-// new LoopingElement(elements[10], -100, 0.08);
-
-// let tween = gsap
-//   .to(".marquee_part", {
-//     x: -100,
-//     repeat: -1,
-//     duration: 5,
-//     ease: "linear",
-//   })
-//   .totalProgress(0.5);
-
-// gsap.set(".marquee_inner", {
-//   x: -50,
-// });
-
-// window.addEventListener("scroll", () => {
-//   console.log(window.pageXOffset > currentScroll);
-//   console.log("c", currentScroll);
-//   if (window.pageYOffset > currentScroll) {
-//     isScrollingDown = true;
-//     currentScroll = window.pageYOffset;
-//     console.log("in here");
-//   } else {
-//     isScrollingDown = false;
-//     console.log("out therer");
-//   }
-
-//   gsap.to(tween, {
-//     timeScale: isScrollingDown ? 1 : -1,
+// const moveProjectImg = (project)=>{
+//   const projectId =project.id;
+//   gsap.to(preview_img,0.4,{
+//     backgroundPosition:bgPosition[projectId] || "0 0",
 //   });
-// });
-// modeChangerSun.addEventListener("click", () => {
-//   modeChangerMoon.classList.remove("hidden_class");
-//   modeChangerSun.classList.add("hidden_class");
-// });
-
-// class for looping element marquee inspired andrew woan
-// working on this
-// class LoopingElement {
-//   constructor(element, currentTranslation, speed) {
-//     this.element = element;
-//     this.currentTranslation = currentTranslation;
-//     this.speed = speed;
-//     this.direction = true;
-//     this.scrollTop = 0;
-//     this.metric = 100;
-
-//     this.lerp = {
-//       current: this.currentTranslation,
-//       target: this.currentTranslation,
-//       factor: 0.2,
-//     };
-
-//     this.events();
-//     this.render();
-//   }
-
-//   events() {
-//     window.addEventListener("scroll", (e) => {
-//       let direction = window.pageYOffset || document.documentElement.scrollTop;
-//       if (direction > this.scrollTop) {
-//         this.direction = true;
-//         this.lerp.target += this.speed * 5;
-//       } else {
-//         this.direction = false;
-//         this.lerp.target -= this.speed * 5;
-//       }
-//       this.scrollTop = direction <= 0 ? 0 : direction;
-//     });
-//   }
-
-//   lerpFunc(current, target, factor) {
-//     this.lerp.current = current * (1 - factor) + target * factor;
-//   }
-
-//   goForward() {
-//     this.lerp.target += this.speed;
-//     if (this.lerp.target > this.metric) {
-//       this.lerp.current -= this.metric * 2;
-//       this.lerp.target -= this.metric * 2;
-//     }
-//   }
-
-//   goBackward() {
-//     this.lerp.target -= this.speed;
-//     if (this.lerp.target < -this.metric) {
-//       this.lerp.current -= -this.metric * 2;
-//       this.lerp.target -= -this.metric * 2;
-//     }
-//   }
-
-//   animate() {
-//     this.direction ? this.goForward() : this.goBackward();
-//     this.lerpFunc(this.lerp.current, this.lerp.target, this.lerp.factor);
-
-//     this.element.style.transform = `translateX(${this.lerp.current}%)`;
-//   }
-
-//   render() {
-//     this.animate();
-//     window.requestAnimationFrame(() => this.render());
-//   }
 // }
 
-// let elements = document.querySelectorAll(".item");
-// console.log("elements", elements);
-// new LoopingElement(elements[0], 0, 0.08);
-// new LoopingElement(elements[1], -100, 0.08);
-// new LoopingElement(elements[2], -200, 0.08);
-// new LoopingElement(elements[3], -300, 0.08);
-// new LoopingElement(elements[4], -400, 0.08);
-// new LoopingElement(elements[5], -500, 0.08);
-// new LoopingElement(elements[6], -600, 0.08);
+// const isMouseInsideContainer=(e)=>{
+//   const containerRext=projects__list.getBoundingClientRect();
+//   return(
+//     e.pageX >= containerRext.left &&
+//     e.pageX <= containerRext.right &&
+//     e.pageY >= containerRext.top &&
+//     e.pageY<=containerRext.bottom
+//   )
+// }
 
-// let path=document.querySelector('path')
-// let pathLength=path.getTotalLength()
+// window.addEventListener("mousemove",moveStuff)
 
-// path.style.strokeDasharray=pathLength+ ' ' +pathLength;
-// path.style.strokeDashoffset=pathLength;
-
-// window.addEventListener('scroll',()=>{
-//   var scrollPercentage =(document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight);
-//   var drawLength = pathLength * scrollPercentage;
-//   path.style.strokeDashoffset = pathLength - drawLength;
+// Array.from(projects__list.children).forEach((project)=>{
+// project.addEventListener("mousemove",moveProject);
+// project.addEventListener("mousemove",moveProjectImg.bind(null,project))
 // })
 
-// const scroll = new LocomotiveScroll({
-//   el: document.querySelector("[data-scroll-container]"),
-//   smooth: true,
+// function moveCircle(e){
+//   gsap.to(cursor1,0.5,{
+//     left:e.pageX,
+//     top:e.pageY
+//   },0.03)
+// }
+
+// document.querySelector(".p-1").addEventListener("mouseover",()=>{
+//   cursor.style.backgroundImage =
+//     "url(https://images.unsplash.com/photo-1712145078393-665300b197e5?q=80&w=1937&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&fit=crop&w=1064&q=80)";
+// });
+// document.querySelector(".p-2").addEventListener("mouseover", () => {
+//   cursor.style.backgroundImage =
+//     "url(https://images.unsplash.com/photo-1648515369057-ab0892a22291?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&fit=crop&w=1064&q=80)";
+// });
+// document.querySelector(".p-3").addEventListener("mouseover", () => {
+//   cursor.style.backgroundImage =
+//     "url(https://images.unsplash.com/photo-1706013789928-6147cd7f571e?q=80&w=1943&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&fit=crop&w=1064&q=80)";
 // });
 
-// document.addEventListener("scroll",()=>{
-//   window.scrollY > 70 ? (menu.classList.add("Scrolled")) : (menu.classList.remove("Scrolled"));
+// Array.from(overlay).forEach((item)=>{
+//   item.addEventListener("mousemove", () => {
+//     f1 = true;
+//     gsap.to(cursor1, 0.3, {
+//       scale: 1,
+//       autoAlpha: 1,
+//     });
+//     item.addEventListener("mousemove", moveCircle);
+//   });
+
+//   item.addEventListener("mouseout", () => {
+//     f1 = false;
+//     gsap.to(cursor1, 0.3, {
+//       scale: 0.1,
+//       autoAlpha: 0,
+//     });
+//   });
 // })
 
-// gsap.registerPlugin(ScrollTrigger);
-
-// ScrollTrigger.defaults({
-//   toggleActions: "restart pause resume pause",
-//   scroller: ".container",
-// });
+// overlay.mouseout()
+Array.from(overlay).forEach((i)=>{
+  i.addEventListener('mouseover',(e)=>{
+    gsap.set(".project .img-wrapper img", { xPercent: -50, yPercent: -50 });
+     const { clientX, clientY } = e;
+    const x = Math.round((clientX / window.innerWidth) * 100);
+     const y = Math.round((clientY / window.innerHeight) * 100);
+    gsap.to(".project .img-wrapper img",{
+      x:clientX,
+      y:clientY
+    })
+  })
+})

@@ -14,7 +14,15 @@
 	<!-- css animate -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 	<!-- font-awesome -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/solid.min.css"
+		integrity="sha512-Hp+WwK4QdKZk9/W0ViDvLunYjFrGJmNDt6sCflZNkjgvNq9mY+0tMbd6tWMiAlcf1OQyqL4gn2rYp7UsfssZPA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+	<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"> -->
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+		integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css" />
 </head>
@@ -80,9 +88,9 @@
 				<img id="juice" src="../images/juice.png" />
 			</div>
 			<ul>
-				<li style="padding: 10px;"><a href="#"><i class="fa fa-github"></i></a></li>
-				<li style="padding: 10px;"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-				<li style="padding: 10px;"><a href="#"><i class="fa fa-twitter"></i></a></li>
+				<li style="padding: 10px;"><a href="#"><i class="fa-brands fa-github"></i></a></li>
+				<li style="padding: 10px;"><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+				<li style="padding: 10px;"><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
 			</ul>
 		</div>
 		<!-- LEFT LINK END-->
@@ -166,7 +174,9 @@
 
 			<div class="about_section">
 				<div class="intro">
-					<h1>About me</h1>
+					<div class="about_heading">
+						<h1>About me</h1><span>(2)</span>
+					</div>
 					<p>Hey there! I'm a software developer with experience from HSBC and a Master's from the University
 						of
 						Windsor. I've got a
@@ -215,72 +225,98 @@
 			<div class="wrapper">
 				<div class="projects__header">
 					<div>
-						<h3>Selected Work</h3><span>(4)</span>
+						<h1>Selected Work</h1><span>(3)</span>
 					</div>
 					<p>A piece from my selection of favorites</p>
 				</div>
+				
 				<div class="projects__list">
-					<a href="/mvpmasters"
-						data-img="./assets/images/mvpmasters/mvpmasters-0.webp" class="project"
-						style="opacity: 1; visibility: inherit; z-index: 1;">
+					<div class="project" style="opacity: 1; visibility: inherit; z-index: 1;" id="p1">
 						<div class="project__text">
-							<h2 class="project__title">Portfolio</h2>
+							<h2 class="project__title">Portfolio <span>/23</span></h2>
 							<p data-splitting="" class="project__info">Logo Design, Web Design, Web Development</p>
 						</div>
-						<div class="project__year">/23</div>
-						<div class="project__card"
-							style="filter: brightness(1) saturate(1); transform: translate(979.334px, -225.361px);">
-							<div class="project__card__inner"
-								style="transform: rotate(-25deg); transform-origin: 50% -20%;">
-								<div class="project__card__image"
-									style="background-image: url(&quot;./assets/images/mvpmasters/mvpmasters-0.webp&quot;); transform: scale(0.6, 0.6); opacity: 0;">
-								</div>
-							</div>
+						<div class="project__links">
+							<ul>
+								<li>
+									<a href="#"><i class="fa-brands fa-github"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+								</li>
+							</ul>
+
 						</div>
-					</a>
-					<a href="/ultra-ooh" data-img="./assets/images/ultra/ultra-ooh.webp" class="project"
-						style="opacity: 1; visibility: inherit; z-index: 1;">
+						<div class="img-wrapper">
+							<img
+								src="https://images.unsplash.com/photo-1712145078393-665300b197e5?q=80&w=1937&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&fit=crop&w=1064&q=80" />
+						</div>
+					</div>
+					<div class="project" style="opacity: 1; visibility: inherit; z-index: 1;" id="p2">
 						<div class="project__text">
-							<h2 class="project__title">Know Your Coin</h2>
+							<h2 class="project__title">Know Your Coin<span>/22</span></h2>
 							<p data-splitting="" class="project__info">Web Design, Web Development</p>
 						</div>
-						<div class="project__year">/22</div>
-						<div class="project__card"
-							style="filter: brightness(1.35365) saturate(1.34062); transform: translate(967.468px, -55.5078px) rotate(1.17884deg) skew(-2.17567deg, 0deg);">
-							<div class="project__card__inner"
-								style="transform: rotate(25deg); transform-origin: 50% 120%;">
-								<div class="project__card__image"
-									style="background-image: url(&quot;./assets/images/ultra/ultra-ooh.webp&quot;); transform: scale(0.6, 0.6); opacity: 0;">
-								</div>
-							</div>
+						<div class="project__links">
+							<ul>
+								<li>
+									<a href="#"><i class="fa-brands fa-github"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+								</li>
+							</ul>
+
 						</div>
-					</a>
-					<a href="/alexbecher" data-img="./assets/images/alexbecher/alexbecher_1.webp" class="project"
-						style="opacity: 1; visibility: inherit; z-index: 1;">
+						<div class="img-wrapper">
+							<img
+								src="https://images.unsplash.com/photo-1648515369057-ab0892a22291?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&fit=crop&w=1064&q=80" />
+						</div>
+					</div>
+					<div class="project" style="opacity: 1; visibility: inherit; z-index: 1;" id="p3">
 						<div class="project__text">
-							<h2 class="project__title">Website Builder</h2>
+							<h2 class="project__title">Website Builder<span>/22</span></h2>
 							<p data-splitting="" class="project__info">Web Development</p>
 						</div>
-						<div class="project__year">/21</div>
-						<div class="project__card"
-							style="filter: brightness(1.6768) saturate(1.644); transform: translate(-207.065px, 134.682px) rotate(-2.16deg) skew(4.93361deg, 0deg);">
-							<div class="project__card__inner"
-								style="transform: rotate(-25deg); transform-origin: 50% 120%;">
-								<div class="project__card__image"
-									style="background-image: url(&quot;./assets/images/alexbecher/alexbecher_1.webp&quot;); transform: scale(0.6, 0.6); opacity: 0;">
-								</div>
-							</div>
+						<div class="project__links">
+							<ul>
+								<li>
+									<a href="#"><i class="fa-brands fa-github"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+								</li>
+							</ul>
+
 						</div>
-					</a>
+						<div class="img-wrapper">
+							<img
+								src="https://images.unsplash.com/photo-1706013789928-6147cd7f571e?q=80&w=1943&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&fit=crop&w=1064&q=80" />
+						</div>
 					</div>
+				</div>
 				<div class="projects__footer">
 					<h3>Want to see more?</h3>
-					<p> Reach me out at <a href="mailto:contact@todordimov.com"
-							class="text-link">contact@todordimov.com</a></p>
+					<p> Reach me out at <a href="mailto:Ashvinjeetsingh22@gmail.com"
+							class="text-link">Ashvinjeetsingh22@gmail.com</a></p>
 				</div>
 			</div>
 		</section>
 		<!-- HERO END  -->
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
 
 		<!-- <section class="spacer">
 			<section class="marquee">
