@@ -1,25 +1,30 @@
 // const { element } = require("prop-types");
+import themes from "../variables.json";
+gsap.registerPlugin(ScrollTrigger);
 var menu = document.querySelector(".nav-container");
+var root = document.documentElement;
+const p1 = getComputedStyle(root);
+var leftLink = document.querySelectorAll(".left-social-links ul li a");
+var rightLink = document.querySelector(".right-mail-link a");
+// console.log(p1.getPropertyValue())
 // var textOnly = document.querySelector(".text_only");
 // const myText = new SplitType(textOnly);
 // var textOnlyChar = document.querySelectorAll(".text_only .line .word .char");
 var menu_link = document.querySelector(".nav-links");
 var cursor = document.querySelector(".follow_cursor");
 var workBtn = document.querySelector(".workbtn");
-const overlay = document.querySelector(".overlay");
 const Scroll_more = document.getElementById("scroll_mouse");
 const x = document.querySelector("#l_time");
 var modeChangerSun = document.querySelector("#Sun");
 var modeChangerMoon = document.querySelector("#Moon");
 const scrollers = document.querySelectorAll(".scroller");
+const about_heading = document.querySelectorAll(".about_heading");
+
 gsap.registerPlugin(ScrollTrigger);
 const getDateTime = () => {
   var date = new Date();
-  // console.log(date);
-  time = date.toLocaleTimeString("en-US");
-  console.log("x_val before", x.value);
+  var time = date.toLocaleTimeString("en-US");
   x.innerText = time;
-  console.log("x_val after", x.value);
 };
 
 getDateTime();
@@ -45,14 +50,9 @@ function addAnimation() {
 }
 let currentScroll = 0;
 let isScrollingDown = true;
-// const toggleSwitch = document.querySelector(
-//   '#theme-switch input[type="checkbox"]'
-// );
 var tl = gsap.timeline();
-// localStorage.clear();
 detectColorScheme();
 // Moon button set to be hidden by default
-// var rule = CssRulePlugin.getRule(".scroll-time-menu-items:first-child");
 // basic function to convert reveal class into sub elements
 const revealToSpan = (classname) => {
   document.querySelectorAll(`.${classname}`).forEach((elem) => {
@@ -119,7 +119,7 @@ tl.from(".reveal .child", {
     duration: 2,
     delay: -0.5,
   })
-  .to(".nav-container", { opacity: "1", duration: 0.2 }, "-=0.8")
+  .to(".nav-container", { opacity: "1", duration: 0.2 }, "-=0.3")
   .to(".follow_cursor", {
     display: "block",
   })
@@ -146,10 +146,8 @@ window.addEventListener("mousemove", (e) => {
 //   cursor.style.display = "block";
 // };
 
-var tl_modechange1 = gsap.timeline();
 //Mode changer button for Sun/Moon icon
 modeChangerMoon.addEventListener("click", () => {
-  console.log("Am I clicked");
   localStorage.setItem("theme", "light");
   detectColorScheme();
 });
@@ -157,7 +155,6 @@ modeChangerMoon.addEventListener("click", () => {
 modeChangerSun.addEventListener("click", () => {
   localStorage.setItem("theme", "dark");
   detectColorScheme();
-  console.log("Am I clicked");
 });
 
 function detectColorScheme() {
@@ -174,312 +171,178 @@ function detectColorScheme() {
       document.getElementById("darkMode").classList.remove("hidden");
       modeChangerSun.style.display = "none";
       modeChangerMoon.style.display = "inline";
+      console.log("1");
+      // helloTheme(theme);
     } else if (localStorage.getItem("theme") == "light") {
       console.log("Light theme incoming!!!");
       document.querySelector("body").classList.add("theme-light");
       document.querySelector("body").classList.remove("theme-dark");
       document.getElementById("mainLogo").src = "../images/logo.svg";
       document.getElementById("juice").src = "../images/Juice_invert.png";
-      // document.getElementById("mainLogo").style.width = "2vw";
-      // document.getElementById("mainLogo").style.maxHeight = "79.67px";
       modeChangerSun.style.display = "inline";
       modeChangerMoon.style.display = "none";
-      console.log("first", document.getElementById("lightMode"));
       document.getElementById("lightMode").classList.remove("hidden");
       document.getElementById("darkMode").classList.add("hidden");
+      // helloTheme(theme);
+      console.log("2");
       return false;
     }
   } else if (theme == "light") {
-    console.log("Light theme incoming!!!");
     document.querySelector("body").classList.add("theme-light");
     document.querySelector("body").classList.remove("theme-dark");
     document.getElementById("mainLogo").src = "../images/logo.svg";
     document.getElementById("juice").src = "../images/Juice_invert.png";
-    // document.getElementById("mainLogo").style.width = "2vw";
-    // document.getElementById("mainLogo").style.maxHeight = "79.67px";
     modeChangerSun.style.display = "inline";
     modeChangerMoon.style.display = "none";
     document.getElementById("lightMode").classList.remove("hidden");
     document.getElementById("darkMode").classList.add("hidden");
+    console.log("3");
+    // helloTheme(theme);
   } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
     //OS theme setting detected as dark
-    console.log("Dark theme incoming!!!");
     var theme = "dark";
     document.querySelector("body").classList.add("theme-dark");
     document.querySelector("body").classList.remove("theme-light");
     document.getElementById("mainLogo").src = "../images/logo_2.svg";
     document.getElementById("juice").src = "../images/juice.png";
-    // document.getElementById("mainLogo").style.width = "2vw";
     modeChangerSun.style.display = "none";
     modeChangerMoon.style.display = "inline";
     document.getElementById("lightMode").classList.remove("hidden");
     document.getElementById("darkMode").classList.add("hidden");
+    console.log("4");
+    // helloTheme(theme);
   }
 }
 
-let panels = gsap.utils.toArray(".panel");
-// let tops = panels.map((panel) =>
-//   ScrollTrigger.create({ trigger: panel, start: "top top" })
-// );
-
-gsap.to(".about_section", {
+var tl_about = gsap.timeline({
   scrollTrigger: {
     trigger: ".about_section",
-    start: "-250px center",
+    start: "-150px center",
     end: "200px center",
     scrub: true,
     // markers:true
   },
-  width: "100%",
-  borderRadius: "0px",
-  transform: "TranslateY(0%)",
-  duration: 1,
 });
-
-console.log(panels[1]);
-console.log(tops);
-
-panels.forEach((panel, i) => {
-  ScrollTrigger.create({
-    trigger: panel,
-    start: () =>
-      panel.offsetHeight < window.innerHeight ? "top top" : "bottom bottom", // if it's shorter than the viewport, we prefer to pin it at the top
-    pin: true,
-    pinSpacing: false,
-  });
-});
-
-ScrollTrigger.create({
-  snap: {
-    snapTo: (progress, self) => {
-      let panelStarts = tops.map((st) => st.start), // an Array of all the starting scroll positions. We do this on each scroll to make sure it's totally responsive. Starting positions may change when the user resizes the viewport
-        snapScroll = gsap.utils.snap(panelStarts, self.scroll()); // find the closest one
-      return gsap.utils.normalize(
-        0,
-        ScrollTrigger.maxScroll(window),
-        snapScroll
-      ); // snapping requires a progress value, so convert the scroll position into a normalized progress value between 0 and 1
+tl_about
+  .to(".about_heading h1 ", {
+    top: "0px",
+    opacity: "1",
+    // duration:"5s"
+  })
+  .to(
+    ".about_heading span ",
+    {
+      top: "0px",
+      opacity: "1",
     },
-    duration: 0.5,
-  },
-});
+    "-=0.3"
+  )
+  .to(".about_section .intro .para p", {
+    top: "0px",
+    stagger: 0.1,
+  })
+  ;
 
-// class LoopingElement {
-//   constructor(element, currentTranslation, speed) {
-//     this.element = element;
-//     this.currentTranslation = currentTranslation;
-//     this.speed = speed;
-//     this.direction = true;
-//     this.scrollTop = 0;
-//     this.metric = 100;
 
-//     this.lerp = {
-//       current: this.currentTranslation,
-//       target: this.currentTranslation,
-//       factor: 0.2,
-//     };
 
-//     this.events();
-//     this.render();
-//   }
+gsap
+  .to(".about_section", {
+    scrollTrigger: {
+      trigger: ".about_section",
+      start: "-250px center",
+      end: "200px center",
+      scrub: true,
+      // markers:true
+    },
+    width: "100%",
+    borderRadius: "0px",
+    transform: "TranslateY(0%)",
+    duration: 1,
+  })
 
-//   events() {
-//     window.addEventListener("scroll", (e) => {
-//       let direction = window.pageYOffset || document.documentElement.scrollTop;
-//       if (direction > this.scrollTop) {
-//         this.direction = true;
-//         this.lerp.target += this.speed * 5;
-//       } else {
-//         this.direction = false;
-//         this.lerp.target -= this.speed * 5;
-//       }
-//       this.scrollTop = direction <= 0 ? 0 : direction;
-//     });
-//   }
+  gsap
+    .to(".about_section .whatcanIdo", {
+      scrollTrigger: {
+        trigger: ".about_section",
+        start: "top center",
+        end: "bottom bottom",
+        scrub: true,
+        markers: true,
+      },
 
-//   lerpFunc(current, target, factor) {
-//     this.lerp.current = current * (1 - factor) + target * factor;
-//   }
+      opacity: "1",
+    })
+    // .to(".about_section .whatcanIdo", {
+    //   opacity: "1",
+    // });
 
-//   goForward() {
-//     this.lerp.target += this.speed;
-//     if (this.lerp.target > this.metric) {
-//       this.lerp.current -= this.metric * 2;
-//       this.lerp.target -= this.metric * 2;
-//     }
-//   }
-
-//   goBackward() {
-//     this.lerp.target -= this.speed;
-//     if (this.lerp.target < -this.metric) {
-//       this.lerp.current -= -this.metric * 2;
-//       this.lerp.target -= -this.metric * 2;
-//     }
-//   }
-
-//   animate() {
-//     this.direction ? this.goForward() : this.goBackward();
-//     this.lerpFunc(this.lerp.current, this.lerp.target, this.lerp.factor);
-
-//     this.element.style.transform = `translateX(${this.lerp.current}%)`;
-//   }
-
-//   render() {
-//     this.animate();
-//     window.requestAnimationFrame(() => this.render());
-//   }
-// }
-
-// let elements = document.querySelectorAll(".item");
-
-// new LoopingElement(elements[0], 100, 0.04);
-// new LoopingElement(elements[1], 0, 0.04);
-// new LoopingElement(elements[2], -100, 0.08);
-// new LoopingElement(elements[3], -100, 0.08);
-// new LoopingElement(elements[4], -100, 0.08);
-// new LoopingElement(elements[5], -100, 0.08);
-// new LoopingElement(elements[6], -100, 0.08);
-// new LoopingElement(elements[7], -100, 0.08);
-// new LoopingElement(elements[8], -100, 0.08);
-// new LoopingElement(elements[9], -100, 0.08);
-// new LoopingElement(elements[10], -100, 0.08);
-
-// let tween = gsap
-//   .to(".marquee_part", {
-//     x: -100,
-//     repeat: -1,
-//     duration: 5,
-//     ease: "linear",
-//   })
-//   .totalProgress(0.5);
-
-// gsap.set(".marquee_inner", {
-//   x: -50,
+// gsap.to(leftLink, {
+//   scrollTrigger: {
+//     trigger: ".about_section",
+//     start: "top center",
+//     end: "top center",
+//     scrub: true,
+//     markers:true
+//   },
+//   background:"transparent"
 // });
 
-// window.addEventListener("scroll", () => {
-//   console.log(window.pageXOffset > currentScroll);
-//   console.log("c", currentScroll);
-//   if (window.pageYOffset > currentScroll) {
-//     isScrollingDown = true;
-//     currentScroll = window.pageYOffset;
-//     console.log("in here");
-//   } else {
-//     isScrollingDown = false;
-//     console.log("out therer");
-//   }
-
-//   gsap.to(tween, {
-//     timeScale: isScrollingDown ? 1 : -1,
+// function helloTheme(theme) {
+//   var textColor = themes[theme].textColor;
+//   var alternateText = themes[theme].alternateText;
+//   var newColor;
+//   // cursor.style.borderColor = textColor;
+//   // rightLink.style.color = textColor;
+//   // console.log("info",theme,textColor,alternateText)
+//   leftLink &&
+//     leftLink.forEach((item) => {
+//       gsap.to(item, {
+//         scrollTrigger: {
+//           trigger: ".about_section",
+//           start: "top top",
+//           end: "bottom bottom",
+//           scrub: true,
+//           markers: true,
+//         },
+//         color: alternateText,
+//       });
+//     });
+//   // rightLink.style.color = newColor;
+//   gsap.to(rightLink, {
+//     scrollTrigger: {
+//       trigger: ".about_section",
+//       start: "top top",
+//       end: "bottom bottom",
+//       scrub: true,
+//       // markers: true,
+//       // onEnter: () => ScrollTrigger.direction = 1, // Scroll direction is down
+//       // onLeave: () => ScrollTrigger.direction = -1 ,// Scroll direction is up
+//       // onUpdate: (self) => {
+//       //   // Update text color based on scroll position
+//       //   // const progress = self.progress;
+//       //   console.log("before update ",alternateText,textColor)
+//       //  newColor =
+//       //     ScrollTrigger.direction === 1 ? alternateText : textColor;
+//       //   // console.log("interpolate",textColor,alternateText,newColor)
+//       //   rightLink.style.color = newColor;
+//       // },
+//     },
+//     color: alternateText,
 //   });
-// });
-// modeChangerSun.addEventListener("click", () => {
-//   modeChangerMoon.classList.remove("hidden_class");
-//   modeChangerSun.classList.add("hidden_class");
-// });
-
-// class for looping element marquee inspired andrew woan
-// working on this
-// class LoopingElement {
-//   constructor(element, currentTranslation, speed) {
-//     this.element = element;
-//     this.currentTranslation = currentTranslation;
-//     this.speed = speed;
-//     this.direction = true;
-//     this.scrollTop = 0;
-//     this.metric = 100;
-
-//     this.lerp = {
-//       current: this.currentTranslation,
-//       target: this.currentTranslation,
-//       factor: 0.2,
-//     };
-
-//     this.events();
-//     this.render();
-//   }
-
-//   events() {
-//     window.addEventListener("scroll", (e) => {
-//       let direction = window.pageYOffset || document.documentElement.scrollTop;
-//       if (direction > this.scrollTop) {
-//         this.direction = true;
-//         this.lerp.target += this.speed * 5;
-//       } else {
-//         this.direction = false;
-//         this.lerp.target -= this.speed * 5;
-//       }
-//       this.scrollTop = direction <= 0 ? 0 : direction;
-//     });
-//   }
-
-//   lerpFunc(current, target, factor) {
-//     this.lerp.current = current * (1 - factor) + target * factor;
-//   }
-
-//   goForward() {
-//     this.lerp.target += this.speed;
-//     if (this.lerp.target > this.metric) {
-//       this.lerp.current -= this.metric * 2;
-//       this.lerp.target -= this.metric * 2;
-//     }
-//   }
-
-//   goBackward() {
-//     this.lerp.target -= this.speed;
-//     if (this.lerp.target < -this.metric) {
-//       this.lerp.current -= -this.metric * 2;
-//       this.lerp.target -= -this.metric * 2;
-//     }
-//   }
-
-//   animate() {
-//     this.direction ? this.goForward() : this.goBackward();
-//     this.lerpFunc(this.lerp.current, this.lerp.target, this.lerp.factor);
-
-//     this.element.style.transform = `translateX(${this.lerp.current}%)`;
-//   }
-
-//   render() {
-//     this.animate();
-//     window.requestAnimationFrame(() => this.render());
-//   }
+//   gsap.to(cursor, {
+//     scrollTrigger: {
+//       trigger: ".about_section",
+//       start: "top top",
+//       end: "bottom bottom",
+//       scrub: true,
+//       // markers: true,
+//       // onUpdate: (self) => {
+//       //   // Update text color based on scroll position
+//       //   const progress = self.progress;
+//       //   newColor = gsap.utils.interpolate(textColor, alternateText, progress);
+//       //   cursor.style.borderColor = newColor;
+//       // },
+//     },
+//     borderColor: alternateText,
+//   });
 // }
-
-// let elements = document.querySelectorAll(".item");
-// console.log("elements", elements);
-// new LoopingElement(elements[0], 0, 0.08);
-// new LoopingElement(elements[1], -100, 0.08);
-// new LoopingElement(elements[2], -200, 0.08);
-// new LoopingElement(elements[3], -300, 0.08);
-// new LoopingElement(elements[4], -400, 0.08);
-// new LoopingElement(elements[5], -500, 0.08);
-// new LoopingElement(elements[6], -600, 0.08);
-
-// let path=document.querySelector('path')
-// let pathLength=path.getTotalLength()
-
-// path.style.strokeDasharray=pathLength+ ' ' +pathLength;
-// path.style.strokeDashoffset=pathLength;
-
-// window.addEventListener('scroll',()=>{
-//   var scrollPercentage =(document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight);
-//   var drawLength = pathLength * scrollPercentage;
-//   path.style.strokeDashoffset = pathLength - drawLength;
-// })
-
-const scroll = new LocomotiveScroll({
-  el: document.querySelector("[data-scroll-container]"),
-  smooth: true,
-});
-
-// document.addEventListener("scroll",()=>{
-//   window.scrollY > 70 ? (menu.classList.add("Scrolled")) : (menu.classList.remove("Scrolled"));
-// })
-
-// gsap.registerPlugin(ScrollTrigger);
-
-// ScrollTrigger.defaults({
-//   toggleActions: "restart pause resume pause",
-//   scroller: ".container",
-// });
