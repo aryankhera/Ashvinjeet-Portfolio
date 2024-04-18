@@ -419,7 +419,7 @@ main .hero-section .hero-div .floating_text p {
 main .hero-section .hero-div .floating_text p #l_time {
   font-family: silkaregular;
 }
-main .left-social-links {
+.left-social-links {
   width: 40px;
   position: fixed;
   bottom: 0px;
@@ -433,16 +433,16 @@ main .left-social-links {
   align-items: center;
   height: calc(50% + 1vw);
 }
-main .left-social-links .Floating_text {
+.left-social-links .Floating_text {
   font-family: silkaregular;
   font-size: 12px;
 }
-main .left-social-links .Floating_text img {
+.left-social-links .Floating_text img {
   width: 1vw;
   max-width: 5rem;
   transform: rotate(180deg);
 }
-main .left-social-links ul {
+.left-social-links ul {
   display: flex;
   flex-direction: column;
   -webkit-box-align: center;
@@ -451,41 +451,41 @@ main .left-social-links ul {
   padding: 0px;
   list-style: none;
 }
-main .left-social-links ul li a {
+.left-social-links ul li a {
   font-size: 24px;
   transition: 0.2s ease-in-out;
 }
-.theme-light main .left-social-links ul li a {
+.theme-light .left-social-links ul li a {
   color: #000;
 }
-.theme-dark main .left-social-links ul li a {
+.theme-dark .left-social-links ul li a {
   color: #fff;
 }
-main .left-social-links ul li a:hover {
+.left-social-links ul li a:hover {
   transform: translateY(50px);
   transform: scale(1.5);
   transition: 0.2s ease-in-out;
 }
-.theme-light main .left-social-links ul li a:hover {
+.theme-light .left-social-links ul li a:hover {
   color: #DF9D3F;
 }
-.theme-dark main .left-social-links ul li a:hover {
+.theme-dark .left-social-links ul li a:hover {
   color: #DF9D3F;
 }
-main .left-social-links ul::after {
+.left-social-links ul::after {
   content: "";
   display: block;
   width: 3px;
   height: 90px;
   margin: 0px auto;
 }
-.theme-light main .left-social-links ul::after {
+.theme-light .left-social-links ul::after {
   background-color: #DF9D3F;
 }
-.theme-dark main .left-social-links ul::after {
+.theme-dark .left-social-links ul::after {
   background-color: #DF9D3F;
 }
-main .right-bar {
+.right-bar {
   width: 40px;
   position: fixed;
   bottom: 0;
@@ -499,14 +499,14 @@ main .right-bar {
   flex-direction: column;
   justify-content: flex-end;
 }
-main .right-bar div.right-mail-link {
+.right-bar div.right-mail-link {
   display: flex;
   flex-direction: column;
   -webkit-box-align: center;
   align-items: center;
   position: relative;
 }
-main .right-bar div.right-mail-link a {
+.right-bar div.right-mail-link a {
   margin: 20px auto 0px;
   padding: 10px;
   font-family: silkaregular;
@@ -517,34 +517,34 @@ main .right-bar div.right-mail-link a {
   writing-mode: vertical-rl;
   transition: 0.2s ease-in-out;
 }
-.theme-light main .right-bar div.right-mail-link a {
+.theme-light .right-bar div.right-mail-link a {
   color: #000;
 }
-.theme-dark main .right-bar div.right-mail-link a {
+.theme-dark .right-bar div.right-mail-link a {
   color: #fff;
 }
-main .right-bar div.right-mail-link a:hover {
+.right-bar div.right-mail-link a:hover {
   text-decoration: none;
   transition: 0.2s ease-in-out;
   transform: translateY(-5px);
 }
-.theme-light main .right-bar div.right-mail-link a:hover {
+.theme-light .right-bar div.right-mail-link a:hover {
   color: rgba(25, 26, 30, 0.4);
 }
-.theme-dark main .right-bar div.right-mail-link a:hover {
+.theme-dark .right-bar div.right-mail-link a:hover {
   color: rgba(211, 220, 255, 0.4);
 }
-main .right-bar div.right-mail-link::after {
+.right-bar div.right-mail-link::after {
   content: "";
   display: block;
   width: 3px;
   height: 90px;
   margin: 0px auto;
 }
-.theme-light main .right-bar div.right-mail-link::after {
+.theme-light .right-bar div.right-mail-link::after {
   background-color: #DF9D3F;
 }
-.theme-dark main .right-bar div.right-mail-link::after {
+.theme-dark .right-bar div.right-mail-link::after {
   background-color: #DF9D3F;
 }
 main #Sun {

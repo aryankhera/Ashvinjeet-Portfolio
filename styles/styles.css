@@ -19,7 +19,8 @@
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Bebas Neue",
+ sans-serif;
   font-weight: 400;
   font-style: normal;
 }
@@ -403,7 +404,8 @@ main .hero-section .hero-div .copy_section .workbtn {
   max-width: 200px;
   transform-style: preserve-3d;
   transition: all 0.3s ease-in-out;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Bebas Neue",
+ sans-serif;
   color: #000;
   font-weight: 500;
 }
@@ -487,7 +489,7 @@ main .hero-section .hero-div .floating_text p #l_time {
   font-family: silkaregular;
 }
 
-main .left-social-links {
+.left-social-links {
   width: 40px;
   position: fixed;
   bottom: 0px;
@@ -502,18 +504,18 @@ main .left-social-links {
   height: calc(50% + 1vw);
 }
 
-main .left-social-links .Floating_text {
+.left-social-links .Floating_text {
   font-family: silkaregular;
   font-size: 12px;
 }
 
-main .left-social-links .Floating_text img {
+.left-social-links .Floating_text img {
   width: 1vw;
   max-width: 5rem;
   transform: rotate(180deg);
 }
 
-main .left-social-links ul {
+.left-social-links ul {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -522,34 +524,17 @@ main .left-social-links ul {
   list-style: none;
 }
 
-main .left-social-links ul li a {
+.left-social-links ul li a {
   font-size: 24px;
   transition: 0.2s ease-in-out;
 }
-
-.theme-light main .left-social-links ul li a {
-  color: #000;
-}
-
-.theme-dark main .left-social-links ul li a {
-  color: #fff;
-}
-
-main .left-social-links ul li a:hover {
+.left-social-links ul li a:hover {
   transform: translateY(50px);
   transform: scale(1.5);
   transition: 0.2s ease-in-out;
 }
 
-.theme-light main .left-social-links ul li a:hover {
-  color: #DF9D3F;
-}
-
-.theme-dark main .left-social-links ul li a:hover {
-  color: #DF9D3F;
-}
-
-main .left-social-links ul::after {
+.left-social-links ul::after {
   content: "";
   display: block;
   width: 3px;
@@ -557,15 +542,15 @@ main .left-social-links ul::after {
   margin: 0px auto;
 }
 
-.theme-light main .left-social-links ul::after {
+.theme-light .left-social-links ul::after {
   background-color: #DF9D3F;
 }
 
-.theme-dark main .left-social-links ul::after {
+.theme-dark .left-social-links ul::after {
   background-color: #DF9D3F;
 }
 
-main .right-bar {
+.right-bar {
   width: 40px;
   position: fixed;
   bottom: 0;
@@ -580,14 +565,14 @@ main .right-bar {
   justify-content: flex-end;
 }
 
-main .right-bar div.right-mail-link {
+.right-bar div.right-mail-link {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
 }
 
-main .right-bar div.right-mail-link a {
+.right-bar div.right-mail-link a {
   margin: 20px auto 0px;
   padding: 10px;
   font-family: silkaregular;
@@ -598,29 +583,21 @@ main .right-bar div.right-mail-link a {
   transition: 0.2s ease-in-out;
 }
 
-.theme-light main .right-bar div.right-mail-link a {
-  color: #000;
-}
-
-.theme-dark main .right-bar div.right-mail-link a {
-  color: #fff;
-}
-
-main .right-bar div.right-mail-link a:hover {
+.right-bar div.right-mail-link a:hover {
   text-decoration: none;
   transition: 0.2s ease-in-out;
   transform: translateY(-5px);
 }
 
-.theme-light main .right-bar div.right-mail-link a:hover {
+.theme-light .right-bar div.right-mail-link a:hover {
   color: rgba(25, 26, 30, 0.4);
 }
 
-.theme-dark main .right-bar div.right-mail-link a:hover {
+.theme-dark .right-bar div.right-mail-link a:hover {
   color: rgba(211, 220, 255, 0.4);
 }
 
-main .right-bar div.right-mail-link::after {
+.right-bar div.right-mail-link::after {
   content: "";
   display: block;
   width: 3px;
@@ -628,11 +605,11 @@ main .right-bar div.right-mail-link::after {
   margin: 0px auto;
 }
 
-.theme-light main .right-bar div.right-mail-link::after {
+.theme-light .right-bar div.right-mail-link::after {
   background-color: #DF9D3F;
 }
 
-.theme-dark main .right-bar div.right-mail-link::after {
+.theme-dark .right-bar div.right-mail-link::after {
   background-color: #DF9D3F;
 }
 
@@ -1198,7 +1175,8 @@ main .bg_line {
   width: 100%;
   height: 1px;
   z-index: 2;
-  will-change: transform, color;
+  will-change: transform,
+ color;
   transform: scaleX(0);
   transform-origin: 100% 50%;
   transition: transform .35s;
@@ -1481,3 +1459,8 @@ main .bg_line {
   }
 }
 /*# sourceMappingURL=styles.css.map */
+
+.side-elems{
+  color: #fff;
+  mix-blend-mode: difference;
+}
