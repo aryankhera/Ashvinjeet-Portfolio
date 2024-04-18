@@ -22,11 +22,8 @@ var Scroll_more = document.getElementById("scroll_mouse");
 var x = document.querySelector("#l_time");
 var modeChangerSun = document.querySelector("#Sun");
 var modeChangerMoon = document.querySelector("#Moon");
-var scrollers = document.querySelectorAll(".scroller"); // const cursor1 = document.querySelector(".cursor");
-
-var f1 = false; // const preview = document.querySelector(".preview");
-// const preview_img = document.querySelector(".preview-img");
-
+var scrollers = document.querySelectorAll(".scroller");
+var about_heading = document.querySelectorAll(".about_heading");
 gsap.registerPlugin(ScrollTrigger);
 
 var getDateTime = function getDateTime() {
@@ -120,7 +117,7 @@ tl.from(".reveal .child", {
 }).to(".nav-container", {
   opacity: "1",
   duration: 0.2
-}, "-=0.8").to(".follow_cursor", {
+}, "-=0.3").to(".follow_cursor", {
   display: "block"
 }).to(".hero-div", {
   opacity: "1",
@@ -182,8 +179,7 @@ function detectColorScheme() {
       document.getElementById("darkMode").classList.remove("hidden");
       modeChangerSun.style.display = "none";
       modeChangerMoon.style.display = "inline";
-      console.log("1");
-      helloTheme(theme);
+      console.log("1"); // helloTheme(theme);
     } else if (localStorage.getItem("theme") == "light") {
       console.log("Light theme incoming!!!");
       document.querySelector("body").classList.add("theme-light");
@@ -193,8 +189,8 @@ function detectColorScheme() {
       modeChangerSun.style.display = "inline";
       modeChangerMoon.style.display = "none";
       document.getElementById("lightMode").classList.remove("hidden");
-      document.getElementById("darkMode").classList.add("hidden");
-      helloTheme(theme);
+      document.getElementById("darkMode").classList.add("hidden"); // helloTheme(theme);
+
       console.log("2");
       return false;
     }
@@ -207,8 +203,7 @@ function detectColorScheme() {
     modeChangerMoon.style.display = "none";
     document.getElementById("lightMode").classList.remove("hidden");
     document.getElementById("darkMode").classList.add("hidden");
-    console.log("3");
-    helloTheme(theme);
+    console.log("3"); // helloTheme(theme);
   } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
     //OS theme setting detected as dark
     var theme = "dark";
@@ -220,11 +215,30 @@ function detectColorScheme() {
     modeChangerMoon.style.display = "inline";
     document.getElementById("lightMode").classList.remove("hidden");
     document.getElementById("darkMode").classList.add("hidden");
-    console.log("4");
-    helloTheme(theme);
+    console.log("4"); // helloTheme(theme);
   }
 }
 
+var tl_about = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".about_section",
+    start: "-150px center",
+    end: "200px center",
+    scrub: true // markers:true
+
+  }
+});
+tl_about.to(".about_heading h1 ", {
+  top: "0px",
+  opacity: "1" // duration:"5s"
+
+}).to(".about_heading span ", {
+  top: "0px",
+  opacity: "1"
+}, "-=0.3").to(".about_section .intro .para p", {
+  top: "0px",
+  stagger: 0.1
+});
 gsap.to(".about_section", {
   scrollTrigger: {
     trigger: ".about_section",
@@ -238,62 +252,84 @@ gsap.to(".about_section", {
   transform: "TranslateY(0%)",
   duration: 1
 });
-
-function helloTheme(theme) {
-  var textColor = _variables["default"][theme].textColor;
-  var alternateText = _variables["default"][theme].alternateText;
-  var newColor; // cursor.style.borderColor = textColor;
-  // rightLink.style.color = textColor;
-  // console.log("info",theme,textColor,alternateText)
-
-  leftLink && leftLink.forEach(function (item) {
-    gsap.to(item, {
-      scrollTrigger: {
-        trigger: ".about_section",
-        start: "top top",
-        end: "bottom bottom",
-        scrub: true,
-        markers: true
-      },
-      color: alternateText
-    });
-  }); // rightLink.style.color = newColor;
-
-  gsap.to(rightLink, {
-    scrollTrigger: {
-      trigger: ".about_section",
-      start: "top top",
-      end: "bottom bottom",
-      scrub: true // markers: true,
-      // onEnter: () => ScrollTrigger.direction = 1, // Scroll direction is down
-      // onLeave: () => ScrollTrigger.direction = -1 ,// Scroll direction is up
-      // onUpdate: (self) => {
-      //   // Update text color based on scroll position
-      //   // const progress = self.progress;
-      //   console.log("before update ",alternateText,textColor)
-      //  newColor =
-      //     ScrollTrigger.direction === 1 ? alternateText : textColor;
-      //   // console.log("interpolate",textColor,alternateText,newColor)
-      //   rightLink.style.color = newColor;
-      // },
-
-    },
-    color: alternateText
-  });
-  gsap.to(cursor, {
-    scrollTrigger: {
-      trigger: ".about_section",
-      start: "top top",
-      end: "bottom bottom",
-      scrub: true // markers: true,
-      // onUpdate: (self) => {
-      //   // Update text color based on scroll position
-      //   const progress = self.progress;
-      //   newColor = gsap.utils.interpolate(textColor, alternateText, progress);
-      //   cursor.style.borderColor = newColor;
-      // },
-
-    },
-    borderColor: alternateText
-  });
-}
+gsap.to(".about_section .whatcanIdo", {
+  scrollTrigger: {
+    trigger: ".about_section",
+    start: "top center",
+    end: "bottom bottom",
+    scrub: true,
+    markers: true
+  },
+  opacity: "1"
+}); // .to(".about_section .whatcanIdo", {
+//   opacity: "1",
+// });
+// gsap.to(leftLink, {
+//   scrollTrigger: {
+//     trigger: ".about_section",
+//     start: "top center",
+//     end: "top center",
+//     scrub: true,
+//     markers:true
+//   },
+//   background:"transparent"
+// });
+// function helloTheme(theme) {
+//   var textColor = themes[theme].textColor;
+//   var alternateText = themes[theme].alternateText;
+//   var newColor;
+//   // cursor.style.borderColor = textColor;
+//   // rightLink.style.color = textColor;
+//   // console.log("info",theme,textColor,alternateText)
+//   leftLink &&
+//     leftLink.forEach((item) => {
+//       gsap.to(item, {
+//         scrollTrigger: {
+//           trigger: ".about_section",
+//           start: "top top",
+//           end: "bottom bottom",
+//           scrub: true,
+//           markers: true,
+//         },
+//         color: alternateText,
+//       });
+//     });
+//   // rightLink.style.color = newColor;
+//   gsap.to(rightLink, {
+//     scrollTrigger: {
+//       trigger: ".about_section",
+//       start: "top top",
+//       end: "bottom bottom",
+//       scrub: true,
+//       // markers: true,
+//       // onEnter: () => ScrollTrigger.direction = 1, // Scroll direction is down
+//       // onLeave: () => ScrollTrigger.direction = -1 ,// Scroll direction is up
+//       // onUpdate: (self) => {
+//       //   // Update text color based on scroll position
+//       //   // const progress = self.progress;
+//       //   console.log("before update ",alternateText,textColor)
+//       //  newColor =
+//       //     ScrollTrigger.direction === 1 ? alternateText : textColor;
+//       //   // console.log("interpolate",textColor,alternateText,newColor)
+//       //   rightLink.style.color = newColor;
+//       // },
+//     },
+//     color: alternateText,
+//   });
+//   gsap.to(cursor, {
+//     scrollTrigger: {
+//       trigger: ".about_section",
+//       start: "top top",
+//       end: "bottom bottom",
+//       scrub: true,
+//       // markers: true,
+//       // onUpdate: (self) => {
+//       //   // Update text color based on scroll position
+//       //   const progress = self.progress;
+//       //   newColor = gsap.utils.interpolate(textColor, alternateText, progress);
+//       //   cursor.style.borderColor = newColor;
+//       // },
+//     },
+//     borderColor: alternateText,
+//   });
+// }

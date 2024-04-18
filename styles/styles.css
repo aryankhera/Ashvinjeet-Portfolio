@@ -843,6 +843,7 @@ main .bg_line {
 
 .panel-about .about_section .intro .about_heading {
   display: flex;
+  overflow: hidden;
 }
 
 .panel-about .about_section .intro .about_heading h1 {
@@ -853,22 +854,34 @@ main .bg_line {
   position: relative;
   z-index: 2;
   letter-spacing: 2px;
+  top: 100px;
+  opacity: 0;
 }
 
 .panel-about .about_section .intro .about_heading span {
   margin-left: 4px;
   margin-top: 4px;
+  top: 100px;
+  position: relative;
+  opacity: 0;
 }
 
-.panel-about .about_section .intro p {
+.panel-about .about_section .intro .para {
+  overflow: hidden;
+}
+
+.panel-about .about_section .intro .para p {
   font-family: silkaregular !important;
   word-spacing: 3px;
   letter-spacing: 0;
   line-height: 32px;
+  top: 100px;
+  position: relative;
 }
 
 .panel-about .about_section .whatcanIdo {
   max-width: 62em;
+  opacity: 0;
 }
 
 .panel-about .about_section .whatcanIdo h2 {
@@ -916,6 +929,7 @@ main .bg_line {
   font-size: 3.58em;
   line-height: 1.1;
   letter-spacing: -.02em;
+  mix-blend-mode: difference;
 }
 
 .panel-about .about_section .whatcanIdo .services__list .services__item h2 {
@@ -959,16 +973,27 @@ main .bg_line {
   display: flex;
   align-items: flex-end;
   margin-bottom: 1em;
+  padding-bottom: 1em;
   justify-content: space-between;
   width: 100%;
+  position: relative;
 }
 
-.theme-light .work .project-wrapper .projects__header {
-  border-bottom: 3px solid rgba(25, 26, 30, 0.4);
+.work .project-wrapper .projects__header::after {
+  content: "";
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  bottom: 0;
+  border-radius: 15px;
 }
 
-.theme-dark .work .project-wrapper .projects__header {
-  border-bottom: 3px solid rgba(211, 220, 255, 0.4);
+.theme-light .work .project-wrapper .projects__header::after {
+  background-color: rgba(25, 26, 30, 0.4);
+}
+
+.theme-dark .work .project-wrapper .projects__header::after {
+  background-color: rgba(211, 220, 255, 0.4);
 }
 
 .work .project-wrapper .projects__header div {
@@ -1009,8 +1034,9 @@ main .bg_line {
 .work .project-wrapper .col-left .row.row-1 {
   flex: 2;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: flex-end;
+  flex-direction: column;
 }
 
 .work .project-wrapper .col-left .row.row-2 {
@@ -1034,8 +1060,9 @@ main .bg_line {
 .work .project-wrapper .col-left .row.row-3 {
   flex: 1;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: flex-end;
+  flex-direction: column;
 }
 
 .work .project-wrapper .col-right {
@@ -1058,15 +1085,17 @@ main .bg_line {
 .work .project-wrapper .col-right .row.row-1 {
   flex: 1;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: flex-end;
+  flex-direction: column;
 }
 
 .work .project-wrapper .col-right .row.row-2 {
   flex: 1;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: flex-end;
+  flex-direction: column;
 }
 
 .work .project-wrapper .projects__list {
@@ -1074,6 +1103,37 @@ main .bg_line {
   height: 100%;
   width: 100%;
   gap: 1em;
+}
+
+.work .project-wrapper .projects__list .project_links ul {
+  display: flex;
+  margin-bottom: 0.5em;
+}
+
+.work .project-wrapper .projects__list .project_links ul li {
+  margin-right: 0.5em;
+}
+
+.work .project-wrapper .projects__list .project_links ul li a {
+  font-size: 1.25em;
+}
+
+.theme-light .work .project-wrapper .projects__list .project_links ul li a {
+  color: #000;
+}
+
+.theme-dark .work .project-wrapper .projects__list .project_links ul li a {
+  color: #fff;
+}
+
+.theme-light .work .project-wrapper .projects__list .project_links ul li a:hover {
+  color: #DF9D3F;
+  transition: color 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.theme-dark .work .project-wrapper .projects__list .project_links ul li a:hover {
+  color: #DF9D3F;
+  transition: color 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .work .project-wrapper .projects__list .projects_title {
@@ -1086,50 +1146,30 @@ main .bg_line {
   font-size: 1.75em;
 }
 
-.work .project-wrapper .projects__list .projects_title ul {
-  display: flex;
-  margin-bottom: 0.5em;
-}
-
-.work .project-wrapper .projects__list .projects_title ul li {
-  margin-right: 0.5em;
-}
-
-.work .project-wrapper .projects__list .projects_title ul li a {
-  font-size: 1.25em;
-}
-
-.theme-light .work .project-wrapper .projects__list .projects_title ul li a {
-  color: #000;
-}
-
-.theme-dark .work .project-wrapper .projects__list .projects_title ul li a {
-  color: #fff;
-}
-
-.theme-light .work .project-wrapper .projects__list .projects_title ul li a:hover {
-  color: #DF9D3F;
-  transition: color 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
-.theme-dark .work .project-wrapper .projects__list .projects_title ul li a:hover {
-  color: #DF9D3F;
-  transition: color 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
 .work .project-wrapper .projects__footer {
   margin-top: 1em;
   padding-top: 0.5em;
   width: 100%;
   text-align: left;
+  position: relative;
+  padding-top: 1em;
 }
 
-.theme-light .work .project-wrapper .projects__footer {
-  border-top: 3px solid rgba(25, 26, 30, 0.4);
+.work .project-wrapper .projects__footer::before {
+  content: "";
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  top: 0;
+  border-radius: 15px;
 }
 
-.theme-dark .work .project-wrapper .projects__footer {
-  border-top: 3px solid rgba(211, 220, 255, 0.4);
+.theme-light .work .project-wrapper .projects__footer::before {
+  background-color: rgba(25, 26, 30, 0.4);
+}
+
+.theme-dark .work .project-wrapper .projects__footer::before {
+  background-color: rgba(211, 220, 255, 0.4);
 }
 
 .work .project-wrapper .projects__footer h3 {
@@ -1170,6 +1210,108 @@ main .bg_line {
   transform: scaleX(1);
   transform-origin: 0 50%;
   transition-timing-function: ease;
+}
+
+.contact {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+}
+
+.contact .contact_section {
+  text-align: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.theme-light .contact .contact_section {
+  background-color: #0c0c0c;
+  color: #fff;
+}
+
+.theme-dark .contact .contact_section {
+  background-color: #f3f3f3;
+  color: #000;
+}
+
+.contact .contact_section .contact_heading {
+  display: flex;
+  max-width: 62em;
+  width: 100%;
+}
+
+.contact .contact_section .contact_heading h1 {
+  font-size: calc(2.95em + 0.390625vw);
+  line-height: 64px;
+  margin: 0 0 16px;
+  cursor: default;
+  position: relative;
+  z-index: 2;
+  letter-spacing: 2px;
+}
+
+.contact .contact_section .contact_heading span {
+  margin-left: 4px;
+  margin-top: 4px;
+  position: relative;
+}
+
+.contact .contact_section .para p {
+  font-family: silkaregular !important;
+  word-spacing: 3px;
+  line-height: 24px;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.contact .contact_section .button {
+  display: inline-flex;
+  align-items: center;
+  padding: .25em .25em .25em 1.25em;
+  background-color: #111414;
+  color: #efefef;
+  column-gap: 1em;
+  border-radius: 100px;
+  text-decoration: none;
+}
+
+.contact .contact_section .button span {
+  margin-top: 2px;
+  font-size: 1.0626em;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.contact .contact_section .button .button__icon {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+}
+
+.contact .contact_section .button .button__icon .button__icon__bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transform: scale(0.2);
+}
+
+.contact .contact_section .button .button__icon svg {
+  width: 1.5em;
+  height: 1.5em;
+  opacity: 0;
+  mix-blend-mode: difference;
 }
 
 @keyframes updown {
@@ -1232,6 +1374,12 @@ main .bg_line {
   main .panel-about .about_section .whatcanIdo {
     max-width: 48em;
   }
+  main .contact .contact_section .contact_heading {
+    max-width: 48em;
+  }
+  main .contact .contact_section .para {
+    max-width: 48em;
+  }
 }
 
 @media screen and (max-width: 1600px) {
@@ -1267,6 +1415,12 @@ main .bg_line {
     max-width: 42em;
   }
   main .panel-about .about_section .whatcanIdo {
+    max-width: 42em;
+  }
+  main .contact .contact_section .contact_heading {
+    max-width: 42em;
+  }
+  main .contact .contact_section .para {
     max-width: 42em;
   }
 }
@@ -1311,6 +1465,12 @@ main .bg_line {
     max-width: 30em;
   }
   main .panel-about .about_section .whatcanIdo {
+    max-width: 30em;
+  }
+  main .contact .contact_section .contact_heading {
+    max-width: 30em;
+  }
+  main .contact .contact_section .para {
     max-width: 30em;
   }
 }
